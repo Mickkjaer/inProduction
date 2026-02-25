@@ -1,0 +1,100 @@
+<!-- inProduction — Section 01: Hero -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: { accent: '#55b0d1', mid: '#4a9ab8', dark: '#333333' },
+          warm: { base: '#F7F4F0', surface: '#FDFCFB', muted: '#6B6560', heading: '#1C1A18' }
+        },
+        fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] }
+      }
+    }
+  }
+</script>
+<style>
+  .ip-section { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  .ip-eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; }
+  .ip-eyebrow::before { content: ''; display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; flex-shrink: 0; }
+  .ip-btn-primary {
+    background: linear-gradient(135deg, #55b0d1 0%, #4a9ab8 100%);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(85,176,209,0.28);
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.875rem 1.75rem;
+    display: inline-block;
+    transition: transform 0.15s, box-shadow 0.15s;
+    text-decoration: none;
+  }
+  .ip-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(85,176,209,0.38); }
+  .ip-btn-secondary {
+    color: #4a9ab8;
+    font-weight: 600;
+    font-size: 0.875rem;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 2px;
+    text-decoration: none;
+    transition: border-color 0.15s;
+    display: inline-block;
+  }
+  .ip-btn-secondary:hover { border-color: #55b0d1; }
+</style>
+
+<div class="ip-section border-b border-black/[0.07]">
+
+  <!-- Problem zone -->
+  <div style="background:#F7F4F0; padding: 5rem 1.5rem 6rem; position: relative;">
+    <div style="max-width:48rem; margin:0 auto;">
+      <span class="ip-eyebrow" style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:rgba(85,176,209,0.7); margin-bottom:1.75rem; display:inline-flex;">Kender I det?</span>
+      <h1 style="font-size:clamp(2rem,5vw,3rem); font-weight:700; letter-spacing:-0.04em; line-height:1.15; color:#1C1A18; margin-bottom:2.5rem; max-width:40rem;">Manuelle processer. Dobbeltindtastning. Systemer der ikke taler sammen.</h1>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:1rem 2.5rem;">
+        <div style="display:flex; align-items:baseline; gap:0.75rem;">
+          <span style="flex-shrink:0; width:6px; height:6px; border-radius:50%; background:rgba(85,176,209,0.6); position:relative; top:0.1em;"></span>
+          <span style="font-size:0.875rem; color:#9C958F; line-height:1.6;"><strong style="color:#1C1A18;">Filer fejler i preflight</strong> — og ingen opdager det, før det er for sent.</span>
+        </div>
+        <div style="display:flex; align-items:baseline; gap:0.75rem;">
+          <span style="flex-shrink:0; width:6px; height:6px; border-radius:50%; background:rgba(85,176,209,0.6); position:relative; top:0.1em;"></span>
+          <span style="font-size:0.875rem; color:#9C958F; line-height:1.6;"><strong style="color:#1C1A18;">Metadata tastes ind flere gange</strong> — i ordresystem, prepress og ERP.</span>
+        </div>
+        <div style="display:flex; align-items:baseline; gap:0.75rem;">
+          <span style="flex-shrink:0; width:6px; height:6px; border-radius:50%; background:rgba(85,176,209,0.6); position:relative; top:0.1em;"></span>
+          <span style="font-size:0.875rem; color:#9C958F; line-height:1.6;"><strong style="color:#1C1A18;">Kvalitetskontrol afhænger af personer</strong> — ikke af processer.</span>
+        </div>
+        <div style="display:flex; align-items:baseline; gap:0.75rem;">
+          <span style="flex-shrink:0; width:6px; height:6px; border-radius:50%; background:rgba(85,176,209,0.6); position:relative; top:0.1em;"></span>
+          <span style="font-size:0.875rem; color:#9C958F; line-height:1.6;"><strong style="color:#1C1A18;">Systemer lever i siloer</strong> — ordreindtag, produktion og fakturering hænger ikke sammen.</span>
+        </div>
+      </div>
+    </div>
+    <!-- Bridge card -->
+    <div style="max-width:48rem; margin:0 auto; position:absolute; bottom:0; left:0; right:0; transform:translateY(50%); padding:0 1.5rem; z-index:10;">
+      <div style="display:flex; align-items:center; justify-content:center; gap:1.25rem; background:#fff; border:1px solid rgba(0,0,0,0.09); border-radius:1rem; padding:1.25rem; box-shadow:0 4px 24px rgba(0,0,0,0.07);">
+        <span style="width:40px; height:1px; background:rgba(85,176,209,0.3); display:block;"></span>
+        <div style="text-align:center;">
+          <span style="font-size:1.1rem; font-weight:700; letter-spacing:-0.03em;"><span style="color:#55b0d1;">in</span><span style="color:#333;">Production</span></span>
+          <span style="display:block; font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:rgba(85,176,209,0.6); margin-top:0.25rem;">skaber sammenhæng</span>
+        </div>
+        <span style="width:40px; height:1px; background:rgba(85,176,209,0.3); display:block;"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Solution zone -->
+  <div style="background:#FDFCFB; padding: 6rem 1.5rem 3.5rem;">
+    <div style="max-width:48rem; margin:0 auto;">
+      <h2 style="font-size:clamp(1.6rem,4vw,2.25rem); font-weight:700; letter-spacing:-0.035em; line-height:1.2; color:#333; margin-bottom:1rem;">Metadata flyder. Kvalitet kontrolleres. Systemer taler sammen.</h2>
+      <p style="font-size:0.97rem; color:#6B6560; line-height:1.85; max-width:40rem; margin-bottom:2rem;">Vi bygger workflows, der forbinder ordreindtag, prepress, produktion og ERP — så data kun indtastes én gang, kvalitetskontrol kører automatisk, og fakturering følger med. Vi starter med det konkrete problem. Resten vokser derfra.</p>
+      <div style="display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap;">
+        <!-- UPDATE these hrefs to your builder's actual page URLs -->
+        <a href="/kontakt" class="ip-btn-primary">Book en uforpligtende gennemgang</a>
+        <a href="/om-os" class="ip-btn-secondary">Sådan arbejder vi →</a>
+      </div>
+    </div>
+  </div>
+
+</div>

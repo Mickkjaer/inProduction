@@ -1,0 +1,97 @@
+<!-- inProduction — Section 02: Logo Marquee -->
+<!-- Images served from GitHub raw URLs — no uploading needed -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  .ip-marquee-wrap { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #F7F4F0; border-top: 1px solid rgba(0,0,0,0.07); padding: 1.75rem 0; }
+  .ip-marquee-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.13em; color: #B8B0A8; text-align: center; margin-bottom: 1.25rem; }
+  .ip-logo-marquee { overflow: hidden; mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%); }
+  .ip-logo-track { display: flex; align-items: center; gap: 3rem; width: max-content; animation: ip-marquee 36s linear infinite; }
+  .ip-logo-track:hover { animation-play-state: paused; }
+  @keyframes ip-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .ip-logo-dark { display: inline-flex; align-items: center; flex-shrink: 0; border-radius: 6px; background: #2A2724; padding: 0.5rem 0.75rem; }
+</style>
+
+<div class="ip-marquee-wrap">
+  <p class="ip-marquee-label">Betroet af siden 2007</p>
+  <div class="ip-logo-marquee">
+    <div class="ip-logo-track">
+
+      <!-- SET 1 -->
+      <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/LEGO_logo.svg"
+           alt="LEGO" style="height:3.5rem; width:auto; object-fit:contain; flex-shrink:0; opacity:0.8;" />
+      <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/Story%20House%20Egmont.png"
+           alt="Story House Egmont" style="height:2.75rem; width:auto; object-fit:contain; flex-shrink:0; opacity:0.55;" />
+      <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/novo-nordisk-logo-history-current-logo.jpg.corpimgo.jpg"
+           alt="Novo Nordisk" style="height:3rem; width:auto; object-fit:contain; flex-shrink:0; opacity:0.55;" />
+      <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/Bonnier%20Publications.svg"
+           alt="Bonnier Publications" style="height:2rem; width:auto; object-fit:contain; flex-shrink:0; opacity:0.55;" />
+      <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/Mindworking.svg"
+           alt="Mindworking" style="height:2.25rem; width:auto; object-fit:contain; flex-shrink:0; opacity:0.65;" />
+      <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/Modulex.webp"
+           alt="Modulex" style="height:2rem; width:auto; object-fit:contain; flex-shrink:0; opacity:0.6;" />
+      <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/lasertryk_dk.svg"
+           alt="lasertryk.dk" style="height:2rem; width:auto; object-fit:contain; flex-shrink:0; opacity:0.55;" />
+      <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/Zanity.png"
+           alt="Zanity IT" style="height:2.25rem; width:auto; object-fit:contain; flex-shrink:0; opacity:0.6;" />
+      <span class="ip-logo-dark">
+        <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/eurographic-group-logo-rgb-white.png"
+             alt="Eurographic Group" style="height:1.5rem; width:auto; object-fit:contain;" />
+      </span>
+      <span class="ip-logo-dark">
+        <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/MWA-LOGO-WHITE-200px.webp"
+             alt="MWA" style="height:1.5rem; width:auto; object-fit:contain;" />
+      </span>
+      <span class="ip-logo-dark">
+        <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/Nonbye-logo-hvis.png"
+             alt="Nonbye" style="height:1.5rem; width:auto; object-fit:contain;" />
+      </span>
+      <span class="ip-logo-dark">
+        <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/spring%20family.svg"
+             alt="Spring Family" style="height:1.5rem; width:auto; object-fit:contain;" />
+      </span>
+      <span class="ip-logo-dark">
+        <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/envision.svg"
+             alt="Envision" style="height:1.5rem; width:auto; object-fit:contain;" />
+      </span>
+
+      <!-- SET 2 — identical duplicate for seamless loop -->
+      <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/LEGO_logo.svg"
+           alt="" aria-hidden="true" style="height:3.5rem; width:auto; object-fit:contain; flex-shrink:0; opacity:0.8;" />
+      <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/Story%20House%20Egmont.png"
+           alt="" aria-hidden="true" style="height:2.75rem; width:auto; object-fit:contain; flex-shrink:0; opacity:0.55;" />
+      <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/novo-nordisk-logo-history-current-logo.jpg.corpimgo.jpg"
+           alt="" aria-hidden="true" style="height:3rem; width:auto; object-fit:contain; flex-shrink:0; opacity:0.55;" />
+      <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/Bonnier%20Publications.svg"
+           alt="" aria-hidden="true" style="height:2rem; width:auto; object-fit:contain; flex-shrink:0; opacity:0.55;" />
+      <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/Mindworking.svg"
+           alt="" aria-hidden="true" style="height:2.25rem; width:auto; object-fit:contain; flex-shrink:0; opacity:0.65;" />
+      <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/Modulex.webp"
+           alt="" aria-hidden="true" style="height:2rem; width:auto; object-fit:contain; flex-shrink:0; opacity:0.6;" />
+      <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/lasertryk_dk.svg"
+           alt="" aria-hidden="true" style="height:2rem; width:auto; object-fit:contain; flex-shrink:0; opacity:0.55;" />
+      <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/Zanity.png"
+           alt="" aria-hidden="true" style="height:2.25rem; width:auto; object-fit:contain; flex-shrink:0; opacity:0.6;" />
+      <span class="ip-logo-dark" aria-hidden="true">
+        <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/eurographic-group-logo-rgb-white.png"
+             alt="" style="height:1.5rem; width:auto; object-fit:contain;" />
+      </span>
+      <span class="ip-logo-dark" aria-hidden="true">
+        <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/MWA-LOGO-WHITE-200px.webp"
+             alt="" style="height:1.5rem; width:auto; object-fit:contain;" />
+      </span>
+      <span class="ip-logo-dark" aria-hidden="true">
+        <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/Nonbye-logo-hvis.png"
+             alt="" style="height:1.5rem; width:auto; object-fit:contain;" />
+      </span>
+      <span class="ip-logo-dark" aria-hidden="true">
+        <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/spring%20family.svg"
+             alt="" style="height:1.5rem; width:auto; object-fit:contain;" />
+      </span>
+      <span class="ip-logo-dark" aria-hidden="true">
+        <img src="https://raw.githubusercontent.com/Mickkjaer/inProduction/main/Logos/Clients/envision.svg"
+             alt="" style="height:1.5rem; width:auto; object-fit:contain;" />
+      </span>
+
+    </div>
+  </div>
+</div>

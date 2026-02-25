@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Om os — inProduction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { accent: '#55b0d1', mid: '#4a9ab8', dark: '#333333' },
+            warm: { base: '#F7F4F0', surface: '#FDFCFB', muted: '#6B6560', heading: '#1C1A18', dark: '#1C1A18', darker: '#2A2724' }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; }
+    .eyebrow::before { content: ''; display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; flex-shrink: 0; }
+    .timeline { position: relative; }
+    .timeline::before { content: ''; position: absolute; left: 44px; top: 14px; bottom: 14px; width: 1px; background: rgba(85,176,209,0.2); }
+    @media (max-width: 640px) { .nav-text-link { display: none; } }
+    .btn-primary {
+      background: linear-gradient(135deg, #55b0d1 0%, #4a9ab8 100%);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(85,176,209,0.28);
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 0.875rem 1.75rem;
+      display: inline-block;
+      transition: transform 0.15s, box-shadow 0.15s;
+      text-decoration: none;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(85,176,209,0.38); }
+    .btn-secondary { color: #4a9ab8; font-weight: 600; font-size: 0.875rem; border-bottom: 2px solid transparent; padding-bottom: 2px; text-decoration: none; transition: border-color 0.15s; display: inline-block; }
+    .btn-secondary:hover { border-color: #55b0d1; }
+    .phases-track { position: relative; }
+    .phases-track::before { content: ''; position: absolute; left: 19px; top: 24px; bottom: 24px; width: 1px; background: rgba(85,176,209,0.18); z-index: 0; }
+  </style>
+</head>
+<body class="bg-[#F7F4F0] text-[#1C1A18] antialiased">
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 bg-[#F7F4F0]/80 backdrop-blur-md border-b border-black/[0.06]">
+  <nav class="max-w-5xl mx-auto px-6 py-3.5 flex justify-between items-center">
+    <a href="inproduction-homepage.html" class="text-[1.3rem] font-bold tracking-[-0.03em] no-underline text-[#1C1A18]">
+      <span class="text-[#55b0d1]">in</span><span class="text-[#333]">Production</span>
+    </a>
+    <ul class="flex items-center gap-1 list-none m-0 p-0">
+      <li><a href="inproduction-cases.html" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Cases</a></li>
+      <li><a href="inproduction-om-os.html" class="nav-text-link text-sm font-semibold text-[#333] px-3 py-2 rounded-lg bg-black/[0.07] no-underline">Om os</a></li>
+      <li><a href="inproduction-kontakt.html" class="text-sm font-semibold bg-[#333] text-white px-4 py-2 rounded-full hover:bg-[#1C1A18] hover:-translate-y-0.5 transition-all no-underline">Kontakt os</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- INTRO -->
+<section class="bg-[#FDFCFB] border-b border-black/[0.07] py-20 px-6">
+  <div class="max-w-3xl mx-auto">
+    <span class="eyebrow text-[0.7rem] font-bold uppercase tracking-[0.14em] text-[#55b0d1] mb-6 block">Om os</span>
+    <h1 class="text-4xl lg:text-5xl font-bold tracking-[-0.04em] leading-[1.15] [text-wrap:balance] text-[#333] mb-6">En specialist.<br>Ikke et bureau.</h1>
+    <p class="text-[1.05rem] text-[#6B6560] leading-[1.85] max-w-2xl mb-4">InProduction er en fokuseret enmandsforretning med et stærkt fagligt netværk — specialiseret i workflow-automatisering for grafisk produktion og medievirksomheder. Det giver fleksibilitet, direkte kontakt og adgang til specialkompetencer ved større projekter.</p>
+    <p class="text-[1.05rem] text-[#6B6560] leading-[1.85] max-w-2xl">Vi bygger løsninger der løser konkrete produktionsproblemer — og bliver ved med at fungere, når vi er gået hjem. Standardsoftware som udgangspunkt, skræddersyet udvikling der, hvor hyldevarer ikke rækker.</p>
+
+    <blockquote class="my-10 pl-6 border-l-[3px] border-[#55b0d1] max-w-2xl">
+      <p class="text-xl font-medium text-[#3D3A37] italic leading-[1.7] mb-3">"Jeg er vild med at skabe workflows der får ting til at ske hurtigere, mere standardiseret og med færre fejl — og fjerne så mange manuelle processer og flaskehalse som muligt."</p>
+      <footer class="text-[0.85rem] text-[#9C958F] font-medium not-italic">— Peter Kjær, grundlægger</footer>
+    </blockquote>
+
+    <p class="text-[1.05rem] text-[#6B6560] leading-[1.85] max-w-2xl">Vi arbejder med et begrænset antal kunder ad gangen. Hvert samarbejde er hands-on, fra første workshop til implementering og videre. Ikke fordi vi siger det i et tilbud — men fordi det er den eneste måde at bygge noget der faktisk holder.</p>
+  </div>
+</section>
+
+<!-- HISTORY -->
+<section class="bg-[#1C1A18] text-white py-24 px-6">
+  <div class="max-w-3xl mx-auto">
+    <span class="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#55b0d1] block mb-2">Baggrund</span>
+    <h2 class="text-3xl lg:text-4xl font-bold tracking-[-0.035em] text-white/90 mb-5 leading-[1.2]">Vi var med, da Enfocus Switch blev til.</h2>
+    <p class="text-[0.97rem] text-white/60 leading-[1.85] max-w-2xl mb-4">Før InProduction blev grundlagt, var Peter Kjær med til at drive udviklingen af <strong class="text-white/90 font-semibold">CaslonFlow</strong> — forgængeren til Enfocus Switch. I 2005 blev CaslonFlow solgt til Gradual Software, som senere blev opkøbt af Enfocus. Switch er i dag det centrale produkt i Enfocus' portefølje.</p>
+    <p class="text-[0.97rem] text-white/60 leading-[1.85] max-w-2xl">Det er ikke tilfældigt, at Switch er kernen i de fleste InProduction-løsninger. Det er et valg baseret på årelangt kendskab til platformen — dens muligheder, dens begrænsninger og de steder, hvor tilpasset udvikling gør den markant mere kraftfuld.</p>
+
+    <div class="timeline mt-14 max-w-lg flex flex-col gap-0">
+      <div class="grid gap-6 pb-9 relative z-10" style="grid-template-columns: 90px 1fr;">
+        <span class="text-[0.74rem] font-bold text-[#55b0d1] pt-0.5 text-right tracking-[0.04em]">Tidligt 2000'erne</span>
+        <div>
+          <h4 class="text-[0.88rem] font-bold text-white/90 mb-1">Udvikling af CaslonFlow</h4>
+          <p class="text-[0.81rem] text-white/50 leading-relaxed m-0">Arbejde med udviklingen af CaslonFlow — et workflow-automatiseringsværktøj til grafisk produktion og forgænger til Enfocus Switch.</p>
+        </div>
+      </div>
+      <div class="grid gap-6 pb-9 relative z-10" style="grid-template-columns: 90px 1fr;">
+        <span class="text-[0.74rem] font-bold text-[#55b0d1] pt-0.5 text-right tracking-[0.04em]">2005</span>
+        <div>
+          <h4 class="text-[0.88rem] font-bold text-white/90 mb-1">CaslonFlow solgt til Gradual Software</h4>
+          <p class="text-[0.81rem] text-white/50 leading-relaxed m-0">Gradual Software køber CaslonFlow og videreudvikler platformen. Gradual bliver siden opkøbt af Enfocus, og produktet lever videre som Enfocus Switch.</p>
+        </div>
+      </div>
+      <div class="grid gap-6 pb-9 relative z-10" style="grid-template-columns: 90px 1fr;">
+        <span class="text-[0.74rem] font-bold text-[#55b0d1] pt-0.5 text-right tracking-[0.04em]">2007</span>
+        <div>
+          <h4 class="text-[0.88rem] font-bold text-white/90 mb-1">InProduction ApS grundlægges</h4>
+          <p class="text-[0.81rem] text-white/50 leading-relaxed m-0">Med et solidt fundament i grafisk produktion og workflow-automatisering etableres InProduction med fokus på skræddersyede løsninger til medievirksomheder og trykkeriindustrien.</p>
+        </div>
+      </div>
+      <div class="grid gap-6 relative z-10" style="grid-template-columns: 90px 1fr;">
+        <span class="text-[0.74rem] font-bold text-[#55b0d1] pt-0.5 text-right tracking-[0.04em]">2007 →</span>
+        <div>
+          <h4 class="text-[0.88rem] font-bold text-white/90 mb-1">Kunder som LEGO, Bonnier og Story House Egmont</h4>
+          <p class="text-[0.81rem] text-white/50 leading-relaxed m-0">Over 17 år er der bygget workflows til en bred portefølje af kunder — fra interne produktionsafdelinger hos store brands til komplekse ERP-integrationer hos trykkerier og mediekoncerner.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="bg-[#FDFCFB] py-24 px-6">
+  <div class="max-w-3xl mx-auto">
+    <span class="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#55b0d1] block mb-2">Sådan arbejder vi</span>
+    <h2 class="text-3xl lg:text-4xl font-bold tracking-[-0.035em] text-[#1C1A18] mb-4 leading-[1.2] [text-wrap:balance]">Vi starter der, hvor I er — ikke der, hvor vi ønsker I var.</h2>
+    <p class="text-[0.97rem] text-[#6B6560] leading-[1.85] max-w-2xl mb-10">Tilgangen er praktisk: analyse før teknologi, standardløsninger før specialudvikling, integration før kompleksitet. Hvert samarbejde begynder med at forstå jeres nuværende produktion og placere den på modenhedsskalaen. Derfra vælger vi det næste realistiske trin og beviser værdien — inden vi bygger videre.</p>
+
+    <!-- Maturity bar -->
+    <div class="flex overflow-hidden rounded-xl border border-black/[0.08] mb-12">
+      <div class="flex-1 min-w-[80px] text-center py-3 px-2 bg-black/[0.05] border-r border-black/[0.07]">
+        <span class="block text-[0.58rem] font-semibold text-[#B8B0A8] tracking-[0.06em] mb-0.5">01</span>
+        <span class="text-[0.7rem] font-bold text-[#6B6560] whitespace-nowrap">Reaktiv</span>
+      </div>
+      <div class="flex-1 min-w-[80px] text-center py-3 px-2 bg-black/[0.05] border-r border-black/[0.07]">
+        <span class="block text-[0.58rem] font-semibold text-[#B8B0A8] tracking-[0.06em] mb-0.5">02</span>
+        <span class="text-[0.7rem] font-bold text-[#6B6560] whitespace-nowrap">Struktureret</span>
+      </div>
+      <div class="flex-1 min-w-[80px] text-center py-3 px-2 bg-black/[0.05] border-r border-black/[0.07]">
+        <span class="block text-[0.58rem] font-semibold text-[#B8B0A8] tracking-[0.06em] mb-0.5">03</span>
+        <span class="text-[0.7rem] font-bold text-[#6B6560] whitespace-nowrap">Automatiseret</span>
+      </div>
+      <div class="flex-1 min-w-[80px] text-center py-3 px-2 bg-black/[0.05] border-r border-black/[0.07]">
+        <span class="block text-[0.58rem] font-semibold text-[#B8B0A8] tracking-[0.06em] mb-0.5">04</span>
+        <span class="text-[0.7rem] font-bold text-[#6B6560] whitespace-nowrap">Integreret</span>
+      </div>
+      <div class="flex-1 min-w-[80px] text-center py-3 px-2 bg-black/[0.05]">
+        <span class="block text-[0.58rem] font-semibold text-[#B8B0A8] tracking-[0.06em] mb-0.5">05</span>
+        <span class="text-[0.7rem] font-bold text-[#6B6560] whitespace-nowrap">Optimeret</span>
+      </div>
+    </div>
+
+    <!-- Phases -->
+    <div class="flex flex-col gap-3">
+
+      <!-- Card 01 -->
+      <div class="bg-white border border-black/[0.08] rounded-2xl p-6 flex gap-5">
+        <div class="w-11 h-11 rounded-full bg-[#55b0d1]/[0.08] border border-[#55b0d1]/20 flex items-center justify-center text-[#55b0d1] flex-shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 15.803a7.5 7.5 0 0 0 10.607 0Z" /></svg>
+        </div>
+        <div class="min-w-0">
+          <span class="text-[0.62rem] font-bold text-[#55b0d1]/60 tracking-[0.1em] mb-1 block">01</span>
+          <h3 class="text-[0.97rem] font-bold text-[#1C1A18] mb-1 tracking-[-0.02em]">Workshop — kortlægning &amp; diagnose</h3>
+          <span class="inline-block text-[0.67rem] font-semibold uppercase tracking-[0.08em] text-[#55b0d1] mb-3">Identificér jeres placering på modenhedsskalaen</span>
+          <p class="text-[0.88rem] text-[#6B6560] leading-[1.8]">Et møde — hos jer eller online — hvor vi kortlægger det nuværende workflow i detaljer: hvad fungerer, hvad stopper filer og ordrer fra at flyde frit, og hvilke processer der afhænger af at den rigtige person husker det rigtige på det rigtige tidspunkt. Vi placerer jeres produktion på modenhedsskalaen og skitserer, hvad det næste realistiske trin ser ud som — og hvad det vil kræve. Workshoppen kan gentages over flere omgange for større projekter eller komplekse produktionsmiljøer.</p>
+        </div>
+      </div>
+
+      <!-- Connector -->
+      <div class="flex justify-start pl-[1.625rem]"><div class="w-px h-4 bg-[#55b0d1]/20"></div></div>
+
+      <!-- Card 02 -->
+      <div class="bg-white border border-black/[0.08] rounded-2xl p-6 flex gap-5">
+        <div class="w-11 h-11 rounded-full bg-[#55b0d1]/[0.08] border border-[#55b0d1]/20 flex items-center justify-center text-[#55b0d1] flex-shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15M14.25 3.104c.251.023.501.05.75.082M19.8 15a2.25 2.25 0 0 1 .45 2.311L18 19.5a2.25 2.25 0 0 1-2.121 1.5H8.121A2.25 2.25 0 0 1 6 19.5l-2.25-2.189A2.25 2.25 0 0 1 4.2 15h15.6Z" /></svg>
+        </div>
+        <div class="min-w-0">
+          <span class="text-[0.62rem] font-bold text-[#55b0d1]/60 tracking-[0.1em] mb-1 block">02</span>
+          <h3 class="text-[0.97rem] font-bold text-[#1C1A18] mb-1 tracking-[-0.02em]">Proof of concept — standardsoftware løser problemet</h3>
+          <span class="inline-block text-[0.67rem] font-semibold uppercase tracking-[0.08em] text-[#55b0d1] mb-3">Bevis værdien før investering</span>
+          <p class="text-[0.88rem] text-[#6B6560] leading-[1.8] mb-3">Standardsoftware — primært Enfocus Switch — løser langt de fleste produktionsudfordringer uden at der skal bygges noget fra bunden. I et proof of concept bygger vi et fungerende workflow med demo- og testversioner, der løser et konkret pain point identificeret i workshoppen. I ser løsningen virke i jeres eget produktionsmiljø, inden I investerer i licenser.</p>
+          <p class="text-[0.8rem] text-[#9C958F] italic leading-relaxed pl-4 border-l-2 border-[#55b0d1]/40">POC'en lægger samtidig det tekniske fundament for de næste trin — tid brugt her spares i implementeringen.</p>
+        </div>
+      </div>
+
+      <!-- Connector -->
+      <div class="flex justify-start pl-[1.625rem]"><div class="w-px h-4 bg-[#55b0d1]/20"></div></div>
+
+      <!-- Card 03 -->
+      <div class="bg-white border border-black/[0.08] rounded-2xl p-6 flex gap-5">
+        <div class="w-11 h-11 rounded-full bg-[#55b0d1]/[0.08] border border-[#55b0d1]/20 flex items-center justify-center text-[#55b0d1] flex-shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" /></svg>
+        </div>
+        <div class="min-w-0">
+          <span class="text-[0.62rem] font-bold text-[#55b0d1]/60 tracking-[0.1em] mb-1 block">03</span>
+          <h3 class="text-[0.97rem] font-bold text-[#1C1A18] mb-1 tracking-[-0.02em]">Implementering — workflow sat i produktion</h3>
+          <span class="inline-block text-[0.67rem] font-semibold uppercase tracking-[0.08em] text-[#55b0d1] mb-3">Fra test til drift</span>
+          <p class="text-[0.88rem] text-[#6B6560] leading-[1.8]">Workflowet sættes i produktion. Fordi vi allerede har bevist at løsningen virker, er implementeringen hurtigere og mere forudsigelig end ved traditionelle projekter. Vi er med til forankring i organisationen, oplæring og support i opstartsfasen — og vi bliver ved med at justere, efterhånden som produktionsmiljøet afslører edge cases og nye behov.</p>
+        </div>
+      </div>
+
+      <!-- Connector -->
+      <div class="flex justify-start pl-[1.625rem]"><div class="w-px h-4 bg-[#55b0d1]/20"></div></div>
+
+      <!-- Card 04 -->
+      <div class="bg-white border border-black/[0.08] rounded-2xl p-6 flex gap-5">
+        <div class="w-11 h-11 rounded-full bg-[#55b0d1]/[0.08] border border-[#55b0d1]/20 flex items-center justify-center text-[#55b0d1] flex-shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 0 1-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 1 1-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 0 1 6.336-4.486l-3.276 3.276a3.004 3.004 0 0 0 2.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852Z" /></svg>
+        </div>
+        <div class="min-w-0">
+          <span class="text-[0.62rem] font-bold text-[#55b0d1]/60 tracking-[0.1em] mb-1 block">04</span>
+          <h3 class="text-[0.97rem] font-bold text-[#1C1A18] mb-1 tracking-[-0.02em]">Skræddersyet udvikling — når forretningsværdi er dokumenteret</h3>
+          <span class="inline-block text-[0.67rem] font-semibold uppercase tracking-[0.08em] text-[#55b0d1] mb-3">Tilpasset der, hvor standard ikke rækker</span>
+          <p class="text-[0.88rem] text-[#6B6560] leading-[1.8] mb-3">Skræddersyet udvikling tilføjes typisk, efter at standardsoftware har løst kerneopgaven og skabt en tydelig forretningsværdi. Først da giver det mening at bygge skræddersyede integrationer til ERP- og MIS-systemer, specialiserede portaler eller avanceret databehandling. På det tidspunkt ved vi præcist, hvad der er brug for — og kan bygge det rigtigt første gang.</p>
+          <p class="text-[0.8rem] text-[#9C958F] italic leading-relaxed pl-4 border-l-2 border-[#55b0d1]/40">De fleste kunder er overraskede over, hvor langt standardsoftware rækker. Skræddersyet udvikling er undtagelsen, ikke reglen.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="bg-[#F7F4F0] border-y border-black/[0.07] py-24 px-6">
+  <div class="max-w-3xl mx-auto">
+    <span class="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#55b0d1] block mb-2">Software &amp; partnere</span>
+    <h2 class="text-3xl font-bold tracking-[-0.03em] text-[#1C1A18] mb-4 leading-[1.2]">Vi bygger på standardsoftware.</h2>
+    <p class="text-[0.97rem] text-[#6B6560] leading-[1.8] max-w-lg mb-10">Så vidt muligt bruger vi etablerede, brancheanerkendte platforme. Det giver løsninger der kan vedligeholdes, opdateres og bygges videre på — uden at I er låst til en bestemt leverandør.</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-6 hover:bg-white/60 hover:shadow-md hover:-translate-y-0.5 transition-all backdrop-blur-sm flex flex-col">
+        <div class="flex items-start justify-between gap-3 mb-4">
+          <span class="inline-block text-[0.65rem] font-bold uppercase tracking-[0.1em] text-[#4a9ab8] bg-[#55b0d1]/10 px-2.5 py-1 rounded">Officiel forhandler &amp; partner</span>
+        </div>
+        <img src="logos/Clients/Switch logo black.png" alt="Enfocus Switch" class="h-7 w-auto object-contain object-left mb-4" />
+        <p class="text-[0.82rem] text-[#6B6560] leading-[1.65] flex-1">Branchens ledende workflow-automatiseringsplatform for print og medieproduktion. Switch er rygraden i de fleste InProduction-løsninger — fleksibel, åben og bygget til integration.</p>
+      </div>
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-6 hover:bg-white/60 hover:shadow-md hover:-translate-y-0.5 transition-all backdrop-blur-sm flex flex-col">
+        <div class="flex items-start justify-between gap-3 mb-4">
+          <span class="inline-block text-[0.65rem] font-bold uppercase tracking-[0.1em] text-[#4a9ab8] bg-[#55b0d1]/10 px-2.5 py-1 rounded">Partner</span>
+        </div>
+        <img src="logos/PitStop server logo black.png" alt="Enfocus PitStop Server" class="h-7 w-auto object-contain object-left mb-4" />
+        <p class="text-[0.82rem] text-[#6B6560] leading-[1.65] flex-1">Automatisk PDF-kvalitetskontrol og preflight i industriklasse. Bruges til at tjekke og korrigere PDF-filer op mod præcise produktionskrav — format, farver, opløsning, fonte og beskæring.</p>
+      </div>
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-6 hover:bg-white/60 hover:shadow-md hover:-translate-y-0.5 transition-all backdrop-blur-sm">
+        <span class="inline-block text-[0.65rem] font-bold uppercase tracking-[0.1em] text-[#4a9ab8] bg-[#55b0d1]/10 px-2.5 py-1 rounded mb-4">Partner</span>
+        <h3 class="text-[0.93rem] font-bold text-[#333] mb-2">callas pdfToolbox Server</h3>
+        <p class="text-[0.82rem] text-[#6B6560] leading-[1.65]">Avanceret PDF-behandling med support for dynamisk kvalitetskontrol baseret på XML-metadata. Bruges til komplekse QA-scenarier og generering af jobposer til produktionssporing.</p>
+      </div>
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-6 hover:bg-white/60 hover:shadow-md hover:-translate-y-0.5 transition-all backdrop-blur-sm">
+        <span class="inline-block text-[0.65rem] font-bold uppercase tracking-[0.1em] text-[#4a9ab8] bg-[#55b0d1]/10 px-2.5 py-1 rounded mb-4">Egenudviklet</span>
+        <h3 class="text-[0.93rem] font-bold text-[#333] mb-2">InTouch Database</h3>
+        <p class="text-[0.82rem] text-[#6B6560] leading-[1.65]">InProductions egne databaseløsning, der fungerer som middleware mellem ERP-systemer og Switch-workflows. Registrerer ordrer, sporer produktion og muliggør automatisk fakturering.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-[#1C1A18] py-20 px-6 text-center border-t border-white/[0.06]">
+  <div class="max-w-lg mx-auto">
+    <h2 class="text-3xl font-bold tracking-[-0.03em] text-white/90 mb-3">Lad os starte med en samtale.</h2>
+    <p class="text-[0.95rem] text-white/50 leading-[1.75] mb-9">Uforpligtende. Vi finder ud af, hvilken udfordring der giver mest mening at løse først.</p>
+    <a href="inproduction-kontakt.html" class="btn-primary">Kontakt os</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-[#1C1A18] border-t border-white/[0.06] px-6 py-8">
+  <div class="max-w-5xl mx-auto flex justify-between items-center flex-wrap gap-3 text-[0.8rem] text-white/35">
+    <span class="font-semibold text-white/70">inProduction ApS</span>
+    <span>Peter Kjær · Grundlagt 2007 · Enfocus Switch-forhandler &amp; workflow-specialist</span>
+    <a href="mailto:contact@inproduction.dk" class="text-white/35 hover:text-white/70 no-underline transition-colors">contact@inproduction.dk</a>
+  </div>
+</footer>
+
+</body>
+</html>
