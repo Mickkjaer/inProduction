@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt — inProduction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { accent: '#55b0d1', mid: '#4a9ab8', dark: '#333333' },
+            warm: { base: '#F7F4F0', surface: '#FDFCFB', muted: '#6B6560', heading: '#1C1A18', dark: '#1C1A18', darker: '#2A2724' }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; }
+    .eyebrow::before { content: ''; display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; flex-shrink: 0; }
+    input, textarea, select {
+      width: 100%;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(51,51,51,0.10);
+      background: rgba(255,255,255,0.45);
+      padding: 0.625rem 1rem;
+      font-size: 0.875rem;
+      color: #1C1A18;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    input::placeholder, textarea::placeholder { color: #B8B0A8; }
+    input:focus, textarea:focus, select:focus {
+      border-color: #55b0d1;
+      box-shadow: 0 0 0 3px rgba(85,176,209,0.12);
+      background: rgba(255,255,255,0.80);
+    }
+    select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23B8B0A8' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.875rem center; padding-right: 2.5rem; cursor: pointer; }
+    textarea { resize: vertical; min-height: 120px; }
+    @media (max-width: 640px) { .nav-text-link { display: none; } }
+    .btn-primary {
+      background: linear-gradient(135deg, #55b0d1 0%, #4a9ab8 100%);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(85,176,209,0.28);
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 0.875rem 1.75rem;
+      display: inline-block;
+      transition: transform 0.15s, box-shadow 0.15s;
+      text-decoration: none;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(85,176,209,0.38); }
+  </style>
+</head>
+<body class="bg-[#F7F4F0] text-[#1C1A18] antialiased">
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 bg-[#F7F4F0]/80 backdrop-blur-md border-b border-black/[0.06]">
+  <nav class="max-w-5xl mx-auto px-6 py-3.5 flex justify-between items-center">
+    <a href="inproduction-homepage.html" class="text-[1.3rem] font-bold tracking-[-0.03em] no-underline text-[#1C1A18]">
+      <span class="text-[#55b0d1]">in</span><span class="text-[#333]">Production</span>
+    </a>
+    <ul class="flex items-center gap-1 list-none m-0 p-0">
+      <li><a href="inproduction-cases.html" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Cases</a></li>
+      <li><a href="inproduction-om-os.html" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Om os</a></li>
+      <li><span class="text-sm font-semibold bg-[#333]/40 text-white px-4 py-2 rounded-full cursor-default">Kontakt os</span></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- MAIN -->
+<main class="py-20 px-6 pb-28">
+  <div class="max-w-4xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.45fr] gap-16 items-start">
+
+      <!-- LEFT: COPY -->
+      <div>
+        <span class="eyebrow text-[0.7rem] font-bold uppercase tracking-[0.14em] text-[#55b0d1] mb-6 block">Kontakt</span>
+        <h1 class="text-3xl lg:text-4xl font-bold tracking-[-0.035em] leading-[1.15] [text-wrap:balance] text-[#333] mb-5">Lad os starte med en samtale.</h1>
+        <p class="text-[0.97rem] text-[#6B6560] leading-[1.85] mb-3">Fortæl os lidt om jeres setup og hvor I oplever friktion. Vi vender tilbage inden for et par dage med et bud på, om og hvordan vi kan hjælpe.</p>
+        <p class="text-[0.97rem] text-[#6B6560] leading-[1.85]">Ingen forpligtelse. De fleste samtaler starter med at kortlægge et konkret problem — derfra finder vi sammen ud af det næste skridt.</p>
+
+        <!-- Next steps -->
+        <div class="mt-9 pt-8 border-t border-black/[0.07]">
+          <span class="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#55b0d1] block mb-6">Hvad sker der så?</span>
+          <div class="flex flex-col gap-5">
+            <div class="flex gap-4 items-start">
+              <div class="w-7 h-7 rounded-full bg-black/[0.05] border border-black/[0.08] flex items-center justify-center text-[0.67rem] font-bold text-[#4a9ab8] flex-shrink-0 mt-0.5">1</div>
+              <div>
+                <h4 class="text-[0.86rem] font-bold text-[#1C1A18] mb-0.5">Vi vender tilbage</h4>
+                <p class="text-[0.82rem] text-[#6B6560] leading-relaxed m-0">Inden for 1–2 hverdage — med eventuelle opfølgende spørgsmål eller et forslag til et møde.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="w-7 h-7 rounded-full bg-black/[0.05] border border-black/[0.08] flex items-center justify-center text-[0.67rem] font-bold text-[#4a9ab8] flex-shrink-0 mt-0.5">2</div>
+              <div>
+                <h4 class="text-[0.86rem] font-bold text-[#1C1A18] mb-0.5">Et første møde</h4>
+                <p class="text-[0.82rem] text-[#6B6560] leading-relaxed m-0">Online eller hos jer. Vi kortlægger det eksisterende workflow og finder flaskehalsene.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="w-7 h-7 rounded-full bg-black/[0.05] border border-black/[0.08] flex items-center justify-center text-[0.67rem] font-bold text-[#4a9ab8] flex-shrink-0 mt-0.5">3</div>
+              <div>
+                <h4 class="text-[0.86rem] font-bold text-[#1C1A18] mb-0.5">Et konkret næste skridt</h4>
+                <p class="text-[0.82rem] text-[#6B6560] leading-relaxed m-0">En workshop, et proof of concept eller en prototype — alt efter hvad opgaven kræver.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Direct contact -->
+        <div class="mt-8 p-5 bg-white/40 rounded-2xl border border-black/[0.09] backdrop-blur-sm">
+          <span class="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#55b0d1] block mb-4">Direkte kontakt</span>
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center gap-2.5 text-[0.88rem] text-[#6B6560]">
+              <span class="opacity-60 text-base">✉</span>
+              <a href="mailto:contact@inproduction.dk" class="text-[#4a9ab8] font-medium no-underline hover:underline">contact@inproduction.dk</a>
+            </div>
+            <div class="flex items-center gap-2.5 text-[0.88rem] text-[#6B6560]">
+              <span class="opacity-60 text-base">☎</span>
+              <a href="tel:+4500000000" class="text-[#4a9ab8] font-medium no-underline hover:underline">+45 00 00 00 00</a>
+            </div>
+            <div class="flex items-center gap-2.5 text-[0.88rem] text-[#6B6560]">
+              <span class="opacity-60 text-base">◎</span>
+              <span>Danmark</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: FORM -->
+      <div class="bg-white/50 rounded-2xl border border-black/[0.09] shadow-sm p-8 backdrop-blur-sm">
+        <h2 class="text-[1.1rem] font-bold text-[#1C1A18] mb-1 tracking-[-0.02em]">Send os en besked</h2>
+        <p class="text-[0.84rem] text-[#6B6560] leading-relaxed mb-7">Alle felter er valgfrie undtagen e-mail — skriv så meget eller lidt, som du har lyst til.</p>
+
+        <form id="contact-form">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label class="block text-[0.78rem] font-semibold text-[#3D3A37] mb-1.5" for="name">Navn</label>
+              <input type="text" id="name" name="name" placeholder="Peter Andersen" />
+            </div>
+            <div>
+              <label class="block text-[0.78rem] font-semibold text-[#3D3A37] mb-1.5" for="company">Virksomhed</label>
+              <input type="text" id="company" name="company" placeholder="Virksomhed A/S" />
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-[0.78rem] font-semibold text-[#3D3A37] mb-1.5" for="email">
+              E-mail <span class="text-[#55b0d1] font-medium">*</span>
+            </label>
+            <input type="email" id="email" name="email" placeholder="din@email.dk" required />
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-[0.78rem] font-semibold text-[#3D3A37] mb-1.5" for="stage">
+              Hvor vil I placere jer i dag? <span class="text-[#9C958F] font-normal">(valgfrit)</span>
+            </label>
+            <select id="stage" name="stage">
+              <option value="" disabled selected>Vælg modenhedstrin…</option>
+              <option value="reaktiv">Reaktiv — vi arbejder stadig manuelt</option>
+              <option value="struktureret">Struktureret — vi er begyndt at automatisere</option>
+              <option value="automatiseret">Automatiseret — workflows kører, men systemer er siloer</option>
+              <option value="integreret">Integreret — vi har forbundet vores systemer</option>
+              <option value="ved_ikke">Ikke sikker — det er en del af spørgsmålet</option>
+            </select>
+          </div>
+
+          <div class="mb-6">
+            <label class="block text-[0.78rem] font-semibold text-[#3D3A37] mb-1.5" for="message">Hvad arbejder I med, og hvad er udfordringen?</label>
+            <textarea id="message" name="message" placeholder="Beskriv gerne jeres nuværende setup og det konkrete problem I gerne vil løse — det behøver ikke være helt præcist endnu."></textarea>
+          </div>
+
+          <div class="h-px bg-black/[0.06] mb-5"></div>
+          <p class="text-[0.78rem] text-[#9C958F] leading-relaxed mb-5"><strong class="text-[#6B6560] font-semibold">Vi bruger ikke jeres oplysninger til noget andet</strong> end at besvare din henvendelse. Ingen nyhedsbreve, ingen videregivelse til tredjepart.</p>
+
+          <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off">
+          <button type="submit" class="w-full cursor-pointer border-0 btn-primary text-[0.92rem] py-3.5" style="border-radius: 0.75rem; padding-top: 0.875rem; padding-bottom: 0.875rem;">Send besked</button>
+        </form>
+
+        <div id="form-success" style="display:none;" class="text-center py-8">
+          <div class="w-12 h-12 rounded-full bg-[#55b0d1]/10 border border-[#55b0d1]/20 flex items-center justify-center mx-auto mb-4 text-[#55b0d1] text-xl">✓</div>
+          <h3 class="text-[1rem] font-bold text-[#1C1A18] mb-2">Besked sendt!</h3>
+          <p class="text-[0.84rem] text-[#6B6560] leading-relaxed">Tak — vi vender tilbage inden for 1–2 hverdage.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-[#1C1A18] px-6 py-8 border-t border-white/[0.06]">
+  <div class="max-w-5xl mx-auto flex justify-between items-center flex-wrap gap-3 text-[0.8rem] text-white/35">
+    <span class="font-semibold text-white/70">inProduction ApS</span>
+    <span>Peter Kjær · Grundlagt 2007 · Enfocus Switch-forhandler &amp; workflow-specialist</span>
+    <a href="mailto:contact@inproduction.dk" class="text-white/35 hover:text-white/70 no-underline transition-colors">contact@inproduction.dk</a>
+  </div>
+</footer>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const successEl = document.getElementById('form-success');
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sender…';
+
+    try {
+      const res = await fetch('https://fabform.io/f/RVb-J9O', {
+        method: 'POST',
+        body: new FormData(form)
+      });
+
+      if (res.ok) {
+        form.style.display = 'none';
+        successEl.style.display = 'block';
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send besked';
+        alert('Noget gik galt. Prøv igen eller skriv direkte til contact@inproduction.dk');
+      }
+    } catch {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send besked';
+      alert('Noget gik galt. Tjek din internetforbindelse og prøv igen.');
+    }
+  });
+</script>
+</body>
+</html>
