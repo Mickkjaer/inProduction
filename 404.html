@@ -71,13 +71,13 @@
 <!-- NAV -->
 <header class="sticky top-0 z-50 bg-[#F7F4F0]/80 backdrop-blur-md border-b border-black/[0.06]">
   <nav class="max-w-5xl mx-auto px-6 py-3.5 flex justify-between items-center">
-    <a href="inproduction-homepage.html" class="text-[1.3rem] font-bold tracking-[-0.03em] no-underline text-[#1C1A18]">
+    <a href="/" class="text-[1.3rem] font-bold tracking-[-0.03em] no-underline text-[#1C1A18]">
       <span class="text-[#55b0d1]">in</span><span class="text-[#333]">Production</span>
     </a>
     <ul class="flex items-center gap-1 list-none m-0 p-0">
-      <li><a href="inproduction-cases.html" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Cases</a></li>
-      <li><a href="inproduction-om-os.html" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Om os</a></li>
-      <li><a href="inproduction-kontakt.html" class="text-sm font-semibold bg-[#333] text-white px-4 py-2 rounded-full hover:bg-[#1C1A18] hover:-translate-y-0.5 transition-all no-underline">Kontakt os</a></li>
+      <li><a href="/cases/" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Cases</a></li>
+      <li><a href="/om-os/" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Om os</a></li>
+      <li><a href="/kontakt/" class="text-sm font-semibold bg-[#333] text-white px-4 py-2 rounded-full hover:bg-[#1C1A18] hover:-translate-y-0.5 transition-all no-underline">Kontakt os</a></li>
     </ul>
   </nav>
 </header>
@@ -126,7 +126,7 @@
 
       <!-- Buttons -->
       <div class="flex items-center gap-5 flex-wrap justify-center">
-        <a href="inproduction-homepage.html" class="btn-primary">Gå til forsiden nu</a>
+        <a href="/" class="btn-primary">Gå til forsiden nu</a>
         <button onclick="cancelRedirect()" class="btn-secondary">Annuller omdirigering →</button>
       </div>
 
@@ -145,7 +145,7 @@
 </footer>
 
 <script>
-  const REDIRECT_URL = 'inproduction-homepage.html';
+  const REDIRECT_URL = '/';
   const TOTAL = 10;
   const CIRCUMFERENCE = 175.9; // 2 * π * 28
 

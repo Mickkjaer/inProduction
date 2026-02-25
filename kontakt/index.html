@@ -46,17 +46,7 @@
     }
     select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23B8B0A8' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.875rem center; padding-right: 2.5rem; cursor: pointer; }
     textarea { resize: vertical; min-height: 120px; }
-    .mobile-hamburger { display: none; flex-direction: column; justify-content: center; align-items: center; width: 38px; height: 38px; border-radius: 8px; border: none; background: transparent; cursor: pointer; gap: 5px; padding: 0; }
-    .mobile-hamburger:hover { background: rgba(0,0,0,0.05); }
-    .ham-bar { display: block; width: 20px; height: 2px; background: #1C1A18; border-radius: 2px; transition: transform 0.22s ease, opacity 0.22s ease; }
-    .mobile-hamburger.open .ham-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .mobile-hamburger.open .ham-bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .mobile-hamburger.open .ham-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .mobile-menu-panel { display: none; background: #FDFCFB; border-top: 1px solid rgba(0,0,0,0.06); }
-    .mobile-menu-panel.open { display: block; animation: menuSlideDown 0.2s ease; }
-    @keyframes menuSlideDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
-    @media (max-width: 640px) { .nav-text-link { display: none; } .nav-cta-desktop { display: none; } .mobile-hamburger { display: flex; } }
-    @media (min-width: 641px) { .mobile-menu-panel { display: none !important; } }
+    @media (max-width: 640px) { .nav-text-link { display: none; } }
     .btn-primary {
       background: linear-gradient(135deg, #55b0d1 0%, #4a9ab8 100%);
       color: #fff;
@@ -77,26 +67,15 @@
 <!-- NAV -->
 <header class="sticky top-0 z-50 bg-[#F7F4F0]/80 backdrop-blur-md border-b border-black/[0.06]">
   <nav class="max-w-5xl mx-auto px-6 py-3.5 flex justify-between items-center">
-    <a href="inproduction-homepage.html" class="text-[1.3rem] font-bold tracking-[-0.03em] no-underline text-[#1C1A18]">
+    <a href="/" class="text-[1.3rem] font-bold tracking-[-0.03em] no-underline text-[#1C1A18]">
       <span class="text-[#55b0d1]">in</span><span class="text-[#333]">Production</span>
     </a>
     <ul class="flex items-center gap-1 list-none m-0 p-0">
-      <li><a href="inproduction-cases.html" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Cases</a></li>
-      <li><a href="inproduction-om-os.html" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Om os</a></li>
-      <li><span class="nav-cta-desktop text-sm font-semibold bg-[#333]/40 text-white px-4 py-2 rounded-full cursor-default">Kontakt os</span></li>
-      <li><button id="mobile-menu-toggle" class="mobile-hamburger" aria-label="Åbn menu" aria-expanded="false"><span class="ham-bar"></span><span class="ham-bar"></span><span class="ham-bar"></span></button></li>
+      <li><a href="/cases/" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Cases</a></li>
+      <li><a href="/om-os/" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Om os</a></li>
+      <li><span class="text-sm font-semibold bg-[#333]/40 text-white px-4 py-2 rounded-full cursor-default">Kontakt os</span></li>
     </ul>
   </nav>
-  <!-- Mobile menu -->
-  <div id="mobile-menu" class="mobile-menu-panel" aria-hidden="true">
-    <div class="max-w-5xl mx-auto px-4 py-3 flex flex-col gap-1">
-      <a href="inproduction-cases.html" class="text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-3 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Cases</a>
-      <a href="inproduction-om-os.html" class="text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-3 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Om os</a>
-      <div class="px-3 py-2">
-        <span class="text-sm font-semibold bg-[#333]/40 text-white px-4 py-2.5 rounded-full block text-center">Kontakt os</span>
-      </div>
-    </div>
-  </div>
 </header>
 
 <!-- MAIN -->
@@ -264,29 +243,5 @@
     }
   });
 </script>
-
-<script>
-  (function() {
-    var toggle = document.getElementById('mobile-menu-toggle');
-    var menu = document.getElementById('mobile-menu');
-    if (!toggle || !menu) return;
-    toggle.addEventListener('click', function(e) {
-      e.stopPropagation();
-      var isOpen = menu.classList.toggle('open');
-      toggle.classList.toggle('open', isOpen);
-      toggle.setAttribute('aria-expanded', isOpen);
-      menu.setAttribute('aria-hidden', !isOpen);
-    });
-    document.addEventListener('click', function(e) {
-      if (!document.querySelector('header').contains(e.target)) {
-        menu.classList.remove('open');
-        toggle.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-        menu.setAttribute('aria-hidden', 'true');
-      }
-    });
-  })();
-</script>
-
 </body>
 </html>
