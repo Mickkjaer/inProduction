@@ -43,8 +43,8 @@
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(85,176,209,0.38); }
     .btn-secondary { color: #4a9ab8; font-weight: 600; font-size: 0.875rem; border-bottom: 2px solid transparent; padding-bottom: 2px; text-decoration: none; transition: border-color 0.15s; display: inline-block; }
     .btn-secondary:hover { border-color: #55b0d1; }
-    .logo-marquee { overflow: hidden; mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%); }
-    .logo-track { display: flex; align-items: center; gap: 3rem; width: max-content; animation: marquee 36s linear infinite; }
+    .logo-marquee { overflow: hidden; mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%); -webkit-transform: translateZ(0); transform: translateZ(0); }
+    .logo-track { display: flex; align-items: center; gap: 3rem; width: max-content; animation: marquee 36s linear infinite; -webkit-transform: translateZ(0); transform: translateZ(0); will-change: transform; }
     .logo-track:hover { animation-play-state: paused; }
     @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
   </style>
@@ -119,7 +119,7 @@
 
   <!-- Social proof / logo marquee -->
   <div class="bg-[#F7F4F0] border-t border-black/[0.07] py-7">
-    <p class="text-[0.68rem] font-bold uppercase tracking-[0.13em] text-[#B8B0A8] text-center mb-5">Betroet af siden 2007</p>
+    <p class="text-[0.68rem] font-bold uppercase tracking-[0.13em] text-[#B8B0A8] text-center mb-5">En del af den grafiske branche siden 2007</p>
     <div class="logo-marquee">
       <!-- logo-track contains two identical sets so the loop is seamless -->
       <div class="logo-track">
