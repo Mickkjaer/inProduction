@@ -2,11 +2,377 @@
 <html lang="da">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0; url=inproduction-homepage.html" />
-  <link rel="canonical" href="inproduction-homepage.html" />
-  <title>inProduction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>inProduction — Workflow-automatisering til print & medieproduktion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { accent: '#55b0d1', mid: '#4a9ab8', dark: '#333333' },
+            warm: { base: '#F7F4F0', surface: '#FDFCFB', muted: '#6B6560', heading: '#1C1A18', dark: '#1C1A18', darker: '#2A2724' }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; }
+    .eyebrow::before { content: ''; display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; flex-shrink: 0; }
+    .steps-track { position: relative; }
+    .steps-track::before { content: ''; position: absolute; top: 21px; left: 10%; right: 10%; height: 1px; background: rgba(85,176,209,0.2); z-index: 0; }
+    .mobile-hamburger { display: none; flex-direction: column; justify-content: center; align-items: center; width: 38px; height: 38px; border-radius: 8px; border: none; background: transparent; cursor: pointer; gap: 5px; padding: 0; }
+    .mobile-hamburger:hover { background: rgba(0,0,0,0.05); }
+    .ham-bar { display: block; width: 20px; height: 2px; background: #1C1A18; border-radius: 2px; transition: transform 0.22s ease, opacity 0.22s ease; }
+    .mobile-hamburger.open .ham-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .mobile-hamburger.open .ham-bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .mobile-hamburger.open .ham-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu-panel { display: none; background: #FDFCFB; border-top: 1px solid rgba(0,0,0,0.06); }
+    .mobile-menu-panel.open { display: block; animation: menuSlideDown 0.2s ease; }
+    @keyframes menuSlideDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) { .nav-text-link { display: none; } .nav-cta-desktop { display: none; } .mobile-hamburger { display: flex; } .steps-track::before { display: none; } }
+    @media (max-width: 900px) { .steps-track::before { display: none; } }
+    @media (min-width: 641px) { .mobile-menu-panel { display: none !important; } }
+    .btn-primary {
+      background: linear-gradient(135deg, #55b0d1 0%, #4a9ab8 100%);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(85,176,209,0.28);
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 0.875rem 1.75rem;
+      display: inline-block;
+      transition: transform 0.15s, box-shadow 0.15s;
+      text-decoration: none;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(85,176,209,0.38); }
+    .btn-secondary { color: #4a9ab8; font-weight: 600; font-size: 0.875rem; border-bottom: 2px solid transparent; padding-bottom: 2px; text-decoration: none; transition: border-color 0.15s; display: inline-block; }
+    .btn-secondary:hover { border-color: #55b0d1; }
+    .logo-marquee { overflow: hidden; mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%); -webkit-transform: translateZ(0); transform: translateZ(0); }
+    .logo-track { display: flex; align-items: center; gap: 3rem; width: max-content; animation: marquee 36s linear infinite; -webkit-transform: translateZ(0); transform: translateZ(0); will-change: transform; }
+    .logo-track:hover { animation-play-state: paused; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  </style>
 </head>
-<body>
-  <a href="inproduction-homepage.html">inProduction</a>
+<body class="bg-[#F7F4F0] text-[#1C1A18] antialiased">
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 bg-[#F7F4F0]/80 backdrop-blur-md border-b border-black/[0.06]">
+  <nav class="max-w-5xl mx-auto px-6 py-3.5 flex justify-between items-center">
+    <a href="/" class="text-[1.3rem] font-bold tracking-[-0.03em] no-underline text-[#1C1A18]">
+      <span class="text-[#55b0d1]">in</span><span class="text-[#333]">Production</span>
+    </a>
+    <ul class="flex items-center gap-1 list-none m-0 p-0">
+      <li><a href="/cases/" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Cases</a></li>
+      <li><a href="/om-os/" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Om os</a></li>
+      <li><a href="/kontakt/" class="nav-cta-desktop text-sm font-semibold bg-[#333] text-white px-4 py-2 rounded-full hover:bg-[#1C1A18] hover:-translate-y-0.5 transition-all no-underline">Kontakt os</a></li>
+      <li><button id="mobile-menu-toggle" class="mobile-hamburger" aria-label="Åbn menu" aria-expanded="false"><span class="ham-bar"></span><span class="ham-bar"></span><span class="ham-bar"></span></button></li>
+    </ul>
+  </nav>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="mobile-menu-panel" aria-hidden="true">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex flex-col gap-1">
+      <a href="/cases/" class="text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-3 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Cases</a>
+      <a href="/om-os/" class="text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-3 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Om os</a>
+      <div class="px-3 py-2">
+        <a href="/kontakt/" class="text-sm font-semibold bg-[#333] text-white px-4 py-2.5 rounded-full hover:bg-[#1C1A18] transition-colors no-underline block text-center">Kontakt os</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="border-b border-black/[0.07]">
+
+  <!-- Problem zone — light -->
+  <div class="bg-[#F7F4F0] pt-20 pb-24 px-6 relative">
+    <div class="max-w-3xl mx-auto">
+      <span class="eyebrow text-[0.7rem] font-bold uppercase tracking-[0.14em] text-[#55b0d1]/70 mb-7 block">Kender I det?</span>
+      <h1 class="text-4xl lg:text-5xl font-bold tracking-[-0.04em] leading-[1.15] [text-wrap:balance] text-[#1C1A18] mb-10 max-w-2xl">Manuelle processer. Dobbeltindtastning. Systemer der ikke taler sammen.</h1>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-4">
+        <div class="flex items-baseline gap-3">
+          <span class="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#55b0d1]/60 relative top-[0.1em]"></span>
+          <span class="text-sm text-[#9C958F] leading-relaxed"><span class="text-[#1C1A18] font-semibold">Filer fejler i preflight</span> — og ingen opdager det, før det er for sent.</span>
+        </div>
+        <div class="flex items-baseline gap-3">
+          <span class="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#55b0d1]/60 relative top-[0.1em]"></span>
+          <span class="text-sm text-[#9C958F] leading-relaxed"><span class="text-[#1C1A18] font-semibold">Metadata tastes ind flere gange</span> — i ordresystem, prepress og ERP.</span>
+        </div>
+        <div class="flex items-baseline gap-3">
+          <span class="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#55b0d1]/60 relative top-[0.1em]"></span>
+          <span class="text-sm text-[#9C958F] leading-relaxed"><span class="text-[#1C1A18] font-semibold">Kvalitetskontrol afhænger af personer</span> — ikke af processer.</span>
+        </div>
+        <div class="flex items-baseline gap-3">
+          <span class="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#55b0d1]/60 relative top-[0.1em]"></span>
+          <span class="text-sm text-[#9C958F] leading-relaxed"><span class="text-[#1C1A18] font-semibold">Systemer lever i siloer</span> — ordreindtag, produktion og fakturering hænger ikke sammen.</span>
+        </div>
+      </div>
+    </div>
+    <!-- Bridge card — absolutely positioned to straddle the section boundary -->
+    <div class="max-w-3xl mx-auto absolute bottom-0 left-0 right-0 translate-y-1/2 px-6 z-10">
+      <div class="flex items-center justify-center gap-5 bg-white border border-black/[0.09] rounded-2xl py-5 shadow-[0_4px_24px_rgba(0,0,0,0.07)]">
+        <span class="w-10 h-px bg-[#55b0d1]/30"></span>
+        <div class="text-center">
+          <span class="text-[1.1rem] font-bold tracking-[-0.03em]"><span class="text-[#55b0d1]">in</span><span class="text-[#333]">Production</span></span>
+          <span class="block text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-[#55b0d1]/60 mt-1">skaber sammenhæng</span>
+        </div>
+        <span class="w-10 h-px bg-[#55b0d1]/30"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Solution zone -->
+  <div class="bg-[#FDFCFB] pt-24 pb-14 px-6">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl lg:text-4xl font-bold tracking-[-0.035em] leading-[1.2] [text-wrap:balance] text-[#333] mb-4">Metadata flyder. Kvalitet kontrolleres. Systemer taler sammen.</h2>
+      <p class="text-[0.97rem] text-[#6B6560] leading-[1.85] max-w-2xl mb-8">Vi bygger workflows, der forbinder ordreindtag, prepress, produktion og ERP — så data kun indtastes én gang, kvalitetskontrol kører automatisk, og fakturering følger med. Vi starter med det konkrete problem. Resten vokser derfra.</p>
+      <div class="flex items-center gap-5 flex-wrap">
+        <a href="/kontakt/" class="btn-primary">Book en uforpligtende gennemgang</a>
+        <a href="/om-os/" class="btn-secondary">Sådan arbejder vi →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social proof / logo marquee -->
+  <div class="bg-[#F7F4F0] border-t border-black/[0.07] py-7">
+    <p class="text-[0.68rem] font-bold uppercase tracking-[0.13em] text-[#B8B0A8] text-center mb-5">En del af den grafiske branche siden 2007</p>
+    <div class="logo-marquee">
+      <!-- logo-track contains two identical sets so the loop is seamless -->
+      <div class="logo-track">
+
+        <!-- SET 1 -->
+        <img src="logos/Clients/LEGO_logo.svg"                                          alt="LEGO"                 class="h-14 w-auto object-contain flex-shrink-0 opacity-80" />
+        <img src="logos/Clients/Story House Egmont.png"                                 alt="Story House Egmont"   class="h-11 w-auto object-contain flex-shrink-0 opacity-55" />
+        <img src="logos/Clients/novo-nordisk-logo-history-current-logo.jpg.corpimgo.jpg" alt="Novo Nordisk"        class="h-12 w-auto object-contain flex-shrink-0 opacity-55" />
+        <img src="logos/Clients/Bonnier Publications.svg"                               alt="Bonnier Publications" class="h-8 w-auto object-contain flex-shrink-0 opacity-55" />
+        <img src="logos/Clients/Mindworking.svg"                                        alt="Mindworking"          class="h-9 w-auto object-contain flex-shrink-0 opacity-65" />
+        <img src="logos/Clients/Modulex.webp"                                           alt="Modulex"              class="h-8 w-auto object-contain flex-shrink-0 opacity-60" />
+        <img src="logos/Clients/lasertryk_dk.svg"                                       alt="lasertryk.dk"         class="h-8 w-auto object-contain flex-shrink-0 opacity-55" />
+        <img src="logos/Clients/Zanity.png"                                             alt="Zanity IT"            class="h-9 w-auto object-contain flex-shrink-0 opacity-60" />
+        <span class="inline-flex items-center flex-shrink-0 rounded-md bg-[#2A2724] px-3 py-2">
+          <img src="logos/Clients/eurographic-group-logo-rgb-white.png"                 alt="Eurographic Group"    class="h-6 w-auto object-contain" />
+        </span>
+        <span class="inline-flex items-center flex-shrink-0 rounded-md bg-[#2A2724] px-3 py-2">
+          <img src="logos/Clients/MWA-LOGO-WHITE-200px.webp"                            alt="MWA"                  class="h-6 w-auto object-contain" />
+        </span>
+        <span class="inline-flex items-center flex-shrink-0 rounded-md bg-[#2A2724] px-3 py-2">
+          <img src="logos/Clients/Nonbye-logo-hvis.png"                                 alt="Nonbye"               class="h-6 w-auto object-contain" />
+        </span>
+        <span class="inline-flex items-center flex-shrink-0 rounded-md bg-[#2A2724] px-3 py-2">
+          <img src="logos/Clients/spring family.svg"                                    alt="Spring Family"        class="h-6 w-auto object-contain" />
+        </span>
+        <span class="inline-flex items-center flex-shrink-0 rounded-md bg-[#2A2724] px-3 py-2">
+          <img src="logos/Clients/envision.svg"                                         alt="Envision"             class="h-6 w-auto object-contain" />
+        </span>
+
+        <!-- SET 2 — identical duplicate for seamless loop -->
+        <img src="logos/Clients/LEGO_logo.svg"                                          alt=""                     class="h-14 w-auto object-contain flex-shrink-0 opacity-80" aria-hidden="true" />
+        <img src="logos/Clients/Story House Egmont.png"                                 alt=""                     class="h-11 w-auto object-contain flex-shrink-0 opacity-55" aria-hidden="true" />
+        <img src="logos/Clients/novo-nordisk-logo-history-current-logo.jpg.corpimgo.jpg" alt=""                    class="h-12 w-auto object-contain flex-shrink-0 opacity-55" aria-hidden="true" />
+        <img src="logos/Clients/Bonnier Publications.svg"                               alt=""                     class="h-8 w-auto object-contain flex-shrink-0 opacity-55" aria-hidden="true" />
+        <img src="logos/Clients/Mindworking.svg"                                        alt=""                     class="h-9 w-auto object-contain flex-shrink-0 opacity-65" aria-hidden="true" />
+        <img src="logos/Clients/Modulex.webp"                                           alt=""                     class="h-8 w-auto object-contain flex-shrink-0 opacity-60" aria-hidden="true" />
+        <img src="logos/Clients/lasertryk_dk.svg"                                       alt=""                     class="h-8 w-auto object-contain flex-shrink-0 opacity-55" aria-hidden="true" />
+        <img src="logos/Clients/Zanity.png"                                             alt=""                     class="h-9 w-auto object-contain flex-shrink-0 opacity-60" aria-hidden="true" />
+        <span class="inline-flex items-center flex-shrink-0 rounded-md bg-[#2A2724] px-3 py-2" aria-hidden="true">
+          <img src="logos/Clients/eurographic-group-logo-rgb-white.png"                 alt=""                     class="h-6 w-auto object-contain" />
+        </span>
+        <span class="inline-flex items-center flex-shrink-0 rounded-md bg-[#2A2724] px-3 py-2" aria-hidden="true">
+          <img src="logos/Clients/MWA-LOGO-WHITE-200px.webp"                            alt=""                     class="h-6 w-auto object-contain" />
+        </span>
+        <span class="inline-flex items-center flex-shrink-0 rounded-md bg-[#2A2724] px-3 py-2" aria-hidden="true">
+          <img src="logos/Clients/Nonbye-logo-hvis.png"                                 alt=""                     class="h-6 w-auto object-contain" />
+        </span>
+        <span class="inline-flex items-center flex-shrink-0 rounded-md bg-[#2A2724] px-3 py-2" aria-hidden="true">
+          <img src="logos/Clients/spring family.svg"                                    alt=""                     class="h-4 w-auto object-contain" />
+        </span>
+        <span class="inline-flex items-center flex-shrink-0 rounded-md bg-[#2A2724] px-2.5 py-1.5" aria-hidden="true">
+          <img src="logos/Clients/envision.svg"                                         alt=""                     class="h-4 w-auto object-contain" />
+        </span>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- FRAMEWORK -->
+<section class="bg-[#1C1A18] text-white py-24 px-6">
+  <div class="max-w-4xl mx-auto">
+    <span class="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#55b0d1] block mb-2">Digital modenhed</span>
+    <h2 class="text-3xl lg:text-4xl font-bold tracking-[-0.035em] text-white/90 mb-3 max-w-xl">Hvor er I på kurven?</h2>
+    <p class="text-[0.95rem] text-white/50 leading-[1.8] max-w-xl mb-14">De fleste virksomheder starter et sted på denne skala. Vi møder jer der, hvor I er — og hjælper jer videre til det næste trin.</p>
+
+    <div class="steps-track grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+      <div class="text-center px-1.5 relative z-10">
+        <div class="w-11 h-11 rounded-full border border-[#55b0d1]/25 bg-[#1C1A18] text-[#55b0d1] text-xs font-bold flex items-center justify-center mx-auto mb-4">01</div>
+        <h3 class="text-[0.75rem] font-bold uppercase tracking-[0.08em] text-white/90 mb-2">Reaktiv</h3>
+        <p class="text-[0.75rem] text-white/45 leading-relaxed">Manuelle processer dominerer. Potentialet er der — men endnu ikke handlet på det.</p>
+      </div>
+      <div class="text-center px-1.5 relative z-10">
+        <div class="w-11 h-11 rounded-full border border-[#55b0d1]/25 bg-[#1C1A18] text-[#55b0d1] text-xs font-bold flex items-center justify-center mx-auto mb-4">02</div>
+        <h3 class="text-[0.75rem] font-bold uppercase tracking-[0.08em] text-white/90 mb-2">Struktureret</h3>
+        <p class="text-[0.75rem] text-white/45 leading-relaxed">De første automationsskridt er taget. Workflows hjælper, men der er stadig masser at hente.</p>
+      </div>
+      <div class="text-center px-1.5 relative z-10">
+        <div class="w-11 h-11 rounded-full border border-[#55b0d1]/25 bg-[#1C1A18] text-[#55b0d1] text-xs font-bold flex items-center justify-center mx-auto mb-4">03</div>
+        <h3 class="text-[0.75rem] font-bold uppercase tracking-[0.08em] text-white/90 mb-2">Automatiseret</h3>
+        <p class="text-[0.75rem] text-white/45 leading-relaxed">Workflows kører godt — men systemerne taler ikke sammen. Siloer er stadig et problem.</p>
+      </div>
+      <div class="text-center px-1.5 relative z-10">
+        <div class="w-11 h-11 rounded-full border border-[#55b0d1]/25 bg-[#1C1A18] text-[#55b0d1] text-xs font-bold flex items-center justify-center mx-auto mb-4">04</div>
+        <h3 class="text-[0.75rem] font-bold uppercase tracking-[0.08em] text-white/90 mb-2">Integreret</h3>
+        <p class="text-[0.75rem] text-white/45 leading-relaxed">Automation og systemer hænger sammen. Ordrer, ERP og produktion flyder uden manuelt indgreb.</p>
+      </div>
+      <div class="text-center px-1.5 relative z-10">
+        <div class="w-11 h-11 rounded-full border border-[#55b0d1]/25 bg-[#1C1A18] text-[#55b0d1] text-xs font-bold flex items-center justify-center mx-auto mb-4">05</div>
+        <h3 class="text-[0.75rem] font-bold uppercase tracking-[0.08em] text-white/90 mb-2">Optimeret</h3>
+        <p class="text-[0.75rem] text-white/45 leading-relaxed">Datadrevne beslutninger. Workflows der tilpasser sig. Det mest bæredygtige og lønsomme stadie.</p>
+      </div>
+    </div>
+
+    <p class="mt-12 pt-7 border-t border-white/[0.06] text-[0.78rem] text-white/30 italic">Baseret på Enfocus' Digital Maturity Assessment — et anerkendt framework i den grafiske industri. InProduction er officiel Enfocus Switch-forhandler og -implementeringspartner.</p>
+    <a href="/kontakt/" class="inline-flex items-center gap-2 mt-6 px-5 py-3 bg-white/[0.06] border border-[#55b0d1]/20 rounded-xl text-[#55b0d1] text-sm font-semibold hover:bg-white/10 transition-colors no-underline">Ikke sikker på, hvor I er? Lad os finde ud af det sammen →</a>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="bg-[#FDFCFB] py-24 px-6">
+  <div class="max-w-2xl mx-auto">
+    <h2 class="text-3xl font-bold tracking-[-0.03em] leading-[1.2] [text-wrap:balance] text-[#1C1A18] mb-7">Det der starter som en løsning, bliver rygraden i produktionen.</h2>
+    <p class="text-[0.97rem] text-[#6B6560] leading-[1.85] mb-5">InProduction har bygget produktionsworkflows siden 2007 — forankret i den grafiske virkelighed: preflight, PDF-behandling, prepress, filrouting og overdragelse til tryk. Vi arbejder med trykkerier med blandet produktion — offset, digital, storformat, skilte og labels — og skaber sammenhæng mellem ordreindtag, prepress, produktion og ERP.</p>
+    <p class="text-[0.97rem] text-[#6B6560] leading-[1.85]">Enfocus Switch er kernen i de fleste løsninger — udvidet med skræddersyet udvikling der, hvor standardværktøjer ikke rækker. Resultatet er workflows der kan vedligeholdes, tilpasses og er bygget til at vokse med forretningen.</p>
+
+    <blockquote class="my-10 pl-6 border-l-[3px] border-[#55b0d1]">
+      <p class="text-xl font-medium text-[#3D3A37] italic leading-[1.7]">"De fleste projekter starter med et preflight-problem eller et manglende led mellem to systemer. Et år inde er vi typisk forbundet til ERP'en og sporer jobs på produktionsgulvet. Omfanget vokser, fordi hvert trin skaber forudsætningerne for det næste."</p>
+    </blockquote>
+
+    <p class="text-[0.97rem] text-[#6B6560] leading-[1.85]">Vi arbejder med et begrænset antal kunder ad gangen. Hvert samarbejde er hands-on — fra den første workshop til implementering og videre, efterhånden som workflowet vokser.</p>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="bg-[#F7F4F0] py-20 px-6 border-y border-black/[0.07]">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-2xl font-bold tracking-[-0.025em] text-[#1C1A18] mb-10">Vores tilgang</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-6 backdrop-blur-sm">
+        <span class="text-[0.65rem] font-bold uppercase tracking-[0.1em] text-[#55b0d1] block mb-2">Princip</span>
+        <h3 class="text-[0.9rem] font-bold text-[#1C1A18] mb-2">Analyse før teknologi</h3>
+        <p class="text-[0.84rem] text-[#6B6560] leading-[1.7]">Vi forstår jeres workflow, inden vi foreslår løsninger. Målet er ikke at implementere mest mulig teknologi — men at fjerne de rigtige flaskehalse.</p>
+      </div>
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-6 backdrop-blur-sm">
+        <span class="text-[0.65rem] font-bold uppercase tracking-[0.1em] text-[#55b0d1] block mb-2">Princip</span>
+        <h3 class="text-[0.9rem] font-bold text-[#1C1A18] mb-2">Standardløsninger før specialudvikling</h3>
+        <p class="text-[0.84rem] text-[#6B6560] leading-[1.7]">Vi bygger på gennemtestede platforme som Enfocus Switch. Specialudvikling tilføjes kun, når standardsoftware har bevist sin værdi — og ikke rækker længere.</p>
+      </div>
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-6 backdrop-blur-sm">
+        <span class="text-[0.65rem] font-bold uppercase tracking-[0.1em] text-[#55b0d1] block mb-2">Princip</span>
+        <h3 class="text-[0.9rem] font-bold text-[#1C1A18] mb-2">Integration før kompleksitet</h3>
+        <p class="text-[0.84rem] text-[#6B6560] leading-[1.7]">Den reelle værdi opstår, når metadata flyder automatisk mellem ordreindtag, produktion, kvalitetskontrol og ERP. Vi binder systemer sammen — fremfor at bygge nye.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES PREVIEW -->
+<section class="bg-[#FDFCFB] py-24 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="mb-10">
+      <span class="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#55b0d1] block mb-2">Cases</span>
+      <h2 class="text-3xl font-bold tracking-[-0.03em] [text-wrap:balance] text-[#1C1A18] mb-2">Sådan skaber vi modenhed i produktionen</h2>
+      <p class="text-[0.93rem] text-[#6B6560]">Fælles for projekterne er, at de startede med et konkret problem — og udviklede sig til en mere sammenhængende produktion.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-7 flex flex-col hover:bg-white/60 hover:border-[#55b0d1]/30 hover:shadow-md transition-all hover:-translate-y-0.5 backdrop-blur-sm">
+        <div class="text-[0.67rem] font-bold uppercase tracking-[0.13em] text-[#55b0d1] mb-2">LEGO — Intern Print</div>
+        <h3 class="text-[0.94rem] font-bold text-[#1C1A18] leading-snug mb-3">Fra manuelle printordrer til en automatiseret webshop med preflight og omkostningssporing</h3>
+        <p class="text-[0.83rem] text-[#6B6560] leading-[1.7] flex-1">LEGOs prototyping-afdeling havde brug for en bedre måde at håndtere interne printordrer på — samleguider, emballage, labels, prototyper. Vi byggede en Switch-baseret ordreportal med integreret preflight, automatiske statusopdateringer og intern omkostningsrapportering pr. afdeling.</p>
+        <div class="flex flex-wrap gap-1.5 mt-5">
+          <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Preflight</span>
+          <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Ordreportal</span>
+          <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Enfocus Switch</span>
+        </div>
+      </div>
+
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-7 flex flex-col hover:bg-white/60 hover:border-[#55b0d1]/30 hover:shadow-md transition-all hover:-translate-y-0.5 backdrop-blur-sm">
+        <div class="text-[0.67rem] font-bold uppercase tracking-[0.13em] text-[#55b0d1] mb-2">Story House Egmont</div>
+        <h3 class="text-[0.94rem] font-bold text-[#1C1A18] leading-snug mb-3">Annonceportal med automatisk kvalitetskontrol på tværs af magasinformater</h3>
+        <p class="text-[0.83rem] text-[#6B6560] leading-[1.7] flex-1">Annoncefiler ankom for sent, i forkert format og med specs der ikke matchede de enkelte titler. Vi byggede en indleveringsportal med automatisk QA — der tjekker farveprofiler, opløsning, beskæring og afskæring op mod hvert magasins præcise krav. Levering til tiden, hver gang.</p>
+        <div class="flex flex-wrap gap-1.5 mt-5">
+          <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">PDF-kvalitetskontrol</span>
+          <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Annonceportal</span>
+          <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">PitStop Server</span>
+        </div>
+      </div>
+
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-7 flex flex-col hover:bg-white/60 hover:border-[#55b0d1]/30 hover:shadow-md transition-all hover:-translate-y-0.5 backdrop-blur-sm">
+        <div class="text-[0.67rem] font-bold uppercase tracking-[0.13em] text-[#55b0d1] mb-2">Eurographic Group</div>
+        <h3 class="text-[0.94rem] font-bold text-[#1C1A18] leading-snug mb-3">Komplet produktionsautomatisering fra ordremodtagelse til ERP-fakturering</h3>
+        <p class="text-[0.83rem] text-[#6B6560] leading-[1.7] flex-1">Det der startede som PDF-kvalitetskontrol udviklede sig til et komplet produktionssystem — automatisk ordremodtagelse, dynamisk QA koblet til XML-metadata, jobsporing på produktionsgulvet og automatisk oprettelse af faktureringslinjer i ERP'en.</p>
+        <div class="flex flex-wrap gap-1.5 mt-5">
+          <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">ERP-integration</span>
+          <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Jobsporing</span>
+          <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Ordreautomatisering</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center">
+      <a href="/cases/" class="btn-secondary">Se alle cases →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-28 px-6 text-center bg-[#F7F4F0] border-t border-black/[0.07]">
+  <div class="max-w-xl mx-auto">
+    <h2 class="text-3xl lg:text-4xl font-bold tracking-[-0.035em] leading-[1.15] [text-wrap:balance] text-[#1C1A18] mb-5">Ikke sikker på, hvor I skal starte?<br class="hidden sm:block" /> Godt — det er som regel den første samtale.</h2>
+    <p class="text-[0.97rem] text-[#6B6560] leading-[1.8] mb-9">De fleste projekter begynder med en workshop — hos jer eller online — for at kortlægge det nuværende workflow og finde, hvor friktionen opstår. I behøver ikke forpligte jer til software eller en fuld løsning, inden vi har forstået det egentlige problem.</p>
+    <div class="flex justify-center items-center gap-5 flex-wrap">
+      <a href="/kontakt/" class="btn-primary">Kontakt os</a>
+      <a href="/om-os/" class="btn-secondary">Sådan arbejder vi →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-[#1C1A18] px-6 py-8 border-t border-white/[0.06]">
+  <div class="max-w-5xl mx-auto flex justify-between items-center flex-wrap gap-3 text-[0.8rem] text-white/35">
+    <span class="font-semibold text-white/70">inProduction ApS</span>
+    <span>Peter Kjær · Grundlagt 2007 · Enfocus Switch-forhandler &amp; workflow-specialist</span>
+    <a href="mailto:info@inproduction.dk" class="text-white/35 hover:text-white/70 no-underline transition-colors">info@inproduction.dk</a>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var toggle = document.getElementById('mobile-menu-toggle');
+    var menu = document.getElementById('mobile-menu');
+    if (!toggle || !menu) return;
+    toggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var isOpen = menu.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen);
+      menu.setAttribute('aria-hidden', !isOpen);
+    });
+    document.addEventListener('click', function(e) {
+      if (!document.querySelector('header').contains(e.target)) {
+        menu.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-hidden', 'true');
+      }
+    });
+  })();
+</script>
+
 </body>
 </html>
