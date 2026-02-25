@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Siden findes ikke | inProduction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { accent: '#55b0d1', mid: '#4a9ab8', dark: '#333333' },
+            warm: { base: '#F7F4F0', surface: '#FDFCFB', muted: '#6B6560', heading: '#1C1A18', dark: '#1C1A18', darker: '#2A2724' }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; }
+    .eyebrow::before { content: ''; display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; flex-shrink: 0; }
+    @media (max-width: 640px) { .nav-text-link { display: none; } }
+    .btn-primary {
+      background: linear-gradient(135deg, #55b0d1 0%, #4a9ab8 100%);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(85,176,209,0.28);
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 0.875rem 1.75rem;
+      display: inline-block;
+      transition: transform 0.15s, box-shadow 0.15s;
+      text-decoration: none;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(85,176,209,0.38); }
+    .btn-secondary { color: #4a9ab8; font-weight: 600; font-size: 0.875rem; border-bottom: 2px solid transparent; padding-bottom: 2px; text-decoration: none; transition: border-color 0.15s; display: inline-block; }
+    .btn-secondary:hover { border-color: #55b0d1; }
+
+    /* Large 404 background text */
+    .code-bg {
+      font-size: clamp(7rem, 22vw, 16rem);
+      font-weight: 700;
+      letter-spacing: -0.06em;
+      line-height: 1;
+      background: linear-gradient(135deg, rgba(85,176,209,0.10) 0%, rgba(74,154,184,0.06) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* Countdown ring */
+    .ring-track {
+      transform: rotate(-90deg);
+    }
+    .ring-fill {
+      stroke-dasharray: 188.4; /* 2 * π * 30 */
+      stroke-dashoffset: 0;
+      transition: stroke-dashoffset 1s linear;
+    }
+  </style>
+</head>
+<body class="bg-[#F7F4F0] text-[#1C1A18] antialiased min-h-screen flex flex-col">
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 bg-[#F7F4F0]/80 backdrop-blur-md border-b border-black/[0.06]">
+  <nav class="max-w-5xl mx-auto px-6 py-3.5 flex justify-between items-center">
+    <a href="inproduction-homepage.html" class="text-[1.3rem] font-bold tracking-[-0.03em] no-underline text-[#1C1A18]">
+      <span class="text-[#55b0d1]">in</span><span class="text-[#333]">Production</span>
+    </a>
+    <ul class="flex items-center gap-1 list-none m-0 p-0">
+      <li><a href="inproduction-cases.html" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Cases</a></li>
+      <li><a href="inproduction-om-os.html" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Om os</a></li>
+      <li><a href="inproduction-kontakt.html" class="text-sm font-semibold bg-[#333] text-white px-4 py-2 rounded-full hover:bg-[#1C1A18] hover:-translate-y-0.5 transition-all no-underline">Kontakt os</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- 404 CONTENT -->
+<main class="flex-1 flex items-center justify-center px-6 py-20">
+  <div class="max-w-2xl mx-auto text-center">
+
+    <!-- Background 404 number -->
+    <div class="relative select-none mb-2">
+      <div class="code-bg" aria-hidden="true">404</div>
+    </div>
+
+    <!-- Eyebrow label -->
+    <span class="eyebrow text-[0.7rem] font-bold uppercase tracking-[0.14em] text-[#55b0d1]/70 mb-5 justify-center">Siden findes ikke</span>
+
+    <!-- Heading -->
+    <h1 class="text-3xl lg:text-4xl font-bold tracking-[-0.04em] leading-[1.2] text-[#1C1A18] mt-4 mb-4">
+      Ups — den side eksisterer ikke.
+    </h1>
+
+    <!-- Body text -->
+    <p class="text-[0.97rem] text-[#6B6560] leading-[1.85] max-w-md mx-auto mb-10">
+      Den side, du leder efter, er måske blevet flyttet, omdøbt eller slettet.
+      Du sendes automatisk til forsiden om lidt.
+    </p>
+
+    <!-- Countdown + CTA -->
+    <div class="flex flex-col items-center gap-6">
+
+      <!-- Countdown ring -->
+      <div class="relative flex items-center justify-center w-16 h-16" aria-hidden="true">
+        <svg class="ring-track absolute inset-0 w-full h-full" viewBox="0 0 64 64">
+          <!-- Background track -->
+          <circle cx="32" cy="32" r="28" fill="none" stroke="rgba(85,176,209,0.12)" stroke-width="3"/>
+          <!-- Animated fill -->
+          <circle id="ring" cx="32" cy="32" r="28" fill="none"
+            stroke="#55b0d1" stroke-width="3"
+            stroke-linecap="round"
+            class="ring-fill"
+            style="stroke-dasharray: 175.9; stroke-dashoffset: 0;"
+          />
+        </svg>
+        <span id="countdown" class="text-xl font-bold text-[#55b0d1] tabular-nums">10</span>
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex items-center gap-5 flex-wrap justify-center">
+        <a href="inproduction-homepage.html" class="btn-primary">Gå til forsiden nu</a>
+        <button onclick="cancelRedirect()" class="btn-secondary">Annuller omdirigering →</button>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-black/[0.06] py-8 px-6">
+  <div class="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+    <span class="text-[1.1rem] font-bold tracking-[-0.03em]">
+      <span class="text-[#55b0d1]">in</span><span class="text-[#333]">Production</span>
+    </span>
+    <p class="text-xs text-[#9C958F]">© 2025 inProduction ApS. Alle rettigheder forbeholdes.</p>
+  </div>
+</footer>
+
+<script>
+  const REDIRECT_URL = 'inproduction-homepage.html';
+  const TOTAL = 10;
+  const CIRCUMFERENCE = 175.9; // 2 * π * 28
+
+  let remaining = TOTAL;
+  let cancelled = false;
+  let timer;
+
+  const countdownEl = document.getElementById('countdown');
+  const ringEl = document.getElementById('ring');
+
+  function updateRing() {
+    const fraction = remaining / TOTAL;
+    const offset = CIRCUMFERENCE * (1 - fraction);
+    ringEl.style.strokeDashoffset = offset;
+  }
+
+  function tick() {
+    if (cancelled) return;
+    remaining--;
+    countdownEl.textContent = remaining;
+    updateRing();
+    if (remaining <= 0) {
+      window.location.href = REDIRECT_URL;
+    }
+  }
+
+  // Initialise ring at full
+  updateRing();
+
+  // Start countdown
+  timer = setInterval(tick, 1000);
+
+  function cancelRedirect() {
+    cancelled = true;
+    clearInterval(timer);
+    // Hide the countdown ring and cancel button, update messaging
+    const ringWrapper = countdownEl.closest('.relative');
+    if (ringWrapper) ringWrapper.style.display = 'none';
+    // Replace cancel button with a subtle note
+    document.querySelectorAll('.btn-secondary').forEach(el => {
+      el.outerHTML = '<span class="text-xs text-[#9C958F]">Automatisk omdirigering annulleret.</span>';
+    });
+  }
+</script>
+
+</body>
+</html>
