@@ -24,20 +24,53 @@
     body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
     .eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; }
     .eyebrow::before { content: ''; display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; flex-shrink: 0; }
-    .steps-track { position: relative; }
-    .steps-track::before { content: ''; position: absolute; top: 21px; left: 10%; right: 10%; height: 1px; background: rgba(85,176,209,0.2); z-index: 0; }
     .mobile-hamburger { display: none; flex-direction: column; justify-content: center; align-items: center; width: 38px; height: 38px; border-radius: 8px; border: none; background: transparent; cursor: pointer; gap: 5px; padding: 0; }
     .mobile-hamburger:hover { background: rgba(0,0,0,0.05); }
     .ham-bar { display: block; width: 20px; height: 2px; background: #1C1A18; border-radius: 2px; transition: transform 0.22s ease, opacity 0.22s ease; }
     .mobile-hamburger.open .ham-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .mobile-hamburger.open .ham-bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .mobile-hamburger.open .ham-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .mobile-menu-panel { display: none; background: #FDFCFB; border-top: 1px solid rgba(0,0,0,0.06); }
-    .mobile-menu-panel.open { display: block; animation: menuSlideDown 0.2s ease; }
-    @keyframes menuSlideDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
-    @media (max-width: 640px) { .nav-text-link { display: none; } .nav-cta-desktop { display: none; } .mobile-hamburger { display: flex; } .steps-track::before { display: none; } }
-    @media (max-width: 900px) { .steps-track::before { display: none; } }
-    @media (min-width: 641px) { .mobile-menu-panel { display: none !important; } }
+    /* Full-screen mobile menu overlay */
+    .mobile-menu-overlay { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(247,244,240,0.93); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); flex-direction: column; justify-content: center; align-items: flex-start; padding: 3rem 2.5rem; }
+    .mobile-menu-overlay.open { display: flex; animation: overlayFadeIn 0.22s ease; }
+    @keyframes overlayFadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
+    .overlay-nav-link { display: flex; align-items: center; font-size: 2rem; font-weight: 700; color: #1C1A18; text-decoration: none; min-height: 56px; letter-spacing: -0.03em; transition: color 0.15s; }
+    .overlay-nav-link:hover { color: #55b0d1; }
+    .overlay-nav-cta { display: inline-flex; align-items: center; margin-top: 1.5rem; padding: 0.875rem 1.75rem; background: linear-gradient(135deg, #55b0d1 0%, #4a9ab8 100%); color: #fff; border-radius: 9999px; font-size: 1.1rem; font-weight: 700; text-decoration: none; box-shadow: 0 4px 20px rgba(85,176,209,0.28); transition: transform 0.15s, box-shadow 0.15s; }
+    .overlay-nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(85,176,209,0.38); }
+    .menu-close-btn { position: absolute; top: 1.25rem; right: 1.25rem; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: none; background: transparent; cursor: pointer; border-radius: 8px; color: #1C1A18; padding: 0; }
+    .menu-close-btn:hover { background: rgba(0,0,0,0.06); }
+    @media (max-width: 640px) { .nav-text-link { display: none; } .nav-cta-desktop { display: none; } .mobile-hamburger { display: flex; } }
+    @media (min-width: 641px) { .mobile-menu-overlay { display: none !important; } }
+    /* Misregistration animation */
+    .misreg-container { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+    .misreg-layer { position: absolute; width: 580px; height: 580px; border-radius: 50%; border-width: 1.5px; border-style: solid; top: -120px; right: -90px; }
+    .misreg-cyan    { border-color: #55b0d1; animation: misreg1 18s ease-in-out infinite; opacity: 0.08; }
+    .misreg-magenta { border-color: #d14e9a; animation: misreg2 18s ease-in-out infinite; opacity: 0.07; }
+    .misreg-yellow  { border-color: #d4a80a; animation: misreg3 18s ease-in-out infinite; opacity: 0.07; }
+    @keyframes misreg1 { 0%,100% { transform: translate(0,0); } 33% { transform: translate(-9px,6px); } 66% { transform: translate(6px,-7px); } }
+    @keyframes misreg2 { 0%,100% { transform: translate(7px,-6px); } 33% { transform: translate(0,8px); } 66% { transform: translate(-7px,-2px); } }
+    @keyframes misreg3 { 0%,100% { transform: translate(-6px,7px); } 33% { transform: translate(8px,-3px); } 66% { transform: translate(2px,6px); } }
+    /* Cases carousel */
+    .cases-carousel-outer { overflow: hidden; }
+    .cases-track { display: flex; transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .case-slide { flex: 0 0 100%; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+    @media (min-width: 640px) { .cases-track { width: 100%; gap: 1.25rem; } .case-slide { flex: 1 0 0; min-width: 0; } }
+    .cases-nav { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1.5rem; }
+    .carousel-btn { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.12); background: white; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #1C1A18; transition: all 0.15s; flex-shrink: 0; }
+    .carousel-btn:hover { background: #f0ece8; border-color: #55b0d1; }
+    .carousel-btn:disabled { opacity: 0.3; cursor: default; }
+    .carousel-dot { width: 6px; height: 6px; border-radius: 50%; background: #1C1A18; opacity: 0.18; border: none; padding: 0; cursor: pointer; transition: opacity 0.2s, width 0.2s; flex-shrink: 0; }
+    .carousel-dot.active { opacity: 0.65; width: 16px; border-radius: 3px; }
+    @media (min-width: 640px) { .cases-nav { display: none; } }
+    /* Maturity curve */
+    .maturity-point { cursor: pointer; outline: none; }
+    .maturity-point .mp-ring { transition: opacity 0.2s; }
+    .maturity-point .mp-dot { transition: fill 0.2s; }
+    .maturity-point:hover .mp-ring, .maturity-point:focus .mp-ring { opacity: 0.6 !important; }
+    .maturity-point.active .mp-ring { opacity: 0.7 !important; }
+    .maturity-point.active .mp-dot { fill: #55b0d1; }
+    .maturity-desc { transition: opacity 0.2s; }
     .btn-primary {
       background: linear-gradient(135deg, #55b0d1 0%, #4a9ab8 100%);
       color: #fff;
@@ -74,24 +107,31 @@
       <li><button id="mobile-menu-toggle" class="mobile-hamburger" aria-label="Åbn menu" aria-expanded="false"><span class="ham-bar"></span><span class="ham-bar"></span><span class="ham-bar"></span></button></li>
     </ul>
   </nav>
-  <!-- Mobile menu -->
-  <div id="mobile-menu" class="mobile-menu-panel" aria-hidden="true">
-    <div class="max-w-5xl mx-auto px-4 py-3 flex flex-col gap-1">
-      <a href="/cases/" class="text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-3 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Cases</a>
-      <a href="/om-os/" class="text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-3 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Om os</a>
-      <div class="px-3 py-2">
-        <a href="/kontakt/" class="text-sm font-semibold bg-[#333] text-white px-4 py-2.5 rounded-full hover:bg-[#1C1A18] transition-colors no-underline block text-center">Kontakt os</a>
-      </div>
-    </div>
-  </div>
 </header>
+
+<!-- Mobile full-screen menu overlay -->
+<div id="mobile-menu-overlay" class="mobile-menu-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation">
+  <button id="mobile-menu-close" class="menu-close-btn" aria-label="Luk menu">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="17" y1="5" x2="5" y2="17"/><line x1="5" y1="5" x2="17" y2="17"/></svg>
+  </button>
+  <nav class="flex flex-col gap-2">
+    <a href="/cases/" class="overlay-nav-link">Cases</a>
+    <a href="/om-os/" class="overlay-nav-link">Om os</a>
+    <a href="/kontakt/" class="overlay-nav-cta">Kontakt os</a>
+  </nav>
+</div>
 
 <!-- HERO -->
 <section class="border-b border-black/[0.07]">
 
   <!-- Problem zone — light -->
-  <div class="bg-[#F7F4F0] pt-20 pb-24 px-6 relative">
-    <div class="max-w-3xl mx-auto">
+  <div class="bg-[#F7F4F0] pt-20 pb-24 px-6 relative overflow-hidden">
+    <div aria-hidden="true" class="misreg-container">
+      <div class="misreg-layer misreg-cyan"></div>
+      <div class="misreg-layer misreg-magenta"></div>
+      <div class="misreg-layer misreg-yellow"></div>
+    </div>
+    <div class="max-w-3xl mx-auto relative z-[1]">
       <span class="eyebrow text-[0.7rem] font-bold uppercase tracking-[0.14em] text-[#55b0d1]/70 mb-7 block">Kender I det?</span>
       <h1 class="text-4xl lg:text-5xl font-bold tracking-[-0.04em] leading-[1.15] [text-wrap:balance] text-[#1C1A18] mb-10 max-w-2xl">Manuelle processer. Dobbeltindtastning. Systemer der ikke taler sammen.</h1>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-4">
@@ -130,7 +170,7 @@
   <div class="bg-[#FDFCFB] pt-24 pb-14 px-6">
     <div class="max-w-3xl mx-auto">
       <h2 class="text-3xl lg:text-4xl font-bold tracking-[-0.035em] leading-[1.2] [text-wrap:balance] text-[#333] mb-4">Metadata flyder. Kvalitet kontrolleres. Systemer taler sammen.</h2>
-      <p class="text-[0.97rem] text-[#6B6560] leading-[1.85] max-w-2xl mb-8">Vi bygger workflows, der forbinder ordreindtag, prepress, produktion og ERP — så data kun indtastes én gang, kvalitetskontrol kører automatisk, og fakturering følger med. Vi starter med det konkrete problem. Resten vokser derfra.</p>
+      <p class="text-[0.97rem] text-[#6B6560] leading-[1.85] max-w-2xl mb-8">Vi bygger workflows der forbinder ordreindtag, prepress, produktion og ERP. Kvalitetskontrol kører automatisk. Et konkret problem — resten vokser derfra.</p>
       <div class="flex items-center gap-5 flex-wrap">
         <a href="/kontakt/" class="btn-primary">Book en uforpligtende gennemgang</a>
         <a href="/om-os/" class="btn-secondary">Sådan arbejder vi →</a>
@@ -202,37 +242,71 @@
 </section>
 
 <!-- FRAMEWORK -->
-<section class="bg-[#1C1A18] text-white py-24 px-6">
+<section class="bg-[#1C1A18] text-white py-24 px-6 border-t-[3px] border-[#55b0d1]">
   <div class="max-w-4xl mx-auto">
     <span class="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#55b0d1] block mb-2">Digital modenhed</span>
     <h2 class="text-3xl lg:text-4xl font-bold tracking-[-0.035em] text-white/90 mb-3 max-w-xl">Hvor er I på kurven?</h2>
     <p class="text-[0.95rem] text-white/50 leading-[1.8] max-w-xl mb-14">De fleste virksomheder starter et sted på denne skala. Vi møder jer der, hvor I er — og hjælper jer videre til det næste trin.</p>
 
-    <div class="steps-track grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-      <div class="text-center px-1.5 relative z-10">
-        <div class="w-11 h-11 rounded-full border border-[#55b0d1]/25 bg-[#1C1A18] text-[#55b0d1] text-xs font-bold flex items-center justify-center mx-auto mb-4">01</div>
-        <h3 class="text-[0.75rem] font-bold uppercase tracking-[0.08em] text-white/90 mb-2">Reaktiv</h3>
-        <p class="text-[0.75rem] text-white/45 leading-relaxed">Manuelle processer dominerer. Potentialet er der — men endnu ikke handlet på det.</p>
-      </div>
-      <div class="text-center px-1.5 relative z-10">
-        <div class="w-11 h-11 rounded-full border border-[#55b0d1]/25 bg-[#1C1A18] text-[#55b0d1] text-xs font-bold flex items-center justify-center mx-auto mb-4">02</div>
-        <h3 class="text-[0.75rem] font-bold uppercase tracking-[0.08em] text-white/90 mb-2">Struktureret</h3>
-        <p class="text-[0.75rem] text-white/45 leading-relaxed">De første automationsskridt er taget. Workflows hjælper, men der er stadig masser at hente.</p>
-      </div>
-      <div class="text-center px-1.5 relative z-10">
-        <div class="w-11 h-11 rounded-full border border-[#55b0d1]/25 bg-[#1C1A18] text-[#55b0d1] text-xs font-bold flex items-center justify-center mx-auto mb-4">03</div>
-        <h3 class="text-[0.75rem] font-bold uppercase tracking-[0.08em] text-white/90 mb-2">Automatiseret</h3>
-        <p class="text-[0.75rem] text-white/45 leading-relaxed">Workflows kører godt — men systemerne taler ikke sammen. Siloer er stadig et problem.</p>
-      </div>
-      <div class="text-center px-1.5 relative z-10">
-        <div class="w-11 h-11 rounded-full border border-[#55b0d1]/25 bg-[#1C1A18] text-[#55b0d1] text-xs font-bold flex items-center justify-center mx-auto mb-4">04</div>
-        <h3 class="text-[0.75rem] font-bold uppercase tracking-[0.08em] text-white/90 mb-2">Integreret</h3>
-        <p class="text-[0.75rem] text-white/45 leading-relaxed">Automation og systemer hænger sammen. Ordrer, ERP og produktion flyder uden manuelt indgreb.</p>
-      </div>
-      <div class="text-center px-1.5 relative z-10">
-        <div class="w-11 h-11 rounded-full border border-[#55b0d1]/25 bg-[#1C1A18] text-[#55b0d1] text-xs font-bold flex items-center justify-center mx-auto mb-4">05</div>
-        <h3 class="text-[0.75rem] font-bold uppercase tracking-[0.08em] text-white/90 mb-2">Optimeret</h3>
-        <p class="text-[0.75rem] text-white/45 leading-relaxed">Datadrevne beslutninger. Workflows der tilpasser sig. Det mest bæredygtige og lønsomme stadie.</p>
+    <!-- Interactive maturity curve -->
+    <div id="maturityViz">
+      <svg viewBox="0 -30 800 230" class="w-full" style="overflow:visible" aria-hidden="true">
+        <defs>
+          <linearGradient id="curveGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#55b0d1" stop-opacity="0.12"/>
+            <stop offset="100%" stop-color="#55b0d1" stop-opacity="0.02"/>
+          </linearGradient>
+        </defs>
+        <!-- Fill under curve -->
+        <path d="M 60,155 C 140,155 195,145 275,120 S 455,45 740,15 L 740,200 L 60,200 Z" fill="url(#curveGrad)"/>
+        <!-- Curve line -->
+        <path d="M 60,155 C 140,155 195,145 275,120 S 455,45 740,15" fill="none" stroke="rgba(85,176,209,0.28)" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Point 1: Reaktiv -->
+        <g class="maturity-point" data-step="0" tabindex="0" role="button" aria-label="Trin 1: Reaktiv">
+          <circle cx="60" cy="155" r="22" fill="transparent"/>
+          <circle cx="60" cy="155" r="16" fill="rgba(85,176,209,0)" stroke="#55b0d1" stroke-width="1" class="mp-ring" opacity="0.25"/>
+          <circle cx="60" cy="155" r="5.5" fill="#1C1A18" stroke="#55b0d1" stroke-width="1.5" class="mp-dot"/>
+          <text x="60" y="138" text-anchor="middle" fill="rgba(255,255,255,0.30)" font-size="7.5" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.10em">01</text>
+          <text x="60" y="127" text-anchor="middle" fill="rgba(255,255,255,0.50)" font-size="8.5" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.05em">REAKTIV</text>
+        </g>
+        <!-- Point 2: Struktureret -->
+        <g class="maturity-point" data-step="1" tabindex="0" role="button" aria-label="Trin 2: Struktureret">
+          <circle cx="230" cy="133" r="22" fill="transparent"/>
+          <circle cx="230" cy="133" r="16" fill="rgba(85,176,209,0)" stroke="#55b0d1" stroke-width="1" class="mp-ring" opacity="0.25"/>
+          <circle cx="230" cy="133" r="5.5" fill="#1C1A18" stroke="#55b0d1" stroke-width="1.5" class="mp-dot"/>
+          <text x="230" y="116" text-anchor="middle" fill="rgba(255,255,255,0.30)" font-size="7.5" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.10em">02</text>
+          <text x="230" y="105" text-anchor="middle" fill="rgba(255,255,255,0.50)" font-size="8.5" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.05em">STRUKTURERET</text>
+        </g>
+        <!-- Point 3: Automatiseret -->
+        <g class="maturity-point" data-step="2" tabindex="0" role="button" aria-label="Trin 3: Automatiseret">
+          <circle cx="400" cy="90" r="22" fill="transparent"/>
+          <circle cx="400" cy="90" r="16" fill="rgba(85,176,209,0)" stroke="#55b0d1" stroke-width="1" class="mp-ring" opacity="0.25"/>
+          <circle cx="400" cy="90" r="5.5" fill="#1C1A18" stroke="#55b0d1" stroke-width="1.5" class="mp-dot"/>
+          <text x="400" y="73" text-anchor="middle" fill="rgba(255,255,255,0.30)" font-size="7.5" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.10em">03</text>
+          <text x="400" y="62" text-anchor="middle" fill="rgba(255,255,255,0.50)" font-size="8.5" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.05em">AUTOMATISERET</text>
+        </g>
+        <!-- Point 4: Integreret -->
+        <g class="maturity-point" data-step="3" tabindex="0" role="button" aria-label="Trin 4: Integreret">
+          <circle cx="570" cy="47" r="22" fill="transparent"/>
+          <circle cx="570" cy="47" r="16" fill="rgba(85,176,209,0)" stroke="#55b0d1" stroke-width="1" class="mp-ring" opacity="0.25"/>
+          <circle cx="570" cy="47" r="5.5" fill="#1C1A18" stroke="#55b0d1" stroke-width="1.5" class="mp-dot"/>
+          <text x="570" y="30" text-anchor="middle" fill="rgba(255,255,255,0.30)" font-size="7.5" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.10em">04</text>
+          <text x="570" y="19" text-anchor="middle" fill="rgba(255,255,255,0.50)" font-size="8.5" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.05em">INTEGRERET</text>
+        </g>
+        <!-- Point 5: Optimeret -->
+        <g class="maturity-point" data-step="4" tabindex="0" role="button" aria-label="Trin 5: Optimeret">
+          <circle cx="740" cy="15" r="22" fill="transparent"/>
+          <circle cx="740" cy="15" r="16" fill="rgba(85,176,209,0)" stroke="#55b0d1" stroke-width="1" class="mp-ring" opacity="0.25"/>
+          <circle cx="740" cy="15" r="5.5" fill="#1C1A18" stroke="#55b0d1" stroke-width="1.5" class="mp-dot"/>
+          <text x="740" y="-2" text-anchor="middle" fill="rgba(255,255,255,0.30)" font-size="7.5" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.10em">05</text>
+          <text x="740" y="-13" text-anchor="middle" fill="rgba(255,255,255,0.50)" font-size="8.5" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.05em">OPTIMERET</text>
+        </g>
+      </svg>
+      <!-- Description panel updated by JS -->
+      <div id="maturityDesc" class="mt-7 p-5 rounded-xl border border-[#55b0d1]/20 bg-white/[0.05] maturity-desc">
+        <span id="maturityDescStep" class="text-[0.65rem] font-bold uppercase tracking-[0.13em] text-[#55b0d1]/60 block mb-1">Trin 1 af 5</span>
+        <h3 id="maturityDescTitle" class="text-[0.85rem] font-bold uppercase tracking-[0.06em] text-white/90 mb-2">Reaktiv</h3>
+        <p id="maturityDescText" class="text-[0.85rem] text-white/55 leading-relaxed">Manuelle processer dominerer. Potentialet er der — men endnu ikke handlet på det.</p>
       </div>
     </div>
 
@@ -245,8 +319,7 @@
 <section class="bg-[#FDFCFB] py-24 px-6">
   <div class="max-w-2xl mx-auto">
     <h2 class="text-3xl font-bold tracking-[-0.03em] leading-[1.2] [text-wrap:balance] text-[#1C1A18] mb-7">Det der starter som en løsning, bliver rygraden i produktionen.</h2>
-    <p class="text-[0.97rem] text-[#6B6560] leading-[1.85] mb-5">InProduction har bygget produktionsworkflows siden 2007 — forankret i den grafiske virkelighed: preflight, PDF-behandling, prepress, filrouting og overdragelse til tryk. Vi arbejder med trykkerier med blandet produktion — offset, digital, storformat, skilte og labels — og skaber sammenhæng mellem ordreindtag, prepress, produktion og ERP.</p>
-    <p class="text-[0.97rem] text-[#6B6560] leading-[1.85]">Enfocus Switch er kernen i de fleste løsninger — udvidet med skræddersyet udvikling der, hvor standardværktøjer ikke rækker. Resultatet er workflows der kan vedligeholdes, tilpasses og er bygget til at vokse med forretningen.</p>
+    <p class="text-[0.97rem] text-[#6B6560] leading-[1.85] mb-5">InProduction har bygget produktionsworkflows siden 2007 — forankret i den grafiske virkelighed. Vi arbejder med trykkerier med blandet produktion og skaber sammenhæng mellem ordreindtag, prepress, produktion og ERP. Enfocus Switch er kernen, udvidet med skræddersyet integration der, hvor standardsoftware ikke rækker.</p>
 
     <blockquote class="my-10 pl-6 border-l-[3px] border-[#55b0d1]">
       <p class="text-xl font-medium text-[#3D3A37] italic leading-[1.7]">"De fleste projekter starter med et preflight-problem eller et manglende led mellem to systemer. Et år inde er vi typisk forbundet til ERP'en og sporer jobs på produktionsgulvet. Omfanget vokser, fordi hvert trin skaber forudsætningerne for det næste."</p>
@@ -289,39 +362,60 @@
       <p class="text-[0.93rem] text-[#6B6560]">Fælles for projekterne er, at de startede med et konkret problem — og udviklede sig til en mere sammenhængende produktion.</p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
-      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-7 flex flex-col hover:bg-white/60 hover:border-[#55b0d1]/30 hover:shadow-md transition-all hover:-translate-y-0.5 backdrop-blur-sm">
-        <div class="text-[0.67rem] font-bold uppercase tracking-[0.13em] text-[#55b0d1] mb-2">LEGO — Intern Print</div>
-        <h3 class="text-[0.94rem] font-bold text-[#1C1A18] leading-snug mb-3">Fra manuelle printordrer til en automatiseret webshop med preflight og omkostningssporing</h3>
-        <p class="text-[0.83rem] text-[#6B6560] leading-[1.7] flex-1">LEGOs prototyping-afdeling havde brug for en bedre måde at håndtere interne printordrer på — samleguider, emballage, labels, prototyper. Vi byggede en Switch-baseret ordreportal med integreret preflight, automatiske statusopdateringer og intern omkostningsrapportering pr. afdeling.</p>
-        <div class="flex flex-wrap gap-1.5 mt-5">
-          <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Preflight</span>
-          <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Ordreportal</span>
-          <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Enfocus Switch</span>
-        </div>
-      </div>
+    <!-- Cases carousel: 1-up on mobile, 3-column on desktop -->
+    <div class="cases-carousel-outer" role="region" aria-label="Cases">
+      <div class="cases-track" id="casesTrack">
+        <a href="/cases/#lego" class="case-slide bg-white/40 rounded-2xl border border-black/[0.09] p-7 hover:bg-white/60 hover:border-[#55b0d1]/30 hover:shadow-md transition-all backdrop-blur-sm">
+          <div class="text-[0.67rem] font-bold uppercase tracking-[0.13em] text-[#55b0d1] mb-2">LEGO — Intern Print</div>
+          <h3 class="text-[0.94rem] font-bold text-[#1C1A18] leading-snug mb-3">Fra manuelle printordrer til en automatiseret webshop med preflight og omkostningssporing</h3>
+          <p class="text-[0.83rem] text-[#6B6560] leading-[1.7] flex-1">LEGOs prototyping-afdeling havde brug for en bedre måde at håndtere interne printordrer på. Vi byggede en Switch-baseret ordreportal med integreret preflight, automatiske statusopdateringer og intern omkostningsrapportering pr. afdeling.</p>
+          <div class="flex flex-wrap gap-1.5 mt-5">
+            <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Preflight</span>
+            <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Ordreportal</span>
+            <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Enfocus Switch</span>
+          </div>
+          <span class="mt-5 inline-flex items-center gap-1 text-[0.78rem] font-semibold text-[#55b0d1]">Læs case →</span>
+        </a>
 
-      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-7 flex flex-col hover:bg-white/60 hover:border-[#55b0d1]/30 hover:shadow-md transition-all hover:-translate-y-0.5 backdrop-blur-sm">
-        <div class="text-[0.67rem] font-bold uppercase tracking-[0.13em] text-[#55b0d1] mb-2">Story House Egmont</div>
-        <h3 class="text-[0.94rem] font-bold text-[#1C1A18] leading-snug mb-3">Annonceportal med automatisk kvalitetskontrol på tværs af magasinformater</h3>
-        <p class="text-[0.83rem] text-[#6B6560] leading-[1.7] flex-1">Annoncefiler ankom for sent, i forkert format og med specs der ikke matchede de enkelte titler. Vi byggede en indleveringsportal med automatisk QA — der tjekker farveprofiler, opløsning, beskæring og afskæring op mod hvert magasins præcise krav. Levering til tiden, hver gang.</p>
-        <div class="flex flex-wrap gap-1.5 mt-5">
-          <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">PDF-kvalitetskontrol</span>
-          <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Annonceportal</span>
-          <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">PitStop Server</span>
-        </div>
-      </div>
+        <a href="/cases/#story-house-egmont" class="case-slide bg-white/40 rounded-2xl border border-black/[0.09] p-7 hover:bg-white/60 hover:border-[#55b0d1]/30 hover:shadow-md transition-all backdrop-blur-sm">
+          <div class="text-[0.67rem] font-bold uppercase tracking-[0.13em] text-[#55b0d1] mb-2">Story House Egmont</div>
+          <h3 class="text-[0.94rem] font-bold text-[#1C1A18] leading-snug mb-3">Annonceportal med automatisk kvalitetskontrol på tværs af magasinformater</h3>
+          <p class="text-[0.83rem] text-[#6B6560] leading-[1.7] flex-1">Annoncefiler ankom for sent og i forkert format. Vi byggede en indleveringsportal med automatisk QA — der tjekker farveprofiler, opløsning og beskæring op mod hvert magasins præcise krav.</p>
+          <div class="flex flex-wrap gap-1.5 mt-5">
+            <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">PDF-kvalitetskontrol</span>
+            <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Annonceportal</span>
+            <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">PitStop Server</span>
+          </div>
+          <span class="mt-5 inline-flex items-center gap-1 text-[0.78rem] font-semibold text-[#55b0d1]">Læs case →</span>
+        </a>
 
-      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-7 flex flex-col hover:bg-white/60 hover:border-[#55b0d1]/30 hover:shadow-md transition-all hover:-translate-y-0.5 backdrop-blur-sm">
-        <div class="text-[0.67rem] font-bold uppercase tracking-[0.13em] text-[#55b0d1] mb-2">Eurographic Group</div>
-        <h3 class="text-[0.94rem] font-bold text-[#1C1A18] leading-snug mb-3">Komplet produktionsautomatisering fra ordremodtagelse til ERP-fakturering</h3>
-        <p class="text-[0.83rem] text-[#6B6560] leading-[1.7] flex-1">Det der startede som PDF-kvalitetskontrol udviklede sig til et komplet produktionssystem — automatisk ordremodtagelse, dynamisk QA koblet til XML-metadata, jobsporing på produktionsgulvet og automatisk oprettelse af faktureringslinjer i ERP'en.</p>
-        <div class="flex flex-wrap gap-1.5 mt-5">
-          <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">ERP-integration</span>
-          <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Jobsporing</span>
-          <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Ordreautomatisering</span>
-        </div>
+        <a href="/cases/#eurographic" class="case-slide bg-white/40 rounded-2xl border border-black/[0.09] p-7 hover:bg-white/60 hover:border-[#55b0d1]/30 hover:shadow-md transition-all backdrop-blur-sm">
+          <div class="text-[0.67rem] font-bold uppercase tracking-[0.13em] text-[#55b0d1] mb-2">Eurographic Group</div>
+          <h3 class="text-[0.94rem] font-bold text-[#1C1A18] leading-snug mb-3">Komplet produktionsautomatisering fra ordremodtagelse til ERP-fakturering</h3>
+          <p class="text-[0.83rem] text-[#6B6560] leading-[1.7] flex-1">Det der startede som PDF-kvalitetskontrol udviklede sig til et komplet produktionssystem — automatisk ordremodtagelse, dynamisk QA koblet til XML-metadata, jobsporing og automatisk fakturering i ERP'en.</p>
+          <div class="flex flex-wrap gap-1.5 mt-5">
+            <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">ERP-integration</span>
+            <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Jobsporing</span>
+            <span class="text-[0.67rem] font-medium bg-black/[0.04] text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Ordreautomatisering</span>
+          </div>
+          <span class="mt-5 inline-flex items-center gap-1 text-[0.78rem] font-semibold text-[#55b0d1]">Læs case →</span>
+        </a>
       </div>
+    </div>
+
+    <!-- Carousel navigation (mobile only) -->
+    <div class="cases-nav" id="casesNav" aria-label="Naviger cases">
+      <button class="carousel-btn" id="casesPrev" aria-label="Forrige case" disabled>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="9,2 4,7 9,12"/></svg>
+      </button>
+      <div class="flex gap-2 items-center" id="casesDots">
+        <button class="carousel-dot active" aria-label="Case 1"></button>
+        <button class="carousel-dot" aria-label="Case 2"></button>
+        <button class="carousel-dot" aria-label="Case 3"></button>
+      </div>
+      <button class="carousel-btn" id="casesNext" aria-label="Næste case">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="5,2 10,7 5,12"/></svg>
+      </button>
     </div>
 
     <div class="mt-8 text-center">
@@ -334,7 +428,7 @@
 <section class="py-28 px-6 text-center bg-[#F7F4F0] border-t border-black/[0.07]">
   <div class="max-w-xl mx-auto">
     <h2 class="text-3xl lg:text-4xl font-bold tracking-[-0.035em] leading-[1.15] [text-wrap:balance] text-[#1C1A18] mb-5">Ikke sikker på, hvor I skal starte?<br class="hidden sm:block" /> Godt — det er som regel den første samtale.</h2>
-    <p class="text-[0.97rem] text-[#6B6560] leading-[1.8] mb-9">De fleste projekter begynder med en workshop — hos jer eller online — for at kortlægge det nuværende workflow og finde, hvor friktionen opstår. I behøver ikke forpligte jer til software eller en fuld løsning, inden vi har forstået det egentlige problem.</p>
+    <p class="text-[0.97rem] text-[#6B6560] leading-[1.8] mb-9">De fleste projekter begynder med en workshop — hos jer eller online — for at kortlægge det nuværende workflow. I behøver ikke forpligte jer til noget, inden vi har forstået det egentlige problem.</p>
     <div class="flex justify-center items-center gap-5 flex-wrap">
       <a href="/kontakt/" class="btn-primary">Kontakt os</a>
       <a href="/om-os/" class="btn-secondary">Sådan arbejder vi →</a>
@@ -343,7 +437,7 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-[#1C1A18] px-6 py-8 border-t border-white/[0.06]">
+<footer class="bg-[#141210] px-6 py-8 border-t border-white/[0.06]">
   <div class="max-w-5xl mx-auto flex justify-between items-center flex-wrap gap-3 text-[0.8rem] text-white/35">
     <span class="font-semibold text-white/70">inProduction ApS</span>
     <span>Peter Kjær · Grundlagt 2007 · Enfocus Switch-forhandler &amp; workflow-specialist</span>
@@ -352,25 +446,92 @@
 </footer>
 
 <script>
+  // Mobile menu overlay
   (function() {
     var toggle = document.getElementById('mobile-menu-toggle');
-    var menu = document.getElementById('mobile-menu');
-    if (!toggle || !menu) return;
+    var overlay = document.getElementById('mobile-menu-overlay');
+    var closeBtn = document.getElementById('mobile-menu-close');
+    if (!toggle || !overlay) return;
+    function openMenu() {
+      overlay.classList.add('open');
+      toggle.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      overlay.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
     toggle.addEventListener('click', function(e) {
       e.stopPropagation();
-      var isOpen = menu.classList.toggle('open');
-      toggle.classList.toggle('open', isOpen);
-      toggle.setAttribute('aria-expanded', isOpen);
-      menu.setAttribute('aria-hidden', !isOpen);
+      overlay.classList.contains('open') ? closeMenu() : openMenu();
     });
-    document.addEventListener('click', function(e) {
-      if (!document.querySelector('header').contains(e.target)) {
-        menu.classList.remove('open');
-        toggle.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-        menu.setAttribute('aria-hidden', 'true');
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) closeMenu();
+    });
+  })();
+
+  // Cases carousel (mobile: 1-up with prev/next; desktop: all 3 visible)
+  (function() {
+    var outer = document.querySelector('.cases-carousel-outer');
+    var track = document.getElementById('casesTrack');
+    var prevBtn = document.getElementById('casesPrev');
+    var nextBtn = document.getElementById('casesNext');
+    var dots = document.querySelectorAll('#casesDots .carousel-dot');
+    if (!track || !prevBtn || !nextBtn || !outer) return;
+    var total = track.querySelectorAll('.case-slide').length;
+    var current = 0;
+    function isMobile() { return window.innerWidth < 640; }
+    function update() {
+      if (isMobile()) {
+        track.style.transform = 'translateX(' + (-current * outer.offsetWidth) + 'px)';
+      } else {
+        track.style.transform = '';
+        current = 0;
       }
+      dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current === total - 1;
+    }
+    prevBtn.addEventListener('click', function() { if (current > 0) { current--; update(); } });
+    nextBtn.addEventListener('click', function() { if (current < total - 1) { current++; update(); } });
+    dots.forEach(function(d, i) { d.addEventListener('click', function() { current = i; update(); }); });
+    window.addEventListener('resize', update);
+    update();
+  })();
+
+  // Maturity curve interactivity
+  (function() {
+    var stages = [
+      { step: 'Trin 1 af 5', title: 'Reaktiv', text: 'Manuelle processer dominerer. Potentialet er der — men endnu ikke handlet på det.' },
+      { step: 'Trin 2 af 5', title: 'Struktureret', text: 'De første automationsskridt er taget. Workflows hjælper, men der er stadig masser at hente.' },
+      { step: 'Trin 3 af 5', title: 'Automatiseret', text: 'Workflows kører godt — men systemerne taler ikke sammen. Siloer er stadig et problem.' },
+      { step: 'Trin 4 af 5', title: 'Integreret', text: 'Automation og systemer hænger sammen. Ordrer, ERP og produktion flyder uden manuelt indgreb.' },
+      { step: 'Trin 5 af 5', title: 'Optimeret', text: 'Datadrevne beslutninger. Workflows der tilpasser sig. Det mest bæredygtige og lønsomme stadie.' }
+    ];
+    var points = document.querySelectorAll('.maturity-point');
+    var descStep = document.getElementById('maturityDescStep');
+    var descTitle = document.getElementById('maturityDescTitle');
+    var descText = document.getElementById('maturityDescText');
+    function activate(idx) {
+      points.forEach(function(p) { p.classList.remove('active'); });
+      if (points[idx]) points[idx].classList.add('active');
+      if (descStep)  descStep.textContent  = stages[idx].step;
+      if (descTitle) descTitle.textContent = stages[idx].title;
+      if (descText)  descText.textContent  = stages[idx].text;
+    }
+    points.forEach(function(p) {
+      p.addEventListener('click', function() { activate(parseInt(this.dataset.step)); });
+      p.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(parseInt(this.dataset.step)); }
+      });
     });
+    activate(0);
   })();
 </script>
 
