@@ -71,9 +71,11 @@
     .maturity-point.active .mp-ring { opacity: 0.7 !important; }
     .maturity-point.active .mp-dot { fill: #55b0d1; }
     .maturity-desc { transition: opacity 0.2s; }
-    @keyframes mp-pulse { 0% { transform: scale(0.25); opacity: 0.45; } 100% { transform: scale(1); opacity: 0; } }
+    @keyframes mp-pulse { 0% { transform: scale(0.45); opacity: 0.70; } 100% { transform: scale(1); opacity: 0; } }
     .maturity-point .mp-pulse { transform-box: fill-box; transform-origin: center; animation: mp-pulse 2.2s ease-out infinite; }
     .maturity-point.active .mp-pulse { animation: none; opacity: 0; }
+    .maturity-point .mp-num { fill: rgba(255,255,255,0.70); transition: fill 0.2s; }
+    .maturity-point.active .mp-num { fill: #1C1A18; }
     .btn-primary {
       background: linear-gradient(135deg, #55b0d1 0%, #4a9ab8 100%);
       color: #fff;
@@ -260,6 +262,12 @@
             <stop offset="100%" stop-color="#55b0d1" stop-opacity="0.02"/>
           </linearGradient>
         </defs>
+        <!-- Grid lines -->
+        <line x1="60" y1="155" x2="60" y2="200" stroke="rgba(85,176,209,0.20)" stroke-width="1"/>
+        <line x1="230" y1="133" x2="230" y2="200" stroke="rgba(85,176,209,0.20)" stroke-width="1"/>
+        <line x1="400" y1="90" x2="400" y2="200" stroke="rgba(85,176,209,0.20)" stroke-width="1"/>
+        <line x1="570" y1="47" x2="570" y2="200" stroke="rgba(85,176,209,0.20)" stroke-width="1"/>
+        <line x1="740" y1="15" x2="740" y2="200" stroke="rgba(85,176,209,0.20)" stroke-width="1"/>
         <!-- Fill under curve -->
         <path d="M 60,155 C 140,155 195,145 275,120 S 455,45 740,15 L 740,200 L 60,200 Z" fill="url(#curveGrad)"/>
         <!-- Curve line -->
@@ -268,46 +276,46 @@
         <g class="maturity-point" data-step="0" tabindex="0" role="button" aria-label="Trin 1: Reaktiv">
           <circle cx="60" cy="155" r="22" fill="transparent"/>
           <circle cx="60" cy="155" r="16" fill="rgba(85,176,209,0)" stroke="#55b0d1" stroke-width="1" class="mp-ring" opacity="0.25"/>
-          <circle cx="60" cy="155" r="22" fill="none" stroke="#55b0d1" stroke-width="1" class="mp-pulse" style="animation-delay:0s"/>
-          <circle cx="60" cy="155" r="5.5" fill="#1C1A18" stroke="#55b0d1" stroke-width="1.5" class="mp-dot"/>
-          <text x="60" y="138" text-anchor="middle" fill="rgba(255,255,255,0.30)" font-size="7.5" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.10em">01</text>
-          <text x="60" y="127" text-anchor="middle" fill="rgba(255,255,255,0.50)" font-size="8.5" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.05em">REAKTIV</text>
+          <circle cx="60" cy="155" r="22" fill="none" stroke="#55b0d1" stroke-width="1.5" class="mp-pulse" style="animation-delay:0s"/>
+          <circle cx="60" cy="155" r="10" fill="#1C1A18" stroke="#55b0d1" stroke-width="1.5" class="mp-dot"/>
+          <text x="60" y="155" text-anchor="middle" dominant-baseline="central" font-size="9" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.08em" class="mp-num">01</text>
+          <text x="60" y="133" text-anchor="middle" fill="rgba(255,255,255,0.50)" font-size="13" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.05em">REAKTIV</text>
         </g>
         <!-- Point 2: Struktureret -->
         <g class="maturity-point" data-step="1" tabindex="0" role="button" aria-label="Trin 2: Struktureret">
           <circle cx="230" cy="133" r="22" fill="transparent"/>
           <circle cx="230" cy="133" r="16" fill="rgba(85,176,209,0)" stroke="#55b0d1" stroke-width="1" class="mp-ring" opacity="0.25"/>
-          <circle cx="230" cy="133" r="22" fill="none" stroke="#55b0d1" stroke-width="1" class="mp-pulse" style="animation-delay:0.44s"/>
-          <circle cx="230" cy="133" r="5.5" fill="#1C1A18" stroke="#55b0d1" stroke-width="1.5" class="mp-dot"/>
-          <text x="230" y="116" text-anchor="middle" fill="rgba(255,255,255,0.30)" font-size="7.5" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.10em">02</text>
-          <text x="230" y="105" text-anchor="middle" fill="rgba(255,255,255,0.50)" font-size="8.5" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.05em">STRUKTURERET</text>
+          <circle cx="230" cy="133" r="22" fill="none" stroke="#55b0d1" stroke-width="1.5" class="mp-pulse" style="animation-delay:0.44s"/>
+          <circle cx="230" cy="133" r="10" fill="#1C1A18" stroke="#55b0d1" stroke-width="1.5" class="mp-dot"/>
+          <text x="230" y="133" text-anchor="middle" dominant-baseline="central" font-size="9" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.08em" class="mp-num">02</text>
+          <text x="230" y="111" text-anchor="middle" fill="rgba(255,255,255,0.50)" font-size="13" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.05em">STRUKTURERET</text>
         </g>
         <!-- Point 3: Automatiseret -->
         <g class="maturity-point" data-step="2" tabindex="0" role="button" aria-label="Trin 3: Automatiseret">
           <circle cx="400" cy="90" r="22" fill="transparent"/>
           <circle cx="400" cy="90" r="16" fill="rgba(85,176,209,0)" stroke="#55b0d1" stroke-width="1" class="mp-ring" opacity="0.25"/>
-          <circle cx="400" cy="90" r="22" fill="none" stroke="#55b0d1" stroke-width="1" class="mp-pulse" style="animation-delay:0.88s"/>
-          <circle cx="400" cy="90" r="5.5" fill="#1C1A18" stroke="#55b0d1" stroke-width="1.5" class="mp-dot"/>
-          <text x="400" y="73" text-anchor="middle" fill="rgba(255,255,255,0.30)" font-size="7.5" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.10em">03</text>
-          <text x="400" y="62" text-anchor="middle" fill="rgba(255,255,255,0.50)" font-size="8.5" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.05em">AUTOMATISERET</text>
+          <circle cx="400" cy="90" r="22" fill="none" stroke="#55b0d1" stroke-width="1.5" class="mp-pulse" style="animation-delay:0.88s"/>
+          <circle cx="400" cy="90" r="10" fill="#1C1A18" stroke="#55b0d1" stroke-width="1.5" class="mp-dot"/>
+          <text x="400" y="90" text-anchor="middle" dominant-baseline="central" font-size="9" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.08em" class="mp-num">03</text>
+          <text x="400" y="68" text-anchor="middle" fill="rgba(255,255,255,0.50)" font-size="13" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.05em">AUTOMATISERET</text>
         </g>
         <!-- Point 4: Integreret -->
         <g class="maturity-point" data-step="3" tabindex="0" role="button" aria-label="Trin 4: Integreret">
           <circle cx="570" cy="47" r="22" fill="transparent"/>
           <circle cx="570" cy="47" r="16" fill="rgba(85,176,209,0)" stroke="#55b0d1" stroke-width="1" class="mp-ring" opacity="0.25"/>
-          <circle cx="570" cy="47" r="22" fill="none" stroke="#55b0d1" stroke-width="1" class="mp-pulse" style="animation-delay:1.32s"/>
-          <circle cx="570" cy="47" r="5.5" fill="#1C1A18" stroke="#55b0d1" stroke-width="1.5" class="mp-dot"/>
-          <text x="570" y="30" text-anchor="middle" fill="rgba(255,255,255,0.30)" font-size="7.5" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.10em">04</text>
-          <text x="570" y="19" text-anchor="middle" fill="rgba(255,255,255,0.50)" font-size="8.5" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.05em">INTEGRERET</text>
+          <circle cx="570" cy="47" r="22" fill="none" stroke="#55b0d1" stroke-width="1.5" class="mp-pulse" style="animation-delay:1.32s"/>
+          <circle cx="570" cy="47" r="10" fill="#1C1A18" stroke="#55b0d1" stroke-width="1.5" class="mp-dot"/>
+          <text x="570" y="47" text-anchor="middle" dominant-baseline="central" font-size="9" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.08em" class="mp-num">04</text>
+          <text x="570" y="25" text-anchor="middle" fill="rgba(255,255,255,0.50)" font-size="13" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.05em">INTEGRERET</text>
         </g>
         <!-- Point 5: Optimeret -->
         <g class="maturity-point" data-step="4" tabindex="0" role="button" aria-label="Trin 5: Optimeret">
           <circle cx="740" cy="15" r="22" fill="transparent"/>
           <circle cx="740" cy="15" r="16" fill="rgba(85,176,209,0)" stroke="#55b0d1" stroke-width="1" class="mp-ring" opacity="0.25"/>
-          <circle cx="740" cy="15" r="22" fill="none" stroke="#55b0d1" stroke-width="1" class="mp-pulse" style="animation-delay:1.76s"/>
-          <circle cx="740" cy="15" r="5.5" fill="#1C1A18" stroke="#55b0d1" stroke-width="1.5" class="mp-dot"/>
-          <text x="740" y="-2" text-anchor="middle" fill="rgba(255,255,255,0.30)" font-size="7.5" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.10em">05</text>
-          <text x="740" y="-13" text-anchor="middle" fill="rgba(255,255,255,0.50)" font-size="8.5" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.05em">OPTIMERET</text>
+          <circle cx="740" cy="15" r="22" fill="none" stroke="#55b0d1" stroke-width="1.5" class="mp-pulse" style="animation-delay:1.76s"/>
+          <circle cx="740" cy="15" r="10" fill="#1C1A18" stroke="#55b0d1" stroke-width="1.5" class="mp-dot"/>
+          <text x="740" y="15" text-anchor="middle" dominant-baseline="central" font-size="9" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.08em" class="mp-num">05</text>
+          <text x="740" y="-7" text-anchor="middle" fill="rgba(255,255,255,0.50)" font-size="13" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.05em">OPTIMERET</text>
         </g>
       </svg>
       <!-- Description panel updated by JS -->
