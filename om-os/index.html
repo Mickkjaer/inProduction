@@ -32,11 +32,17 @@
     .mobile-hamburger.open .ham-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .mobile-hamburger.open .ham-bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .mobile-hamburger.open .ham-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .mobile-menu-panel { display: none; background: #FDFCFB; border-top: 1px solid rgba(0,0,0,0.06); }
-    .mobile-menu-panel.open { display: block; animation: menuSlideDown 0.2s ease; }
-    @keyframes menuSlideDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+    .mobile-menu-overlay { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(247,244,240,0.93); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); flex-direction: column; justify-content: center; align-items: flex-start; padding: 3rem 2.5rem; }
+    .mobile-menu-overlay.open { display: flex; animation: overlayFadeIn 0.22s ease; }
+    @keyframes overlayFadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
+    .overlay-nav-link { display: flex; align-items: center; font-size: 2rem; font-weight: 700; color: #1C1A18; text-decoration: none; min-height: 56px; letter-spacing: -0.03em; transition: color 0.15s; }
+    .overlay-nav-link:hover { color: #55b0d1; }
+    .overlay-nav-cta { display: inline-flex; align-items: center; margin-top: 1.5rem; padding: 0.875rem 1.75rem; background: linear-gradient(135deg, #55b0d1 0%, #4a9ab8 100%); color: #fff; border-radius: 9999px; font-size: 1.1rem; font-weight: 700; text-decoration: none; box-shadow: 0 4px 20px rgba(85,176,209,0.28); transition: transform 0.15s, box-shadow 0.15s; }
+    .overlay-nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(85,176,209,0.38); }
+    .menu-close-btn { position: absolute; top: 1.25rem; right: 1.25rem; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: none; background: transparent; cursor: pointer; border-radius: 8px; color: #1C1A18; padding: 0; }
+    .menu-close-btn:hover { background: rgba(0,0,0,0.06); }
     @media (max-width: 640px) { .nav-text-link { display: none; } .nav-cta-desktop { display: none; } .mobile-hamburger { display: flex; } }
-    @media (min-width: 641px) { .mobile-menu-panel { display: none !important; } }
+    @media (min-width: 641px) { .mobile-menu-overlay { display: none !important; } }
     .btn-primary {
       background: linear-gradient(135deg, #55b0d1 0%, #4a9ab8 100%);
       color: #fff;
@@ -71,17 +77,19 @@
       <li><button id="mobile-menu-toggle" class="mobile-hamburger" aria-label="Åbn menu" aria-expanded="false"><span class="ham-bar"></span><span class="ham-bar"></span><span class="ham-bar"></span></button></li>
     </ul>
   </nav>
-  <!-- Mobile menu -->
-  <div id="mobile-menu" class="mobile-menu-panel" aria-hidden="true">
-    <div class="max-w-5xl mx-auto px-4 py-3 flex flex-col gap-1">
-      <a href="/cases/" class="text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-3 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Cases</a>
-      <a href="/om-os/" class="text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-3 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Om os</a>
-      <div class="px-3 py-2">
-        <a href="/kontakt/" class="text-sm font-semibold bg-[#333] text-white px-4 py-2.5 rounded-full hover:bg-[#1C1A18] transition-colors no-underline block text-center">Kontakt os</a>
-      </div>
-    </div>
-  </div>
 </header>
+
+<!-- Mobile full-screen menu overlay -->
+<div id="mobile-menu-overlay" class="mobile-menu-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation">
+  <button id="mobile-menu-close" class="menu-close-btn" aria-label="Luk menu">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="17" y1="5" x2="5" y2="17"/><line x1="5" y1="5" x2="17" y2="17"/></svg>
+  </button>
+  <nav class="flex flex-col gap-2">
+    <a href="/cases/" class="overlay-nav-link">Cases</a>
+    <a href="/om-os/" class="overlay-nav-link">Om os</a>
+    <a href="/kontakt/" class="overlay-nav-cta">Kontakt os</a>
+  </nav>
+</div>
 
 <!-- INTRO -->
 <section class="bg-[#FDFCFB] border-b border-black/[0.07] py-20 px-6">
@@ -307,7 +315,7 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-[#1C1A18] border-t border-white/[0.06] px-6 py-8">
+<footer class="bg-[#141210] border-t border-white/[0.06] px-6 py-8">
   <div class="max-w-5xl mx-auto flex justify-between items-center flex-wrap gap-3 text-[0.8rem] text-white/35">
     <span class="font-semibold text-white/70">inProduction ApS</span>
     <span>Peter Kjær · Grundlagt 2007 · Enfocus Switch-forhandler &amp; workflow-specialist</span>
@@ -318,22 +326,30 @@
 <script>
   (function() {
     var toggle = document.getElementById('mobile-menu-toggle');
-    var menu = document.getElementById('mobile-menu');
-    if (!toggle || !menu) return;
+    var overlay = document.getElementById('mobile-menu-overlay');
+    var closeBtn = document.getElementById('mobile-menu-close');
+    if (!toggle || !overlay) return;
+    function openMenu() {
+      overlay.classList.add('open');
+      toggle.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      overlay.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
     toggle.addEventListener('click', function(e) {
       e.stopPropagation();
-      var isOpen = menu.classList.toggle('open');
-      toggle.classList.toggle('open', isOpen);
-      toggle.setAttribute('aria-expanded', isOpen);
-      menu.setAttribute('aria-hidden', !isOpen);
+      overlay.classList.contains('open') ? closeMenu() : openMenu();
     });
-    document.addEventListener('click', function(e) {
-      if (!document.querySelector('header').contains(e.target)) {
-        menu.classList.remove('open');
-        toggle.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-        menu.setAttribute('aria-hidden', 'true');
-      }
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) closeMenu();
     });
   })();
 </script>
