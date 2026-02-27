@@ -20,82 +20,7 @@
       }
     }
   </script>
-  <style>
-    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; }
-    .eyebrow::before { content: ''; display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; flex-shrink: 0; }
-    .mobile-hamburger { display: none; flex-direction: column; justify-content: center; align-items: center; width: 38px; height: 38px; border-radius: 8px; border: none; background: transparent; cursor: pointer; gap: 5px; padding: 0; }
-    .mobile-hamburger:hover { background: rgba(0,0,0,0.05); }
-    .ham-bar { display: block; width: 20px; height: 2px; background: #1C1A18; border-radius: 2px; transition: transform 0.22s ease, opacity 0.22s ease; }
-    .mobile-hamburger.open .ham-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .mobile-hamburger.open .ham-bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .mobile-hamburger.open .ham-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    /* Full-screen mobile menu overlay */
-    .mobile-menu-overlay { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(247,244,240,0.93); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); flex-direction: column; justify-content: center; align-items: flex-start; padding: 3rem 2.5rem; }
-    .mobile-menu-overlay.open { display: flex; animation: overlayFadeIn 0.22s ease; }
-    @keyframes overlayFadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
-    .overlay-nav-link { display: flex; align-items: center; font-size: 2rem; font-weight: 700; color: #1C1A18; text-decoration: none; min-height: 56px; letter-spacing: -0.03em; transition: color 0.15s; }
-    .overlay-nav-link:hover { color: #55b0d1; }
-    .overlay-nav-cta { display: inline-flex; align-items: center; margin-top: 1.5rem; padding: 0.875rem 1.75rem; background: linear-gradient(135deg, #55b0d1 0%, #4a9ab8 100%); color: #fff; border-radius: 9999px; font-size: 1.1rem; font-weight: 700; text-decoration: none; box-shadow: 0 4px 20px rgba(85,176,209,0.28); transition: transform 0.15s, box-shadow 0.15s; }
-    .overlay-nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(85,176,209,0.38); }
-    .menu-close-btn { position: absolute; top: 1.25rem; right: 1.25rem; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: none; background: transparent; cursor: pointer; border-radius: 8px; color: #1C1A18; padding: 0; }
-    .menu-close-btn:hover { background: rgba(0,0,0,0.06); }
-    @media (max-width: 640px) { .nav-text-link { display: none; } .nav-cta-desktop { display: none; } .mobile-hamburger { display: flex; } }
-    @media (min-width: 641px) { .mobile-menu-overlay { display: none !important; } }
-    /* Misregistration animation */
-    .misreg-container { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
-    .misreg-layer { position: absolute; width: 580px; height: 580px; border-radius: 50%; border-width: 1.5px; border-style: solid; top: -120px; right: -90px; }
-    .misreg-cyan    { border-color: #55b0d1; animation: misreg1 18s ease-in-out infinite; opacity: 0.08; }
-    .misreg-magenta { border-color: #d14e9a; animation: misreg2 18s ease-in-out infinite; opacity: 0.07; }
-    .misreg-yellow  { border-color: #d4a80a; animation: misreg3 18s ease-in-out infinite; opacity: 0.07; }
-    @keyframes misreg1 { 0%,100% { transform: translate(0,0); } 33% { transform: translate(-9px,6px); } 66% { transform: translate(6px,-7px); } }
-    @keyframes misreg2 { 0%,100% { transform: translate(7px,-6px); } 33% { transform: translate(0,8px); } 66% { transform: translate(-7px,-2px); } }
-    @keyframes misreg3 { 0%,100% { transform: translate(-6px,7px); } 33% { transform: translate(8px,-3px); } 66% { transform: translate(2px,6px); } }
-    /* Cases carousel */
-    .cases-carousel-outer { overflow: hidden; }
-    .cases-track { display: flex; transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94); }
-    .case-slide { flex: 0 0 100%; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
-    @media (min-width: 640px) { .cases-track { width: 100%; gap: 1.25rem; } .case-slide { flex: 1 0 0; min-width: 0; } }
-    .cases-nav { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1.5rem; }
-    .carousel-btn { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.12); background: white; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #1C1A18; transition: all 0.15s; flex-shrink: 0; }
-    .carousel-btn:hover { background: #f0ece8; border-color: #55b0d1; }
-    .carousel-btn:disabled { opacity: 0.3; cursor: default; }
-    .carousel-dot { width: 6px; height: 6px; border-radius: 50%; background: #1C1A18; opacity: 0.18; border: none; padding: 0; cursor: pointer; transition: opacity 0.2s, width 0.2s; flex-shrink: 0; }
-    .carousel-dot.active { opacity: 0.65; width: 16px; border-radius: 3px; }
-    @media (min-width: 640px) { .cases-nav { display: none; } }
-    /* Maturity curve */
-    .maturity-point { cursor: pointer; outline: none; }
-    .maturity-point .mp-ring { transition: opacity 0.2s; }
-    .maturity-point .mp-dot { transition: fill 0.2s; }
-    .maturity-point:hover .mp-ring, .maturity-point:focus .mp-ring { opacity: 0.6 !important; }
-    .maturity-point.active .mp-ring { opacity: 0.7 !important; }
-    .maturity-point.active .mp-dot { fill: #55b0d1; }
-    .maturity-desc { transition: opacity 0.2s; }
-    @keyframes mp-pulse { 0% { transform: scale(0.45); opacity: 0.70; } 100% { transform: scale(1); opacity: 0; } }
-    .maturity-point .mp-pulse { transform-box: fill-box; transform-origin: center; animation: mp-pulse 2.2s ease-out infinite; }
-    .maturity-point.active .mp-pulse { animation: none; opacity: 0; }
-    .maturity-point .mp-num { fill: rgba(255,255,255,0.70); transition: fill 0.2s; }
-    .maturity-point.active .mp-num { fill: #1C1A18; }
-    .btn-primary {
-      background: linear-gradient(135deg, #55b0d1 0%, #4a9ab8 100%);
-      color: #fff;
-      box-shadow: 0 4px 20px rgba(85,176,209,0.28);
-      border-radius: 9999px;
-      font-weight: 600;
-      font-size: 0.875rem;
-      padding: 0.875rem 1.75rem;
-      display: inline-block;
-      transition: transform 0.15s, box-shadow 0.15s;
-      text-decoration: none;
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(85,176,209,0.38); }
-    .btn-secondary { color: #4a9ab8; font-weight: 600; font-size: 0.875rem; border-bottom: 2px solid transparent; padding-bottom: 2px; text-decoration: none; transition: border-color 0.15s; display: inline-block; }
-    .btn-secondary:hover { border-color: #55b0d1; }
-    .logo-marquee { overflow: hidden; mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%); -webkit-transform: translateZ(0); transform: translateZ(0); }
-    .logo-track { display: flex; align-items: center; gap: 3rem; width: max-content; animation: marquee 36s linear infinite; -webkit-transform: translateZ(0); transform: translateZ(0); will-change: transform; }
-    .logo-track:hover { animation-play-state: paused; }
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  </style>
+  <link rel="stylesheet" href="/assets/styles.css" />
 </head>
 <body class="bg-[#F7F4F0] text-[#1C1A18] antialiased">
 
@@ -453,7 +378,7 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-[#141210] px-6 py-8 border-t border-white/[0.06]">
+<footer class="bg-[#141210] border-t border-white/[0.06] px-6 py-8">
   <div class="max-w-5xl mx-auto flex justify-between items-center flex-wrap gap-3 text-[0.8rem] text-white/35">
     <span class="font-semibold text-white/70">inProduction ApS</span>
     <span>Peter Kjær · Grundlagt 2007 · Enfocus Switch-forhandler &amp; workflow-specialist</span>
