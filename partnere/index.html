@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partnere — inProduction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { accent: '#55b0d1', mid: '#4a9ab8', dark: '#333333' },
+            warm: { base: '#F7F4F0', surface: '#FDFCFB', muted: '#6B6560', heading: '#1C1A18', dark: '#1C1A18', darker: '#2A2724' }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body class="bg-[#F7F4F0] text-[#1C1A18] antialiased">
+
+<header class="sticky top-0 z-50 bg-[#F7F4F0]/80 backdrop-blur-md border-b border-black/[0.06]">
+  <nav class="max-w-5xl mx-auto px-6 py-3.5 flex justify-between items-center">
+    <a href="/" class="text-[1.3rem] font-bold tracking-[-0.03em] no-underline text-[#1C1A18]">
+      <span class="text-[#55b0d1]">in</span><span class="text-[#333]">Production</span>
+    </a>
+    <ul class="flex items-center gap-1 list-none m-0 p-0">
+      <li><a href="/cases/" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Cases</a></li>
+      <li><a href="/partnere/" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline is-active" aria-current="page">Partnere</a></li>
+      <li><a href="/om-os/" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Om os</a></li>
+      <li><a href="/kontakt/" class="nav-cta-desktop text-sm font-semibold bg-[#333] text-white px-4 py-2 rounded-full hover:bg-[#1C1A18] hover:-translate-y-0.5 transition-all no-underline">Kontakt os</a></li>
+      <li><button id="mobile-menu-toggle" class="mobile-hamburger" aria-label="Åbn menu" aria-expanded="false"><span class="ham-bar"></span><span class="ham-bar"></span><span class="ham-bar"></span></button></li>
+    </ul>
+  </nav>
+</header>
+
+<div id="mobile-menu-overlay" class="mobile-menu-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation">
+  <button id="mobile-menu-close" class="menu-close-btn" aria-label="Luk menu">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="17" y1="5" x2="5" y2="17"/><line x1="5" y1="5" x2="17" y2="17"/></svg>
+  </button>
+  <nav class="flex flex-col gap-2">
+    <a href="/cases/" class="overlay-nav-link">Cases</a>
+    <a href="/partnere/" class="overlay-nav-link is-active">Partnere</a>
+    <a href="/om-os/" class="overlay-nav-link">Om os</a>
+    <a href="/kontakt/" class="overlay-nav-cta">Kontakt os</a>
+  </nav>
+</div>
+
+<section class="bg-gradient-to-b from-[#EDE9E3] to-[#F7F4F0] border-b border-black/[0.07] py-16 px-6">
+  <div class="max-w-3xl mx-auto">
+    <span class="eyebrow text-[0.7rem] font-bold uppercase tracking-[0.14em] text-[#55b0d1] mb-6 block">Partnere</span>
+    <h1 class="text-4xl lg:text-5xl font-bold tracking-[-0.04em] leading-[1.15] [text-wrap:balance] text-[#333] mb-6">Standardløsninger først.<br>Integration som disciplin.</h1>
+    <p class="text-[1rem] text-[#6B6560] leading-[1.8] max-w-2xl">Vi ser ikke partnersoftware som produkter, der skal sælges enkeltvis. Vi ser dem som byggesten i en moden digital produktion. Vores rolle er at vælge de rigtige standardplatforme og få dem til at arbejde sammen i et workflow, der er robust i hverdagen.</p>
+  </div>
+</section>
+
+<section class="bg-[#FDFCFB] border-b border-black/[0.07] py-20 px-6">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-3xl font-bold tracking-[-0.03em] text-[#1C1A18] mb-4">Hvordan partnerlandskabet understøtter digital modenhed</h2>
+    <p class="text-[0.95rem] text-[#6B6560] leading-[1.8] mb-10">Målet er ikke flere systemer. Målet er mindre friktion. Derfor arbejder vi med tydelige roller mellem platforme: én til orkestrering, én til kvalitetssikring, én til ordreindtag og én til forretningsdata.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <article class="bg-white border border-black/[0.08] rounded-2xl p-6">
+        <h3 class="text-[0.95rem] font-bold text-[#1C1A18] mb-2">Workflow automation</h3>
+        <p class="text-[0.86rem] text-[#6B6560] leading-[1.75]">Automatisering håndterer filflow, routing, metadata og jobstatus på tværs af produktionen. Det reducerer manuelle overleveringer og giver et stabilt fundament for næste modenhedstrin.</p>
+      </article>
+      <article class="bg-white border border-black/[0.08] rounded-2xl p-6">
+        <h3 class="text-[0.95rem] font-bold text-[#1C1A18] mb-2">PDF QA</h3>
+        <p class="text-[0.86rem] text-[#6B6560] leading-[1.75]">Kvalitetskontrol bliver kodificeret i regler frem for personafhængige tjek. Det giver ensartet output, færre fejl og et klart revisionsspor, når der opstår afvigelser.</p>
+      </article>
+      <article class="bg-white border border-black/[0.08] rounded-2xl p-6">
+        <h3 class="text-[0.95rem] font-bold text-[#1C1A18] mb-2">Web-to-print</h3>
+        <p class="text-[0.86rem] text-[#6B6560] leading-[1.75]">Ordreindtag struktureres tidligt med validerede input, skabeloner og automatisk klargøring. Det forkorter vejen fra bestilling til produktion og gør planlægning mere forudsigelig.</p>
+      </article>
+      <article class="bg-white border border-black/[0.08] rounded-2xl p-6">
+        <h3 class="text-[0.95rem] font-bold text-[#1C1A18] mb-2">ERP/MIS integration</h3>
+        <p class="text-[0.86rem] text-[#6B6560] leading-[1.75]">Når produktionsdata flyder til ERP/MIS uden manuelle mellemled, bliver opfølgning, økonomi og fakturering en del af samme digitale kæde som selve produktionen.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="bg-[#1C1A18] text-white py-20 px-6 border-y border-white/[0.06]">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-3xl font-bold tracking-[-0.03em] text-white/90 mb-4">Vores partnerprincipper i praksis</h2>
+    <div class="space-y-6">
+      <div>
+        <h3 class="text-[0.72rem] font-bold uppercase tracking-[0.12em] text-[#55b0d1] mb-2">1. Start med standard</h3>
+        <p class="text-[0.9rem] text-white/60 leading-[1.8]">Vi vælger gennemprøvede platforme før specialudvikling. Det gør løsningen lettere at vedligeholde og mere robust ved opgraderinger.</p>
+      </div>
+      <div>
+        <h3 class="text-[0.72rem] font-bold uppercase tracking-[0.12em] text-[#55b0d1] mb-2">2. Definér integration før features</h3>
+        <p class="text-[0.9rem] text-white/60 leading-[1.8]">Vi afklarer dataflow, ansvar og fejlhåndtering mellem systemer, inden vi udvider med nye funktioner. Det skaber færre flaskehalse senere.</p>
+      </div>
+      <div>
+        <h3 class="text-[0.72rem] font-bold uppercase tracking-[0.12em] text-[#55b0d1] mb-2">3. Byg i trin</h3>
+        <p class="text-[0.9rem] text-white/60 leading-[1.8]">Vi implementerer i etaper med målbare gevinster: først stabilt flow, derefter kvalitetssikring, til sidst dyb integration mod ERP/MIS og rapportering.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-[#F7F4F0] py-20 px-6 text-center">
+  <div class="max-w-xl mx-auto">
+    <h2 class="text-3xl font-bold tracking-[-0.03em] text-[#1C1A18] mb-3">Skal vi kortlægge jeres partnerlandskab?</h2>
+    <p class="text-[0.95rem] text-[#6B6560] leading-[1.75] mb-9">Vi starter med jeres nuværende setup og peger på de integrationer, der giver størst effekt først.</p>
+    <a href="/kontakt/" class="btn-primary">Kontakt os</a>
+  </div>
+</section>
+
+<footer class="bg-[#141210] border-t border-white/[0.06] px-6 py-8">
+  <div class="max-w-5xl mx-auto flex justify-between items-center flex-wrap gap-3 text-[0.8rem] text-white/35">
+    <span class="font-semibold text-white/70">inProduction ApS</span>
+    <span>Peter Kjær · Grundlagt 2007 · Enfocus Switch-forhandler &amp; workflow-specialist</span>
+    <a href="mailto:info@inproduction.dk" class="text-white/35 hover:text-white/70 no-underline transition-colors">info@inproduction.dk</a>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var toggle = document.getElementById('mobile-menu-toggle');
+    var overlay = document.getElementById('mobile-menu-overlay');
+    var closeBtn = document.getElementById('mobile-menu-close');
+    if (!toggle || !overlay) return;
+    function openMenu() {
+      overlay.classList.add('open');
+      toggle.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      overlay.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    toggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      overlay.classList.contains('open') ? closeMenu() : openMenu();
+    });
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) closeMenu();
+    });
+  })();
+</script>
+
+</body>
+</html>
