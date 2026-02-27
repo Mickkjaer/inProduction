@@ -320,12 +320,9 @@
       </svg>
       <!-- Description panel updated by JS -->
       <div id="maturityDesc" class="mt-7 p-5 rounded-xl border border-[#55b0d1]/20 bg-white/[0.05] maturity-desc">
-        <span id="maturityDescStep" class="text-[0.75rem] font-bold uppercase tracking-[0.13em] text-[#55b0d1]/80 block mb-1">Trin 1 af 5</span>
-        <h3 id="maturityDescTitle" class="text-[1rem] font-bold uppercase tracking-[0.06em] text-white mb-2">Reaktiv</h3>
-        <p id="maturityDescText" class="text-[0.98rem] text-white/80 leading-relaxed">Manuelle processer dominerer. Potentialet er der — men endnu ikke handlet på det.</p>
-        <a href="https://www.enfocus.com/en/digital-maturity-assessment" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center text-[0.9rem] font-semibold text-[#8ed3ea] hover:text-[#b8e7f6] transition-colors">
-          Læs mere på Enfocus hjemmeside
-        </a>
+        <span id="maturityDescStep" class="text-[0.65rem] font-bold uppercase tracking-[0.13em] text-[#55b0d1]/60 block mb-1">Trin 1 af 5</span>
+        <h3 id="maturityDescTitle" class="text-[0.85rem] font-bold uppercase tracking-[0.06em] text-white/90 mb-2">Reaktiv</h3>
+        <p id="maturityDescText" class="text-[0.85rem] text-white/55 leading-relaxed">Virksomheder, der i høj grad er afhængige af manuelle processer, med meget lidt eller ingen automatisering eller digitale værktøjer på plads. De er dog allerede bevidste om potentialet i at implementere digitale værktøjer.</p>
       </div>
     </div>
 
@@ -527,11 +524,11 @@
   // Maturity curve interactivity
   (function() {
     var stages = [
-      { step: 'Trin 1 af 5', title: 'Reaktiv', text: 'Manuelle processer dominerer. Potentialet er der — men endnu ikke handlet på det.' },
-      { step: 'Trin 2 af 5', title: 'Struktureret', text: 'De første automationsskridt er taget. Workflows hjælper, men der er stadig masser at hente.' },
-      { step: 'Trin 3 af 5', title: 'Automatiseret', text: 'Workflows kører godt — men systemerne taler ikke sammen. Siloer er stadig et problem.' },
-      { step: 'Trin 4 af 5', title: 'Integreret', text: 'Automation og systemer hænger sammen. Ordrer, ERP og produktion flyder uden manuelt indgreb.' },
-      { step: 'Trin 5 af 5', title: 'Optimeret', text: 'Datadrevne beslutninger. Workflows der tilpasser sig. Det mest bæredygtige og lønsomme stadie.' }
+      { step: 'Trin 1 af 5', title: 'Reaktiv', text: 'Virksomheder, der i høj grad er afhængige af manuelle processer, med meget lidt eller ingen automatisering eller digitale værktøjer på plads. De er dog allerede bevidste om potentialet i at implementere digitale værktøjer.' },
+      { step: 'Trin 2 af 5', title: 'Struktureret', text: 'Virksomheder, der er begyndt at automatisere eller bruge digitale værktøjer til at komme i kontakt med deres kunder og strømline deres drift. De har fået en smagsprøve på fordelene og udforsker løbende nye måder at forbedre sig på.' },
+      { step: 'Trin 3 af 5', title: 'Automatiseret', text: 'Virksomheder, der allerede er langt fremme med digitale værktøjer og automatisering. Arbejdsgange fungerer godt, men de er stadig afhængige af adskilte systemer uden indbyrdes forbindelse.' },
+      { step: 'Trin 4 af 5', title: 'Integreret', text: 'Virksomheder, der er meget langt fremme inden for automatisering og digitale værktøjer og samtidig har formået at integrere og forbinde alle deres systemer. Det bliver derfor ekstremt let at tage springet til næste niveau.' },
+      { step: 'Trin 5 af 5', title: 'Optimeret', text: 'Virksomheder, der når det højeste niveau af automatisering og systemintegration. Forretningen er baseret på datadrevne beslutninger og opnår dermed det mest bæredygtige og profitable niveau.' }
     ];
     var points = document.querySelectorAll('.maturity-point');
     var descStep = document.getElementById('maturityDescStep');
