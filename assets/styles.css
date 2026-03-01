@@ -20,6 +20,10 @@ body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
     .menu-close-btn:hover { background: rgba(0,0,0,0.06); }
     @media (max-width: 640px) { .nav-text-link { display: none; } .nav-cta-desktop { display: none; } .mobile-hamburger { display: flex; } }
     @media (min-width: 641px) { .mobile-menu-overlay { display: none !important; } }
+    .painpoints .painpoints-item { margin-bottom: 0.6rem; }
+    .painpoints .painpoints-item:nth-last-child(-n+2) { margin-bottom: 0; }
+    .painpoints .painpoints-text { font-size: 1.1875rem; font-weight: 500; line-height: 1.6; }
+    .painpoints .painpoints-text strong { font-weight: 600; }
     /* Misregistration animation */
     .misreg-container { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
     .misreg-layer { position: absolute; width: 580px; height: 580px; border-radius: 50%; border-width: 1.5px; border-style: solid; top: -120px; right: -90px; }
