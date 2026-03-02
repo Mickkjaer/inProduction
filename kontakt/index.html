@@ -124,7 +124,7 @@
         <h2 class="text-[1.1rem] font-bold text-[#1C1A18] mb-1 tracking-[-0.02em]">Send os en besked</h2>
         <p class="text-[0.84rem] text-[#6B6560] leading-relaxed mb-7">Alle felter er valgfrie undtagen e-mail — skriv så meget eller lidt, som du har lyst til.</p>
 
-        <form id="contact-form">
+        <form id="contact-form" action="https://fabform.io/f/RVb-J9O" method="post">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             <div>
               <label class="block text-[0.78rem] font-semibold text-[#3D3A37] mb-1.5" for="name">Navn</label>
@@ -165,6 +165,7 @@
           <div class="h-px bg-black/[0.06] mb-5"></div>
           <p class="text-[0.78rem] text-[#9C958F] leading-relaxed mb-5"><strong class="text-[#6B6560] font-semibold">Vi bruger ikke jeres oplysninger til noget andet</strong> end at besvare din henvendelse. Ingen nyhedsbreve, ingen videregivelse til tredjepart.</p>
 
+          <input type="hidden" name="_next" value="https://inproduction.dk/kontakt/?sent=1">
           <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off">
           <button type="submit" class="w-full cursor-pointer border-0 btn-primary text-[0.92rem] py-3.5" style="border-radius: 0.75rem; padding-top: 0.875rem; padding-bottom: 0.875rem;">Send besked</button>
         </form>
@@ -225,43 +226,10 @@
 </script>
 
 <script>
-  const form = document.getElementById('contact-form');
-  const successEl = document.getElementById('form-success');
-  const errorEl = document.getElementById('form-error');
-  const errorMsg = document.getElementById('form-error-msg');
-  const submitBtn = form.querySelector('button[type="submit"]');
-
-  function showError(msg) {
-    errorMsg.textContent = msg;
-    errorEl.style.display = 'block';
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'Send besked';
+  if (new URLSearchParams(window.location.search).get('sent') === '1') {
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
   }
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    errorEl.style.display = 'none';
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sender…';
-
-    try {
-      const res = await fetch('https://fabform.io/f/RVb-J9O', {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(form)
-      });
-
-      if (res.ok) {
-        form.style.display = 'none';
-        errorEl.style.display = 'none';
-        successEl.style.display = 'block';
-      } else {
-        showError('Noget gik galt. Prøv igen eller skriv direkte til info@inproduction.dk');
-      }
-    } catch {
-      showError('Noget gik galt. Tjek din internetforbindelse og prøv igen.');
-    }
-  });
 </script>
 </body>
 </html>
