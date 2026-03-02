@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partenere — inProduction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { accent: '#55b0d1', mid: '#4a9ab8', dark: '#333333' },
+            warm: { base: '#F7F4F0', surface: '#FDFCFB', muted: '#6B6560', heading: '#1C1A18', dark: '#1C1A18', darker: '#2A2724' }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; }
+    .eyebrow::before { content: ''; display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; flex-shrink: 0; }
+    @media (max-width: 640px) { .nav-text-link { display: none; } }
+    .btn-primary {
+      background: linear-gradient(135deg, #55b0d1 0%, #4a9ab8 100%);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(85,176,209,0.28);
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 0.875rem 1.75rem;
+      display: inline-block;
+      transition: transform 0.15s, box-shadow 0.15s;
+      text-decoration: none;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(85,176,209,0.38); }
+    .btn-secondary { color: #4a9ab8; font-weight: 600; font-size: 0.875rem; border-bottom: 2px solid transparent; padding-bottom: 2px; text-decoration: none; transition: border-color 0.15s; display: inline-block; }
+    .btn-secondary:hover { border-color: #55b0d1; }
+  </style>
+</head>
+<body class="bg-[#F7F4F0] text-[#1C1A18] antialiased">
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 bg-[#F7F4F0]/80 backdrop-blur-md border-b border-black/[0.06]">
+  <nav class="max-w-5xl mx-auto px-6 py-3.5 flex justify-between items-center">
+    <a href="inproduction-homepage.html" class="text-[1.3rem] font-bold tracking-[-0.03em] no-underline text-[#1C1A18]">
+      <span class="text-[#55b0d1]">in</span><span class="text-[#333]">Production</span>
+    </a>
+    <ul class="flex items-center gap-1 list-none m-0 p-0">
+      <li><a href="inproduction-cases.html" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Cases</a></li>
+      <li><a href="inproduction-om-os.html" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Om os</a></li>
+      <li><a href="inproduction-partenere.html" class="nav-text-link text-sm font-semibold text-[#333] px-3 py-2 rounded-lg bg-black/[0.07] no-underline">Partenere</a></li>
+      <li><a href="inproduction-kontakt.html" class="text-sm font-semibold bg-[#333] text-white px-4 py-2 rounded-full hover:bg-[#1C1A18] hover:-translate-y-0.5 transition-all no-underline">Kontakt os</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- INTRO -->
+<section class="bg-[#FDFCFB] border-b border-black/[0.07] py-20 px-6">
+  <div class="max-w-3xl mx-auto">
+    <span class="eyebrow text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#55b0d1] block mb-3">Software &amp; partenere</span>
+    <h1 class="text-4xl lg:text-5xl font-bold tracking-[-0.04em] text-[#1C1A18] mb-5 leading-[1.1]">Vi bygger på<br>de bedste platforme.</h1>
+    <p class="text-[0.97rem] text-[#6B6560] leading-[1.8] max-w-lg">InProduction samarbejder med branchens førende software-leverandører — og kender produkterne til bunds. Vi vælger etablerede, veldokumenterede platforme, så løsningerne er robuste og lette at bygge videre på.</p>
+  </div>
+</section>
+
+<!-- ENFOCUS — FEATURED PARTNER -->
+<section class="bg-[#F7F4F0] border-b border-black/[0.07] py-24 px-6">
+  <div class="max-w-4xl mx-auto">
+
+    <!-- Company header -->
+    <div class="flex flex-wrap items-start justify-between gap-4 mb-10">
+      <div>
+        <span class="inline-block text-[0.65rem] font-bold uppercase tracking-[0.1em] text-[#4a9ab8] bg-[#55b0d1]/10 px-2.5 py-1 rounded mb-3">Officiel forhandler &amp; partner</span>
+        <h2 class="text-[2.2rem] font-bold tracking-[-0.04em] text-[#1C1A18] mb-2 leading-[1.1]">
+          <span class="text-[#55b0d1]">en</span>focus
+        </h2>
+        <p class="text-[0.88rem] text-[#6B6560] leading-[1.75] max-w-sm">Branchens ledende platform for workflow-automatisering og PDF-kvalitetskontrol i print- og medieproduktion.</p>
+      </div>
+      <a href="https://www.enfocus.com/en" target="_blank" rel="noopener" class="btn-secondary mt-1 whitespace-nowrap">enfocus.com →</a>
+    </div>
+
+    <!-- Product grid — 7 products -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-5 hover:bg-white/60 hover:shadow-md hover:-translate-y-0.5 transition-all backdrop-blur-sm flex flex-col gap-3">
+        <img src="Logos/Switch logo black.png" alt="Enfocus Switch" class="h-7 w-auto object-contain object-left" />
+        <p class="text-[0.8rem] text-[#6B6560] leading-[1.6]">Branchens mest fleksible workflow-automatiseringsplatform — rygraden i de fleste InProduction-løsninger.</p>
+      </div>
+
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-5 hover:bg-white/60 hover:shadow-md hover:-translate-y-0.5 transition-all backdrop-blur-sm flex flex-col gap-3">
+        <img src="Logos/PitStop Pro logo black.png" alt="Enfocus PitStop Pro" class="h-7 w-auto object-contain object-left" />
+        <p class="text-[0.8rem] text-[#6B6560] leading-[1.6]">Desktop-applikation til præcis PDF-redigering, preflight og manuelle korrektioner.</p>
+      </div>
+
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-5 hover:bg-white/60 hover:shadow-md hover:-translate-y-0.5 transition-all backdrop-blur-sm flex flex-col gap-3">
+        <img src="Logos/PitStop server logo black.png" alt="Enfocus PitStop Server" class="h-7 w-auto object-contain object-left" />
+        <p class="text-[0.8rem] text-[#6B6560] leading-[1.6]">Automatisk PDF-kvalitetskontrol og preflight i industriklasse — direkte integreret i workflowet.</p>
+      </div>
+
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-5 hover:bg-white/60 hover:shadow-md hover:-translate-y-0.5 transition-all backdrop-blur-sm flex flex-col gap-3">
+        <img src="Logos/Connect logo black.png" alt="Enfocus Connect" class="h-7 w-auto object-contain object-left" />
+        <p class="text-[0.8rem] text-[#6B6560] leading-[1.6]">Kundevendte upload-portaler og automatiserede filleverings-løsninger til nem jobmodtagelse.</p>
+      </div>
+
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-5 hover:bg-white/60 hover:shadow-md hover:-translate-y-0.5 transition-all backdrop-blur-sm flex flex-col gap-3">
+        <img src="Logos/Review logo - horizontal black.png" alt="Enfocus Review" class="h-7 w-auto object-contain object-left" />
+        <p class="text-[0.8rem] text-[#6B6560] leading-[1.6]">Online korrekturlæsning og godkendelse med kommentarer, annotationer og versionsstyring.</p>
+      </div>
+
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-5 hover:bg-white/60 hover:shadow-md hover:-translate-y-0.5 transition-all backdrop-blur-sm flex flex-col gap-3">
+        <img src="Logos/Griffin.png" alt="Enfocus Griffin" class="h-7 w-auto object-contain object-left" />
+        <p class="text-[0.8rem] text-[#6B6560] leading-[1.6]">Automatiseret imposition og arklayout til professionel tryksagsproduktion i stort oplag.</p>
+      </div>
+
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-5 hover:bg-white/60 hover:shadow-md hover:-translate-y-0.5 transition-all backdrop-blur-sm flex flex-col gap-3">
+        <img src="Logos/Phoenix - horizontal black.png" alt="Enfocus Phoenix" class="h-7 w-auto object-contain object-left" />
+        <p class="text-[0.8rem] text-[#6B6560] leading-[1.6]">PDF-gendannelse og -konvertering — redder og standardiserer problematiske filer til produktion.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ØVRIGE PARTENERE -->
+<section class="bg-[#FDFCFB] border-b border-black/[0.07] py-24 px-6">
+  <div class="max-w-4xl mx-auto">
+
+    <span class="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#55b0d1] block mb-8">Øvrige partenere</span>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+      <!-- callas software -->
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-6 hover:bg-white/60 hover:shadow-md hover:-translate-y-0.5 transition-all backdrop-blur-sm flex flex-col">
+        <div class="flex items-start justify-between gap-3 mb-4">
+          <span class="inline-block text-[0.65rem] font-bold uppercase tracking-[0.1em] text-[#4a9ab8] bg-[#55b0d1]/10 px-2.5 py-1 rounded">Partner</span>
+          <a href="https://callassoftware.com" target="_blank" rel="noopener" class="btn-secondary text-[0.78rem]">callassoftware.com →</a>
+        </div>
+        <h3 class="text-[0.97rem] font-bold text-[#1C1A18] mb-2 tracking-[-0.02em]">callas software</h3>
+        <p class="text-[0.82rem] text-[#6B6560] leading-[1.65] mb-5 flex-1">Avanceret PDF-behandling og kvalitetskontrol med support for dynamisk QA baseret på XML-metadata. Bruges til komplekse preflight-scenarier og jobpose-generering.</p>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-3 py-2.5 border-t border-black/[0.06]">
+            <span class="text-[0.8rem] font-medium text-[#333]">pdfToolbox Desktop</span>
+          </div>
+          <div class="flex items-center gap-3 py-2.5 border-t border-black/[0.06]">
+            <img src="Logos/Callas_pdftoolbox-logo_server-rgb.png" alt="callas pdfToolbox Server" class="h-5 w-auto object-contain object-left" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Axaio -->
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-6 hover:bg-white/60 hover:shadow-md hover:-translate-y-0.5 transition-all backdrop-blur-sm flex flex-col">
+        <div class="flex items-start justify-between gap-3 mb-4">
+          <span class="inline-block text-[0.65rem] font-bold uppercase tracking-[0.1em] text-[#4a9ab8] bg-[#55b0d1]/10 px-2.5 py-1 rounded">Partner</span>
+          <a href="https://www.axaio.com/doku.php/en" target="_blank" rel="noopener" class="btn-secondary text-[0.78rem]">axaio.com →</a>
+        </div>
+        <h3 class="text-[0.97rem] font-bold text-[#1C1A18] mb-2 tracking-[-0.02em]">Axaio</h3>
+        <p class="text-[0.82rem] text-[#6B6560] leading-[1.65] mb-5 flex-1">Produktivitetsværktøjer til InDesign og automatiseret printproduktion. MadeToPrint-familien muliggør output direkte fra layoutapplikationen — manuelt, automatiseret eller serverbaseret.</p>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-3 py-2.5 border-t border-black/[0.06]">
+            <img src="Logos/Axaio_madetoprint.png" alt="Axaio MadeToPrint" class="h-5 w-auto object-contain object-left" />
+          </div>
+          <div class="flex items-center gap-3 py-2.5 border-t border-black/[0.06]">
+            <img src="Logos/Axaio_madetoprint_auto_large_short.png" alt="Axaio MadeToPrint Auto" class="h-5 w-auto object-contain object-left" />
+          </div>
+          <div class="flex items-center gap-3 py-2.5 border-t border-black/[0.06]">
+            <img src="Logos/Axaio_madetoprint_server_large_short.png" alt="Axaio MadeToPrint Server" class="h-5 w-auto object-contain object-left" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Impressed -->
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-6 hover:bg-white/60 hover:shadow-md hover:-translate-y-0.5 transition-all backdrop-blur-sm flex flex-col">
+        <div class="flex items-start justify-between gap-3 mb-4">
+          <span class="inline-block text-[0.65rem] font-bold uppercase tracking-[0.1em] text-[#4a9ab8] bg-[#55b0d1]/10 px-2.5 py-1 rounded">Distributør</span>
+          <a href="https://impressed.de" target="_blank" rel="noopener" class="btn-secondary text-[0.78rem]">impressed.de →</a>
+        </div>
+        <img src="Logos/logo_impressed.svg" alt="Impressed" class="h-7 w-auto object-contain object-left mb-4" />
+        <p class="text-[0.82rem] text-[#6B6560] leading-[1.65] flex-1">InProduction er dansk distributør af Impressed's løsninger til grafisk industri — og udvikler tilpassede scripts og Switch Apps til workflow-automatisering baseret på Impressed-teknologi.</p>
+      </div>
+
+      <!-- Attention Solutions -->
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-6 hover:bg-white/60 hover:shadow-md hover:-translate-y-0.5 transition-all backdrop-blur-sm flex flex-col">
+        <div class="flex items-start justify-between gap-3 mb-4">
+          <span class="inline-block text-[0.65rem] font-bold uppercase tracking-[0.1em] text-[#4a9ab8] bg-[#55b0d1]/10 px-2.5 py-1 rounded">Distributør</span>
+          <a href="https://www.attention-solutions.dk/" target="_blank" rel="noopener" class="btn-secondary text-[0.78rem]">attention-solutions.dk →</a>
+        </div>
+        <img src="Logos/Attention_logo.png" alt="Attention Solutions" class="h-7 w-auto object-contain object-left mb-4" />
+        <p class="text-[0.82rem] text-[#6B6560] leading-[1.65] flex-1">InProduction distribuerer Enfocus-produkter via Attention Solutions — og kombinerer stærke salgskanaler med dyb teknisk implementeringskompetence.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-[#1C1A18] py-20 px-6 text-center border-t border-white/[0.06]">
+  <div class="max-w-lg mx-auto">
+    <h2 class="text-3xl font-bold tracking-[-0.03em] text-white/90 mb-3">Lad os starte med en samtale.</h2>
+    <p class="text-[0.95rem] text-white/50 leading-[1.75] mb-9">Uforpligtende. Vi finder ud af, hvilken udfordring der giver mest mening at løse først.</p>
+    <a href="inproduction-kontakt.html" class="btn-primary">Kontakt os</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-[#1C1A18] border-t border-white/[0.06] px-6 py-8">
+  <div class="max-w-5xl mx-auto flex justify-between items-center flex-wrap gap-3 text-[0.8rem] text-white/35">
+    <span class="font-semibold text-white/70">inProduction ApS</span>
+    <span>Peter Kjær · Grundlagt 2007 · Enfocus Switch-forhandler &amp; workflow-specialist</span>
+    <a href="mailto:contact@inproduction.dk" class="text-white/35 hover:text-white/70 no-underline transition-colors">contact@inproduction.dk</a>
+  </div>
+</footer>
+
+</body>
+</html>
