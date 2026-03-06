@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+Allow: /cases/
+Allow: /kontakt/
+Allow: /om-os/
+Allow: /partnere/
+Allow: /egenudviklede-produkter-loesninger/
+Allow: /assets/
+
+# Block known spam URL patterns
+Disallow: /Of/
+Disallow: /Cbd-Oil
+Disallow: /Cbd_Oil
+Disallow: /Tmg/
+Disallow: /*N95-Mask*
+Disallow: /*Drug-Test*
+Disallow: /*Supplement-Weight-Loss*
+Disallow: /*930eea*
+Disallow: /*Oil-For-Pain*
+Disallow: /*Garden-Of*
+Disallow: /*Mask-Specifications*
+
+Sitemap: https://inproduction.dk/sitemap.xml

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://inproduction.dk/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://inproduction.dk/cases/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://inproduction.dk/partnere/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://inproduction.dk/om-os/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://inproduction.dk/egenudviklede-produkter-loesninger/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://inproduction.dk/kontakt/</loc>
+    <priority>0.8</priority>
+  </url>
+</urlset>
