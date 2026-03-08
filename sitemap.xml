@@ -5,6 +5,26 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://inproduction.dk/loesninger/</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://inproduction.dk/loesninger/enfocus-switch/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://inproduction.dk/loesninger/pitstop/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://inproduction.dk/loesninger/pdf-workflows/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://inproduction.dk/loesninger/grafisk-automatisering/</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://inproduction.dk/cases/</loc>
     <priority>0.8</priority>
   </url>
