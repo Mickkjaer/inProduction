@@ -5,6 +5,11 @@ Allow: /kontakt/
 Allow: /om-os/
 Allow: /partnere/
 Allow: /egenudviklede-produkter-loesninger/
+Allow: /loesninger/
+Allow: /loesninger/enfocus-switch/
+Allow: /loesninger/pitstop/
+Allow: /loesninger/pdf-workflows/
+Allow: /loesninger/grafisk-automatisering/
 Allow: /assets/
 
 # Block known spam URL patterns

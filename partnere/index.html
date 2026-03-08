@@ -39,10 +39,20 @@
       <span class="text-[#55b0d1]">in</span><span class="text-[#333]">Production</span>
     </a>
     <ul class="flex items-center gap-1 list-none m-0 p-0">
+      <li class="nav-dropdown">
+        <a href="/loesninger/" class="nav-text-link nav-dropdown-trigger text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline is-active" aria-haspopup="true">Løsninger</a>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="/loesninger/enfocus-switch/" class="nav-dropdown-item" role="menuitem">Enfocus Switch<small>Workflow-automatisering</small></a>
+          <a href="/loesninger/pitstop/" class="nav-dropdown-item" role="menuitem">PitStop<small>PDF-kvalitetskontrol</small></a>
+          <a href="/loesninger/pdf-workflows/" class="nav-dropdown-item" role="menuitem">PDF Workflows<small>callas pdfToolbox</small></a>
+          <a href="/loesninger/grafisk-automatisering/" class="nav-dropdown-item" role="menuitem">Grafisk automatisering<small>Komplet guide</small></a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="/partnere/" class="nav-dropdown-item" role="menuitem">Alle partnere</a>
+          <a href="/egenudviklede-produkter-loesninger/" class="nav-dropdown-item" role="menuitem">Egenudviklede løsninger</a>
+        </div>
+      </li>
       <li><a href="/cases/" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Cases</a></li>
-      <li><a href="/partnere/" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline is-active" aria-current="page">Partnere</a></li>
       <li><a href="/om-os/" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Om os</a></li>
-      <li><a href="/egenudviklede-produkter-loesninger/" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Egenudvikling</a></li>
       <li><a href="/kontakt/" class="nav-cta-desktop text-sm font-semibold bg-[#333] text-white px-4 py-2 rounded-full hover:bg-[#1C1A18] hover:-translate-y-0.5 transition-all no-underline">Kontakt os</a></li>
       <li><button id="mobile-menu-toggle" class="mobile-hamburger" aria-label="Åbn menu" aria-expanded="false"><span class="ham-bar"></span><span class="ham-bar"></span><span class="ham-bar"></span></button></li>
     </ul>
@@ -54,10 +64,22 @@
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="17" y1="5" x2="5" y2="17"/><line x1="5" y1="5" x2="17" y2="17"/></svg>
   </button>
   <nav class="flex flex-col gap-2">
+    <div>
+      <button class="overlay-nav-link mobile-accordion-toggle" aria-expanded="false">
+        <span>Løsninger</span>
+        <svg class="chevron-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="mobile-accordion-content">
+        <a href="/loesninger/enfocus-switch/" class="overlay-nav-link">Enfocus Switch</a>
+        <a href="/loesninger/pitstop/" class="overlay-nav-link">PitStop</a>
+        <a href="/loesninger/pdf-workflows/" class="overlay-nav-link">PDF Workflows</a>
+        <a href="/loesninger/grafisk-automatisering/" class="overlay-nav-link">Grafisk automatisering</a>
+        <a href="/partnere/" class="overlay-nav-link">Alle partnere</a>
+        <a href="/egenudviklede-produkter-loesninger/" class="overlay-nav-link">Egenudvikling</a>
+      </div>
+    </div>
     <a href="/cases/" class="overlay-nav-link">Cases</a>
-    <a href="/partnere/" class="overlay-nav-link is-active">Partnere</a>
     <a href="/om-os/" class="overlay-nav-link">Om os</a>
-    <a href="/egenudviklede-produkter-loesninger/" class="overlay-nav-link">Egenudvikling</a>
     <a href="/kontakt/" class="overlay-nav-cta">Kontakt os</a>
   </nav>
 </div>
@@ -82,18 +104,21 @@
       <a href="https://www.enfocus.com/en" target="_blank" rel="noopener" class="btn-secondary mt-1 whitespace-nowrap">enfocus.com →</a>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-      <article class="bg-white border border-black/[0.08] rounded-2xl p-5 flex flex-col gap-3">
+      <a href="/loesninger/enfocus-switch/" class="bg-white border border-black/[0.08] rounded-2xl p-5 flex flex-col gap-3 hover:border-[#55b0d1]/30 hover:shadow-md transition-all no-underline group">
         <img src="/logos/Switch logo black.png" alt="Enfocus Switch" class="h-7 w-auto object-contain object-left" />
         <p class="text-[0.8rem] text-[#6B6560] leading-[1.6]">Branchens mest fleksible workflow-automatiseringsplatform — rygraden i de fleste InProduction-løsninger.</p>
-      </article>
-      <article class="bg-white border border-black/[0.08] rounded-2xl p-5 flex flex-col gap-3">
+        <span class="text-[0.75rem] font-semibold text-[#55b0d1] group-hover:underline">Læs mere →</span>
+      </a>
+      <a href="/loesninger/pitstop/" class="bg-white border border-black/[0.08] rounded-2xl p-5 flex flex-col gap-3 hover:border-[#55b0d1]/30 hover:shadow-md transition-all no-underline group">
         <img src="/logos/PitStop Pro logo black.png" alt="Enfocus PitStop Pro" class="h-7 w-auto object-contain object-left" />
         <p class="text-[0.8rem] text-[#6B6560] leading-[1.6]">Desktop-applikation til præcis PDF-redigering, preflight og manuelle korrektioner.</p>
-      </article>
-      <article class="bg-white border border-black/[0.08] rounded-2xl p-5 flex flex-col gap-3">
+        <span class="text-[0.75rem] font-semibold text-[#55b0d1] group-hover:underline">Læs mere →</span>
+      </a>
+      <a href="/loesninger/pitstop/" class="bg-white border border-black/[0.08] rounded-2xl p-5 flex flex-col gap-3 hover:border-[#55b0d1]/30 hover:shadow-md transition-all no-underline group">
         <img src="/logos/PitStop server logo black.png" alt="Enfocus PitStop Server" class="h-7 w-auto object-contain object-left" />
         <p class="text-[0.8rem] text-[#6B6560] leading-[1.6]">Automatisk PDF-kvalitetskontrol og preflight i industriklasse — direkte integreret i workflowet.</p>
-      </article>
+        <span class="text-[0.75rem] font-semibold text-[#55b0d1] group-hover:underline">Læs mere →</span>
+      </a>
       <article class="bg-white border border-black/[0.08] rounded-2xl p-5 flex flex-col gap-3">
         <img src="/logos/Connect logo black.png" alt="Enfocus Connect" class="h-7 w-auto object-contain object-left" />
         <p class="text-[0.8rem] text-[#6B6560] leading-[1.6]">Kundevendte upload-portaler og automatiserede filleverings-løsninger til nem jobmodtagelse.</p>
@@ -126,7 +151,8 @@
           <a href="https://callassoftware.com" target="_blank" rel="noopener" class="btn-secondary text-[0.78rem]">callassoftware.com →</a>
         </div>
         <h3 class="text-[0.97rem] font-bold text-[#1C1A18] mb-2 tracking-[-0.02em]">callas software</h3>
-        <p class="text-[0.82rem] text-[#6B6560] leading-[1.65] mb-5 flex-1">Avanceret PDF-behandling og kvalitetskontrol med support for dynamisk QA baseret på XML-metadata. Bruges til komplekse preflight-scenarier og jobpose-generering.</p>
+        <p class="text-[0.82rem] text-[#6B6560] leading-[1.65] mb-3 flex-1">Avanceret PDF-behandling og kvalitetskontrol med support for dynamisk QA baseret på XML-metadata. Bruges til komplekse preflight-scenarier og jobpose-generering.</p>
+        <a href="/loesninger/pdf-workflows/" class="text-[0.78rem] font-semibold text-[#55b0d1] hover:underline no-underline mb-3 inline-block">Se vores PDF Workflows-løsning →</a>
         <div class="flex flex-col">
           <div class="flex items-center gap-3 py-2.5 border-t border-black/[0.06]">
             <span class="text-[0.8rem] font-medium text-[#333]">pdfToolbox Desktop</span>
@@ -268,6 +294,15 @@
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && overlay.classList.contains('open')) closeMenu();
     });
+    // Mobile accordion
+    var accToggle = document.querySelector('.mobile-accordion-toggle');
+    if (accToggle) {
+      accToggle.addEventListener('click', function() {
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        this.nextElementSibling.classList.toggle('open');
+      });
+    }
   })();
 </script>
 

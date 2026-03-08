@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Løsninger til Grafisk Automatisering — inProduction</title>
+  <meta name="description" content="Udforsk inProductions løsninger til workflow-automatisering, PDF-kvalitetskontrol og grafisk produktion. Enfocus Switch, PitStop, callas pdfToolbox og mere." />
+  <meta property="og:title" content="Løsninger til Grafisk Automatisering — inProduction" />
+  <meta property="og:description" content="Udforsk inProductions løsninger til workflow-automatisering, PDF-kvalitetskontrol og grafisk produktion. Enfocus Switch, PitStop, callas pdfToolbox og mere." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://inproduction.dk/loesninger/" />
+  <meta property="og:locale" content="da_DK" />
+  <meta property="og:site_name" content="inProduction" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="canonical" href="https://inproduction.dk/loesninger/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { accent: '#55b0d1', mid: '#4a9ab8', dark: '#333333' },
+            warm: { base: '#F7F4F0', surface: '#FDFCFB', muted: '#6B6560', heading: '#1C1A18', dark: '#1C1A18', darker: '#2A2724' }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Forside", "item": "https://inproduction.dk/" },
+      { "@type": "ListItem", "position": 2, "name": "Løsninger", "item": "https://inproduction.dk/loesninger/" }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-[#F7F4F0] text-[#1C1A18] antialiased">
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 bg-[#F7F4F0]/80 backdrop-blur-md border-b border-black/[0.06]">
+  <nav class="max-w-5xl mx-auto px-6 py-3.5 flex justify-between items-center">
+    <a href="/" class="text-[1.3rem] font-bold tracking-[-0.03em] no-underline text-[#1C1A18]">
+      <span class="text-[#55b0d1]">in</span><span class="text-[#333]">Production</span>
+    </a>
+    <ul class="flex items-center gap-1 list-none m-0 p-0">
+      <li class="nav-dropdown">
+        <a href="/loesninger/" class="nav-text-link nav-dropdown-trigger text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline is-active" aria-current="page" aria-haspopup="true">Løsninger</a>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="/loesninger/enfocus-switch/" class="nav-dropdown-item" role="menuitem">Enfocus Switch<small>Workflow-automatisering</small></a>
+          <a href="/loesninger/pitstop/" class="nav-dropdown-item" role="menuitem">PitStop<small>PDF-kvalitetskontrol</small></a>
+          <a href="/loesninger/pdf-workflows/" class="nav-dropdown-item" role="menuitem">PDF Workflows<small>callas pdfToolbox</small></a>
+          <a href="/loesninger/grafisk-automatisering/" class="nav-dropdown-item" role="menuitem">Grafisk automatisering<small>Komplet guide</small></a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="/partnere/" class="nav-dropdown-item" role="menuitem">Alle partnere</a>
+          <a href="/egenudviklede-produkter-loesninger/" class="nav-dropdown-item" role="menuitem">Egenudviklede løsninger</a>
+        </div>
+      </li>
+      <li><a href="/cases/" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Cases</a></li>
+      <li><a href="/om-os/" class="nav-text-link text-sm font-medium text-[#6B6560] hover:text-[#1C1A18] px-3 py-2 rounded-lg hover:bg-black/[0.05] transition-colors no-underline">Om os</a></li>
+      <li><a href="/kontakt/" class="nav-cta-desktop text-sm font-semibold bg-[#333] text-white px-4 py-2 rounded-full hover:bg-[#1C1A18] hover:-translate-y-0.5 transition-all no-underline">Kontakt os</a></li>
+      <li><button id="mobile-menu-toggle" class="mobile-hamburger" aria-label="Åbn menu" aria-expanded="false"><span class="ham-bar"></span><span class="ham-bar"></span><span class="ham-bar"></span></button></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Mobile menu overlay -->
+<div id="mobile-menu-overlay" class="mobile-menu-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation">
+  <button id="mobile-menu-close" class="menu-close-btn" aria-label="Luk menu">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="17" y1="5" x2="5" y2="17"/><line x1="5" y1="5" x2="17" y2="17"/></svg>
+  </button>
+  <nav class="flex flex-col gap-2">
+    <div>
+      <button class="overlay-nav-link mobile-accordion-toggle" aria-expanded="false">
+        <span>Løsninger</span>
+        <svg class="chevron-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="mobile-accordion-content">
+        <a href="/loesninger/enfocus-switch/" class="overlay-nav-link">Enfocus Switch</a>
+        <a href="/loesninger/pitstop/" class="overlay-nav-link">PitStop</a>
+        <a href="/loesninger/pdf-workflows/" class="overlay-nav-link">PDF Workflows</a>
+        <a href="/loesninger/grafisk-automatisering/" class="overlay-nav-link">Grafisk automatisering</a>
+        <a href="/partnere/" class="overlay-nav-link">Alle partnere</a>
+        <a href="/egenudviklede-produkter-loesninger/" class="overlay-nav-link">Egenudvikling</a>
+      </div>
+    </div>
+    <a href="/cases/" class="overlay-nav-link">Cases</a>
+    <a href="/om-os/" class="overlay-nav-link">Om os</a>
+    <a href="/kontakt/" class="overlay-nav-cta">Kontakt os</a>
+  </nav>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="bg-[#F7F4F0] border-b border-black/[0.07] py-3 px-6">
+  <nav class="max-w-5xl mx-auto breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Forside</a>
+    <span class="breadcrumb-sep" aria-hidden="true">/</span>
+    <span aria-current="page">Løsninger</span>
+  </nav>
+</div>
+
+<!-- PAGE HEADER -->
+<section class="bg-gradient-to-b from-[#EDE9E3] to-[#F7F4F0] border-b border-black/[0.07] py-16 px-6">
+  <div class="max-w-3xl mx-auto">
+    <span class="eyebrow text-[0.7rem] font-bold uppercase tracking-[0.14em] text-[#55b0d1] mb-6 block">Løsninger</span>
+    <h1 class="text-4xl lg:text-5xl font-bold tracking-[-0.04em] leading-[1.15] [text-wrap:balance] text-[#333] mb-6">Værktøjerne bag en moden produktion</h1>
+    <p class="text-[1rem] text-[#6B6560] leading-[1.8] max-w-2xl">Vi kombinerer branchens førende standardsoftware med dyb implementeringskompetence. Resultatet er workflows, der automatiserer det tunge løft — fra filmodtagelse og kvalitetskontrol til ERP-integration og fakturering.</p>
+  </div>
+</section>
+
+<!-- SOLUTION CARDS -->
+<section class="bg-[#FDFCFB] border-b border-black/[0.07] py-20 px-6">
+  <div class="max-w-4xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+      <a href="/loesninger/enfocus-switch/" class="bg-white border border-black/[0.08] rounded-2xl p-7 hover:border-[#55b0d1]/30 hover:shadow-md hover:-translate-y-0.5 transition-all no-underline group">
+        <img src="/logos/Switch logo black.png" alt="Enfocus Switch" class="h-7 w-auto object-contain object-left mb-4" />
+        <h2 class="text-[1rem] font-bold text-[#1C1A18] mb-2 tracking-[-0.02em]">Enfocus Switch</h2>
+        <p class="text-[0.85rem] text-[#6B6560] leading-[1.7] mb-4">Branchens mest fleksible workflow-automatiseringsplatform. Switch er rygraden i de fleste inProduction-løsninger — fra simpel filrouting til komplekse, multi-system produktionsflows.</p>
+        <span class="text-[0.78rem] font-semibold text-[#55b0d1] group-hover:underline">Læs mere →</span>
+      </a>
+
+      <a href="/loesninger/pitstop/" class="bg-white border border-black/[0.08] rounded-2xl p-7 hover:border-[#55b0d1]/30 hover:shadow-md hover:-translate-y-0.5 transition-all no-underline group">
+        <img src="/logos/PitStop server logo black.png" alt="Enfocus PitStop" class="h-7 w-auto object-contain object-left mb-4" />
+        <h2 class="text-[1rem] font-bold text-[#1C1A18] mb-2 tracking-[-0.02em]">PitStop</h2>
+        <p class="text-[0.85rem] text-[#6B6560] leading-[1.7] mb-4">Automatisk PDF-kvalitetskontrol og preflight i industriklasse. Tjekker og korrigerer filer op mod præcise produktionskrav — format, farver, opløsning, fonte og beskæring.</p>
+        <span class="text-[0.78rem] font-semibold text-[#55b0d1] group-hover:underline">Læs mere →</span>
+      </a>
+
+      <a href="/loesninger/pdf-workflows/" class="bg-white border border-black/[0.08] rounded-2xl p-7 hover:border-[#55b0d1]/30 hover:shadow-md hover:-translate-y-0.5 transition-all no-underline group">
+        <h2 class="text-[1rem] font-bold text-[#1C1A18] mb-2 tracking-[-0.02em]">PDF Workflows</h2>
+        <p class="text-[0.85rem] text-[#6B6560] leading-[1.7] mb-4">Avanceret PDF-behandling med callas pdfToolbox. Dynamisk kvalitetskontrol baseret på XML-metadata, jobpose-generering og automatisk filklargøring til produktion.</p>
+        <span class="text-[0.78rem] font-semibold text-[#55b0d1] group-hover:underline">Læs mere →</span>
+      </a>
+
+      <a href="/loesninger/grafisk-automatisering/" class="bg-white border border-black/[0.08] rounded-2xl p-7 hover:border-[#55b0d1]/30 hover:shadow-md hover:-translate-y-0.5 transition-all no-underline group">
+        <span class="inline-block text-[0.65rem] font-bold uppercase tracking-[0.1em] text-[#4a9ab8] bg-[#55b0d1]/10 px-2.5 py-1 rounded mb-3">Guide</span>
+        <h2 class="text-[1rem] font-bold text-[#1C1A18] mb-2 tracking-[-0.02em]">Hvad er grafisk automatisering?</h2>
+        <p class="text-[0.85rem] text-[#6B6560] leading-[1.7] mb-4">En komplet guide til grafisk automatisering: hvad det er, hvorfor det er vigtigt, og hvordan I kommer fra manuelle processer til en integreret, datadrevet produktion.</p>
+        <span class="text-[0.78rem] font-semibold text-[#55b0d1] group-hover:underline">Læs guiden →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="bg-[#F7F4F0] border-b border-black/[0.07] py-20 px-6">
+  <div class="max-w-3xl mx-auto">
+    <span class="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#55b0d1] block mb-2">Vores tilgang</span>
+    <h2 class="text-3xl font-bold tracking-[-0.03em] text-[#1C1A18] mb-4">Standard først. Tilpasset hvor det tæller.</h2>
+    <p class="text-[0.95rem] text-[#6B6560] leading-[1.8] mb-10">Vi starter altid med gennemprøvet standardsoftware. Specialudvikling tilføjes kun, når hyldevarer har vist deres værdi — og ikke rækker længere. Det giver løsninger, der er nemme at vedligeholde og bygge videre på.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-6 backdrop-blur-sm">
+        <span class="text-[0.65rem] font-bold uppercase tracking-[0.1em] text-[#55b0d1] block mb-2">01</span>
+        <h3 class="text-[0.9rem] font-bold text-[#1C1A18] mb-2">Analyse før teknologi</h3>
+        <p class="text-[0.84rem] text-[#6B6560] leading-[1.7]">Vi forstår jeres workflow og identificerer flaskehalsene, inden vi vælger værktøjer.</p>
+      </div>
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-6 backdrop-blur-sm">
+        <span class="text-[0.65rem] font-bold uppercase tracking-[0.1em] text-[#55b0d1] block mb-2">02</span>
+        <h3 class="text-[0.9rem] font-bold text-[#1C1A18] mb-2">Proof of concept</h3>
+        <p class="text-[0.84rem] text-[#6B6560] leading-[1.7]">Vi beviser værdien med et fungerende workflow i jeres eget miljø — før I investerer.</p>
+      </div>
+      <div class="bg-white/40 rounded-2xl border border-black/[0.09] p-6 backdrop-blur-sm">
+        <span class="text-[0.65rem] font-bold uppercase tracking-[0.1em] text-[#55b0d1] block mb-2">03</span>
+        <h3 class="text-[0.9rem] font-bold text-[#1C1A18] mb-2">Implementering i trin</h3>
+        <p class="text-[0.84rem] text-[#6B6560] leading-[1.7]">Hvert trin bygger på det forrige og skaber målbar værdi fra dag ét.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES REFERENCE -->
+<section class="bg-[#FDFCFB] border-b border-black/[0.07] py-20 px-6">
+  <div class="max-w-3xl mx-auto text-center">
+    <span class="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#55b0d1] block mb-2">Cases</span>
+    <h2 class="text-3xl font-bold tracking-[-0.03em] text-[#1C1A18] mb-3">Se løsningerne i praksis</h2>
+    <p class="text-[0.95rem] text-[#6B6560] leading-[1.75] mb-8">Vi har implementeret workflows for virksomheder som LEGO, Story House Egmont og Eurographic Group.</p>
+    <a href="/cases/" class="btn-secondary">Se alle cases →</a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-[#1C1A18] py-20 px-6 text-center border-t border-white/[0.06]">
+  <div class="max-w-lg mx-auto">
+    <h2 class="text-3xl font-bold tracking-[-0.03em] text-white/90 mb-3">Klar til næste skridt?</h2>
+    <p class="text-[0.95rem] text-white/50 leading-[1.75] mb-9">Vi starter med en uforpligtende samtale og finder ud af, hvilken løsning der giver mest mening for jeres produktion.</p>
+    <a href="/kontakt/" class="btn-primary">Kontakt os</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-[#141210] border-t border-white/[0.06] px-6 py-8">
+  <div class="max-w-5xl mx-auto flex justify-between items-center flex-wrap gap-3 text-[0.8rem] text-white/35">
+    <span class="font-semibold text-white/70">inProduction ApS</span>
+    <span>Peter Kjær · Grundlagt 2007 · Enfocus Switch-forhandler &amp; workflow-specialist</span>
+    <a href="mailto:info@inproduction.dk" class="text-white/35 hover:text-white/70 no-underline transition-colors">info@inproduction.dk</a>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var toggle = document.getElementById('mobile-menu-toggle');
+    var overlay = document.getElementById('mobile-menu-overlay');
+    var closeBtn = document.getElementById('mobile-menu-close');
+    if (!toggle || !overlay) return;
+    function openMenu() {
+      overlay.classList.add('open');
+      toggle.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      overlay.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    toggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      overlay.classList.contains('open') ? closeMenu() : openMenu();
+    });
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) closeMenu();
+    });
+    // Mobile accordion
+    var accToggle = document.querySelector('.mobile-accordion-toggle');
+    if (accToggle) {
+      accToggle.addEventListener('click', function() {
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        this.nextElementSibling.classList.toggle('open');
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
