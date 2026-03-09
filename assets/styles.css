@@ -260,6 +260,154 @@ textarea { resize: vertical; min-height: 120px; }
 .ring-fill { stroke-dasharray: 188.4; stroke-dashoffset: 0; transition: stroke-dashoffset 1s linear; }
 
 /* ----------------------------------------
+   Homepage: Hero pinned scroll animation
+   ---------------------------------------- */
+
+/* Pinning container — ScrollTrigger pins this */
+.hero-pin {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F7F4F0;
+}
+
+/* Text panels — stack on top of each other */
+.hero-panel {
+  position: relative;
+  z-index: 10;
+  padding: 4rem 1.5rem;
+  width: 100%;
+}
+#hero-solution {
+  opacity: 0;
+  position: absolute;
+  bottom: 1.5rem;
+  left: 0;
+  right: 0;
+  transform: translateY(30px);
+}
+#hero-solution h2 { margin-bottom: 0.25rem; }
+#hero-solution p { font-size: 0.88rem; line-height: 1.7; margin-bottom: 0.75rem; }
+
+/* Workflow canvas — full-bleed behind the text panels */
+.wf-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Process nodes — vertical card layout (icon above text) */
+.wf-node {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 110px;
+  height: 90px;
+  padding: 12px 8px 10px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  user-select: none;
+  transform-origin: center;
+  will-change: transform, opacity, filter;
+  filter: blur(3px);
+  opacity: 0.18;
+}
+.wf-node.is-organized {
+  border-color: rgba(85,176,209,0.35);
+  box-shadow: 0 4px 20px rgba(85,176,209,0.10);
+}
+
+/* Node icon wrapper */
+.wf-node-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Node icon SVG */
+.wf-icon {
+  width: 24px;
+  height: 24px;
+  stroke: #55b0d1;
+  stroke-width: 1.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Node label */
+.wf-node-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #1C1A18;
+  letter-spacing: -0.01em;
+  text-align: center;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* SVG connector overlay */
+.wf-svg-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 2;
+}
+.wf-connector {
+  stroke-width: 1.8;
+  fill: none;
+  stroke-linecap: round;
+  opacity: 0;
+}
+.wf-connector-cyan { stroke: #55b0d1; }
+.wf-connector-dark { stroke: #333; }
+.wf-arrow { opacity: 0; }
+
+/* Responsive */
+@media (max-width: 767px) {
+  .wf-node {
+    width: 80px;
+    height: 70px;
+    padding: 8px 6px 8px;
+    border-radius: 10px;
+    gap: 5px;
+  }
+  .wf-node-icon { width: 22px; height: 22px; }
+  .wf-icon { width: 18px; height: 18px; }
+  .wf-node-label { font-size: 8px; }
+  .hero-panel { padding: 2.5rem 1.25rem; }
+}
+@media (max-width: 479px) {
+  .wf-node {
+    width: 64px;
+    height: 58px;
+    padding: 6px 4px 6px;
+    gap: 3px;
+    border-radius: 8px;
+  }
+  .wf-node-icon { width: 18px; height: 18px; }
+  .wf-icon { width: 16px; height: 16px; }
+  .wf-node-label { font-size: 7px; }
+}
+
+/* ----------------------------------------
    Pillar page: table of contents
    ---------------------------------------- */
 .toc-link { display: block; padding: 0.35rem 0; font-size: 0.82rem; color: #6B6560; text-decoration: none; transition: color 0.15s; }
