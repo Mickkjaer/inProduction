@@ -450,7 +450,7 @@
         <h2 class="text-xl font-bold tracking-[-0.02em] text-[#333] mb-2 text-center">Foretrækker du bare at skrive?</h2>
         <p class="text-[0.88rem] text-[#6B6560] leading-relaxed mb-7 text-center">Helt fint — send os en besked, så tager vi det derfra.</p>
 
-        <form id="contact-form" action="https://fabform.io/f/RVb-J9O" method="post">
+        <form id="contact-form" action="https://formspree.io/f/mlgpgong" method="post">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             <div>
               <label class="block text-[0.78rem] font-semibold text-[#3D3A37] mb-1.5" for="name">Navn</label>
@@ -722,7 +722,7 @@
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sender...';
 
-    fetch('https://fabform.io/f/RVb-J9O', {
+    fetch('https://formspree.io/f/mlgpgong', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(data)
