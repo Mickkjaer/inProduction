@@ -48,8 +48,8 @@ body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
 .menu-close-btn:hover { background: rgba(0,0,0,0.06); }
 
 /* Responsive nav visibility */
-@media (max-width: 640px) { .nav-text-link { display: none; } .nav-cta-desktop { display: none; } .nav-dropdown { display: none; } .mobile-hamburger { display: flex; } }
-@media (min-width: 641px) { .mobile-menu-overlay { display: none !important; } }
+@media (max-width: 768px) { .nav-text-link { display: none; } .nav-cta-desktop { display: none; } .nav-dropdown { display: none; } .mobile-hamburger { display: flex; } }
+@media (min-width: 769px) { .mobile-menu-overlay { display: none !important; } }
 
 /* Navigation active states */
 .nav-text-link.is-active { font-weight: 600; color: #333; background: rgba(0,0,0,0.07); }
