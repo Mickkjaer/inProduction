@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kontakt inProduction — Grafisk Workflow Automatisering</title>
-  <meta name="description" content="Kontakt inProduction for en uforpligtende snak om automatisering af din grafiske produktion. Vi hjælper med rådgivning, implementering og support." />
-  <meta property="og:title" content="Kontakt inProduction — Grafisk Workflow Automatisering" />
-  <meta property="og:description" content="Kontakt inProduction for en uforpligtende snak om automatisering af din grafiske produktion. Vi hjælper med rådgivning, implementering og support." />
+  <meta name="description" content="Tag vores digitale modenhedsquiz og find ud af, hvor jeres grafiske produktion står — og få konkrete anbefalinger til næste skridt." />
+  <meta property="og:title" content="Kontakt inProduction — Digital Modenhedsquiz" />
+  <meta property="og:description" content="Tag vores digitale modenhedsquiz og find ud af, hvor jeres grafiske produktion står." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://inproduction.dk/kontakt/" />
   <meta property="og:locale" content="da_DK" />
@@ -86,75 +86,371 @@
 </div>
 
 <!-- MAIN -->
-<main class="py-20 px-6 pb-28">
-  <div class="max-w-4xl mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.45fr] gap-16 items-start">
+<main class="py-16 px-6 pb-28">
+  <div class="max-w-2xl mx-auto">
 
-      <!-- LEFT: COPY -->
-      <div>
-        <span class="eyebrow text-[0.7rem] font-bold uppercase tracking-[0.14em] text-[#55b0d1] mb-6 block">Kontakt</span>
-        <h1 class="text-3xl lg:text-4xl font-bold tracking-[-0.035em] leading-[1.15] [text-wrap:balance] text-[#333] mb-5">Lad os starte med en samtale.</h1>
-        <p class="text-[0.97rem] text-[#6B6560] leading-[1.85] mb-3">Fortæl os lidt om jeres setup og hvor I oplever friktion. Vi vender tilbage inden for et par dage med et bud på, om og hvordan vi kan hjælpe.</p>
-        <p class="text-[0.97rem] text-[#6B6560] leading-[1.85]">Ingen forpligtelse. De fleste samtaler starter med at kortlægge et konkret problem — derfra finder vi sammen ud af det næste skridt.</p>
+    <!-- ═══════════════════════════════════════════
+         QUIZ CONTAINER
+         ═══════════════════════════════════════════ -->
+    <div id="quiz-container">
 
-        <!-- Next steps -->
-        <div class="mt-9 pt-8 border-t border-black/[0.07]">
-          <span class="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#55b0d1] block mb-6">Hvad sker der så?</span>
-          <div class="flex flex-col gap-5">
-            <div class="flex gap-4 items-start">
-              <div class="w-7 h-7 rounded-full bg-black/[0.05] border border-black/[0.08] flex items-center justify-center text-[0.67rem] font-bold text-[#4a9ab8] flex-shrink-0 mt-0.5">1</div>
-              <div>
-                <h4 class="text-[0.86rem] font-bold text-[#1C1A18] mb-0.5">Vi vender tilbage</h4>
-                <p class="text-[0.82rem] text-[#6B6560] leading-relaxed m-0">Inden for 1–2 hverdage — med eventuelle opfølgende spørgsmål eller et forslag til et møde.</p>
-              </div>
+      <!-- SCREEN 0: INTRO -->
+      <div id="quiz-intro" class="quiz-screen quiz-screen--active text-center">
+        <span class="eyebrow text-[0.7rem] font-bold uppercase tracking-[0.14em] text-[#55b0d1] mb-6 block mx-auto justify-center">Digital Modenhed</span>
+        <h1 class="text-3xl lg:text-4xl font-bold tracking-[-0.035em] leading-[1.15] [text-wrap:balance] text-[#333] mb-4">Hvor moden er jeres<br>grafiske produktion?</h1>
+        <p class="text-[0.97rem] text-[#6B6560] leading-[1.85] mb-2 max-w-md mx-auto">Tag testen og find ud af, hvor I står — og hvad der kan bringe jer videre.</p>
+        <p class="text-[0.82rem] text-[#9C958F] mb-8">6 spørgsmål &middot; 2 minutter &middot; Få jeres score</p>
+
+        <button id="quiz-start-btn" class="btn-primary text-[0.95rem] px-8 py-4 cursor-pointer border-0" style="border-radius: 0.75rem;">
+          Start quiz &rarr;
+        </button>
+
+        <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center text-[0.82rem] text-[#6B6560]">
+          <span class="flex items-center gap-2"><span class="text-[#55b0d1]">&#10003;</span> Sammenlign jer med branchen</span>
+          <span class="flex items-center gap-2"><span class="text-[#55b0d1]">&#10003;</span> Få konkrete anbefalinger</span>
+          <span class="flex items-center gap-2"><span class="text-[#55b0d1]">&#10003;</span> Ingen forpligtelse</span>
+        </div>
+
+        <div class="mt-10">
+          <a href="#plain-form" class="text-[0.82rem] text-[#9C958F] hover:text-[#55b0d1] transition-colors no-underline">Foretrækker du bare at skrive til os? &darr;</a>
+        </div>
+      </div>
+
+      <!-- SCREEN 1–5: QUIZ QUESTIONS -->
+      <div id="quiz-q1" class="quiz-screen" data-question="1">
+        <div class="quiz-progress mb-8">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-[0.75rem] font-semibold text-[#55b0d1] uppercase tracking-wider">Spørgsmål 1 af 6</span>
+            <button class="quiz-back-btn text-[0.8rem] text-[#9C958F] hover:text-[#55b0d1] transition-colors cursor-pointer bg-transparent border-0 font-medium">&larr; Tilbage</button>
+          </div>
+          <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 16.66%"></div></div>
+        </div>
+        <h2 class="text-xl lg:text-2xl font-bold tracking-[-0.02em] text-[#333] mb-6">Hvordan håndterer I indkomne filer?</h2>
+        <div class="quiz-options">
+          <button class="quiz-option" data-value="1">
+            <span class="quiz-option-label">Manuelt via e-mail</span>
+            <span class="quiz-option-desc">Filer modtages på e-mail og flyttes manuelt til mapper</span>
+          </button>
+          <button class="quiz-option" data-value="2">
+            <span class="quiz-option-label">Upload-portal</span>
+            <span class="quiz-option-desc">Vi har en portal, men behandler stadig filer manuelt bagefter</span>
+          </button>
+          <button class="quiz-option" data-value="3">
+            <span class="quiz-option-label">Automatisk routing</span>
+            <span class="quiz-option-desc">Filer routes via hotfolder eller Switch til rette workflow</span>
+          </button>
+          <button class="quiz-option" data-value="4">
+            <span class="quiz-option-label">Fuld integration</span>
+            <span class="quiz-option-desc">Filer integreres automatisk med MIS/ERP og triggers workflows</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="quiz-q2" class="quiz-screen" data-question="2">
+        <div class="quiz-progress mb-8">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-[0.75rem] font-semibold text-[#55b0d1] uppercase tracking-wider">Spørgsmål 2 af 6</span>
+            <button class="quiz-back-btn text-[0.8rem] text-[#9C958F] hover:text-[#55b0d1] transition-colors cursor-pointer bg-transparent border-0 font-medium">&larr; Tilbage</button>
+          </div>
+          <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 33.33%"></div></div>
+        </div>
+        <h2 class="text-xl lg:text-2xl font-bold tracking-[-0.02em] text-[#333] mb-6">Hvad sker der, når en fil fejler preflight?</h2>
+        <div class="quiz-options">
+          <button class="quiz-option" data-value="1">
+            <span class="quiz-option-label">Vi checker ikke filer</span>
+            <span class="quiz-option-desc">Fejl opdages først ved print eller levering</span>
+          </button>
+          <button class="quiz-option" data-value="2">
+            <span class="quiz-option-label">Manuel kontrol</span>
+            <span class="quiz-option-desc">En medarbejder åbner og tjekker filen i Acrobat eller lignende</span>
+          </button>
+          <button class="quiz-option" data-value="3">
+            <span class="quiz-option-label">Automatisk preflight</span>
+            <span class="quiz-option-desc">Filer preflight'es automatisk, men fejl håndteres manuelt</span>
+          </button>
+          <button class="quiz-option" data-value="4">
+            <span class="quiz-option-label">Automatisk fix + notifikation</span>
+            <span class="quiz-option-desc">Fejl rettes automatisk, og kunden adviseres ved behov</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="quiz-q3" class="quiz-screen" data-question="3">
+        <div class="quiz-progress mb-8">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-[0.75rem] font-semibold text-[#55b0d1] uppercase tracking-wider">Spørgsmål 3 af 6</span>
+            <button class="quiz-back-btn text-[0.8rem] text-[#9C958F] hover:text-[#55b0d1] transition-colors cursor-pointer bg-transparent border-0 font-medium">&larr; Tilbage</button>
+          </div>
+          <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 50%"></div></div>
+        </div>
+        <h2 class="text-xl lg:text-2xl font-bold tracking-[-0.02em] text-[#333] mb-6">Hvor forbundne er jeres systemer?</h2>
+        <div class="quiz-options">
+          <button class="quiz-option" data-value="1">
+            <span class="quiz-option-label">Separate øer</span>
+            <span class="quiz-option-desc">Hvert system lever sit eget liv — data flyttes manuelt</span>
+          </button>
+          <button class="quiz-option" data-value="2">
+            <span class="quiz-option-label">Enkelte integrationer</span>
+            <span class="quiz-option-desc">Et par systemer er forbundet, men de fleste er stadig adskilte</span>
+          </button>
+          <button class="quiz-option" data-value="3">
+            <span class="quiz-option-label">Delvist forbundet</span>
+            <span class="quiz-option-desc">De vigtigste systemer taler sammen, men der er huller</span>
+          </button>
+          <button class="quiz-option" data-value="4">
+            <span class="quiz-option-label">Fuldt integreret</span>
+            <span class="quiz-option-desc">Alle systemer er forbundet ende-til-ende med dataflow</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="quiz-q4" class="quiz-screen" data-question="4">
+        <div class="quiz-progress mb-8">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-[0.75rem] font-semibold text-[#55b0d1] uppercase tracking-wider">Spørgsmål 4 af 6</span>
+            <button class="quiz-back-btn text-[0.8rem] text-[#9C958F] hover:text-[#55b0d1] transition-colors cursor-pointer bg-transparent border-0 font-medium">&larr; Tilbage</button>
+          </div>
+          <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 66.66%"></div></div>
+        </div>
+        <h2 class="text-xl lg:text-2xl font-bold tracking-[-0.02em] text-[#333] mb-6">Hvordan sporer I ordrestatus?</h2>
+        <div class="quiz-options">
+          <button class="quiz-option" data-value="1">
+            <span class="quiz-option-label">Ringer eller mailer rundt</span>
+            <span class="quiz-option-desc">Man spørger kollegaer — der er intet samlet overblik</span>
+          </button>
+          <button class="quiz-option" data-value="2">
+            <span class="quiz-option-label">Regneark eller tavle</span>
+            <span class="quiz-option-desc">Vi tracker manuelt i Excel, Trello eller lignende</span>
+          </button>
+          <button class="quiz-option" data-value="3">
+            <span class="quiz-option-label">Delvist i MIS</span>
+            <span class="quiz-option-desc">MIS-system er på plads, men dækker ikke hele flowet</span>
+          </button>
+          <button class="quiz-option" data-value="4">
+            <span class="quiz-option-label">Real-time dashboard</span>
+            <span class="quiz-option-desc">Live status fra ordre til levering — tilgængelig for alle</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="quiz-q5" class="quiz-screen" data-question="5">
+        <div class="quiz-progress mb-8">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-[0.75rem] font-semibold text-[#55b0d1] uppercase tracking-wider">Spørgsmål 5 af 6</span>
+            <button class="quiz-back-btn text-[0.8rem] text-[#9C958F] hover:text-[#55b0d1] transition-colors cursor-pointer bg-transparent border-0 font-medium">&larr; Tilbage</button>
+          </div>
+          <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 83.33%"></div></div>
+        </div>
+        <h2 class="text-xl lg:text-2xl font-bold tracking-[-0.02em] text-[#333] mb-6">Hvor mange manuelle trin har jeres typiske ordre?</h2>
+        <div class="quiz-options">
+          <button class="quiz-option" data-value="1">
+            <span class="quiz-option-label">10+ manuelle trin</span>
+            <span class="quiz-option-desc">Næsten alt kræver menneskelig handling</span>
+          </button>
+          <button class="quiz-option" data-value="2">
+            <span class="quiz-option-label">5–10 trin</span>
+            <span class="quiz-option-desc">Flere ting er automatiseret, men der er stadig mange touchpoints</span>
+          </button>
+          <button class="quiz-option" data-value="3">
+            <span class="quiz-option-label">2–4 trin</span>
+            <span class="quiz-option-desc">De fleste processer kører selv — man griber kun ind ved undtagelser</span>
+          </button>
+          <button class="quiz-option" data-value="4">
+            <span class="quiz-option-label">Næsten ingen</span>
+            <span class="quiz-option-desc">Ordrer flyder automatisk fra modtagelse til levering</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- SCREEN 6: MAGIC WAND QUESTION -->
+      <div id="quiz-q6" class="quiz-screen" data-question="6">
+        <div class="quiz-progress mb-8">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-[0.75rem] font-semibold text-[#55b0d1] uppercase tracking-wider">Spørgsmål 6 af 6</span>
+            <button class="quiz-back-btn text-[0.8rem] text-[#9C958F] hover:text-[#55b0d1] transition-colors cursor-pointer bg-transparent border-0 font-medium">&larr; Tilbage</button>
+          </div>
+          <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 100%"></div></div>
+        </div>
+        <h2 class="text-xl lg:text-2xl font-bold tracking-[-0.02em] text-[#333] mb-3">Hvis du havde en tryllestav — hvad ville du løse her og nu?</h2>
+        <p class="text-[0.9rem] text-[#6B6560] leading-relaxed mb-6">Det behøver ikke være præcist. Bare det første, der falder dig ind.</p>
+        <textarea id="magic-wand-input" class="mb-4" placeholder="F.eks. &quot;Vi bruger alt for lang tid på at flytte filer manuelt&quot; eller &quot;Vores preflight-proces er en flaskehals&quot;..." style="min-height: 100px;"></textarea>
+        <button id="magic-wand-next" class="w-full btn-primary text-[0.92rem] py-3.5 cursor-pointer border-0" style="border-radius: 0.75rem;">Videre &rarr;</button>
+        <div class="text-center mt-4">
+          <button id="magic-wand-skip" class="text-[0.84rem] text-[#9C958F] hover:text-[#55b0d1] transition-colors cursor-pointer bg-transparent border-0 font-medium">
+            Ikke sikker endnu? Det finder vi ud af sammen &rarr;
+          </button>
+        </div>
+      </div>
+
+      <!-- SCREEN 7: CONTACT GATE -->
+      <div id="quiz-gate" class="quiz-screen text-center">
+        <div class="mb-8">
+          <div class="w-16 h-16 rounded-full bg-[#55b0d1]/10 border border-[#55b0d1]/20 flex items-center justify-center mx-auto mb-5">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#55b0d1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26z"/></svg>
+          </div>
+          <h2 class="text-2xl lg:text-3xl font-bold tracking-[-0.03em] text-[#333] mb-3">Jeres score er klar!</h2>
+          <p class="text-[0.92rem] text-[#6B6560] leading-relaxed max-w-sm mx-auto">Indtast jeres info, så viser vi resultatet og sender jer en opsummering.</p>
+        </div>
+
+        <!-- Blurred preview teaser -->
+        <div class="relative mb-8 p-6 rounded-2xl bg-white/50 border border-black/[0.09] overflow-hidden">
+          <div class="quiz-result-blur" aria-hidden="true">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[0.75rem] font-bold uppercase tracking-wider text-[#55b0d1]">Jeres resultat</span>
+              <span class="text-[0.8rem] font-bold text-[#333]">?.? / 5</span>
             </div>
-            <div class="flex gap-4 items-start">
-              <div class="w-7 h-7 rounded-full bg-black/[0.05] border border-black/[0.08] flex items-center justify-center text-[0.67rem] font-bold text-[#4a9ab8] flex-shrink-0 mt-0.5">2</div>
-              <div>
-                <h4 class="text-[0.86rem] font-bold text-[#1C1A18] mb-0.5">Et første møde</h4>
-                <p class="text-[0.82rem] text-[#6B6560] leading-relaxed m-0">Online eller hos jer. Vi kortlægger det eksisterende workflow og finder flaskehalsene.</p>
-              </div>
+            <div class="h-2.5 rounded-full bg-black/[0.06] overflow-hidden">
+              <div class="h-full rounded-full bg-gradient-to-r from-[#55b0d1] to-[#4a9ab8]" style="width: 65%"></div>
             </div>
-            <div class="flex gap-4 items-start">
-              <div class="w-7 h-7 rounded-full bg-black/[0.05] border border-black/[0.08] flex items-center justify-center text-[0.67rem] font-bold text-[#4a9ab8] flex-shrink-0 mt-0.5">3</div>
-              <div>
-                <h4 class="text-[0.86rem] font-bold text-[#1C1A18] mb-0.5">Et konkret næste skridt</h4>
-                <p class="text-[0.82rem] text-[#6B6560] leading-relaxed m-0">En workshop, et proof of concept eller en prototype — alt efter hvad opgaven kræver.</p>
-              </div>
-            </div>
+            <p class="text-[0.85rem] text-[#6B6560] mt-3 leading-relaxed">Jeres grafiske produktion placerer sig...</p>
           </div>
         </div>
 
-        <!-- Direct contact -->
-        <div class="mt-8 p-5 bg-white/40 rounded-2xl border border-black/[0.09] backdrop-blur-sm">
-          <span class="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#55b0d1] block mb-4">Direkte kontakt</span>
-          <div class="flex flex-col gap-3">
-            <div class="flex items-center gap-2.5 text-[0.88rem] text-[#6B6560]">
-              <span class="opacity-60 text-base">✉</span>
-              <a href="mailto:info@inproduction.dk" class="text-[#4a9ab8] font-medium no-underline hover:underline">info@inproduction.dk</a>
+        <form id="quiz-contact-form" class="text-left">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label class="block text-[0.78rem] font-semibold text-[#3D3A37] mb-1.5" for="q-name">Navn</label>
+              <input type="text" id="q-name" name="name" placeholder="Peter Andersen" />
             </div>
-            <div class="flex items-center gap-2.5 text-[0.88rem] text-[#6B6560]">
-              <span class="opacity-60 text-base">☎</span>
-              <a href="tel:+4529492617" class="text-[#4a9ab8] font-medium no-underline hover:underline">+45 29 49 26 17</a>
+            <div>
+              <label class="block text-[0.78rem] font-semibold text-[#3D3A37] mb-1.5" for="q-company">Virksomhed</label>
+              <input type="text" id="q-company" name="company" placeholder="Virksomhed A/S" />
             </div>
-            <div class="flex items-center gap-2.5 text-[0.88rem] text-[#6B6560]">
-              <span class="opacity-60 text-base">◎</span>
-              <span>Tøsby Mosevej 8, 7321 Gadbjerg</span>
+          </div>
+          <div class="mb-6">
+            <label class="block text-[0.78rem] font-semibold text-[#3D3A37] mb-1.5" for="q-email">
+              E-mail <span class="text-[#55b0d1] font-medium">*</span>
+            </label>
+            <input type="email" id="q-email" name="email" placeholder="din@email.dk" required />
+          </div>
+          <button type="submit" class="w-full btn-primary text-[0.92rem] py-3.5 cursor-pointer border-0" style="border-radius: 0.75rem;">Se jeres resultat &rarr;</button>
+          <p class="text-[0.75rem] text-[#9C958F] text-center mt-3 leading-relaxed">Vi bruger kun jeres info til at besvare jer. Ingen nyhedsbreve, ingen tredjepart.</p>
+        </form>
+
+        <div id="quiz-gate-error" style="display:none;" class="mt-4 p-4 rounded-xl bg-red-50 border border-red-200 text-center">
+          <p class="text-[0.84rem] text-red-700 leading-relaxed">Noget gik galt — prøv igen eller skriv direkte til <a href="mailto:info@inproduction.dk" class="underline">info@inproduction.dk</a></p>
+        </div>
+      </div>
+
+      <!-- SCREEN 8: RESULT -->
+      <div id="quiz-result" class="quiz-screen">
+        <div class="text-center mb-8">
+          <span class="eyebrow text-[0.7rem] font-bold uppercase tracking-[0.14em] text-[#55b0d1] mb-4 block mx-auto justify-center">Jeres Digital Modenhed</span>
+          <h2 class="text-2xl lg:text-3xl font-bold tracking-[-0.03em] text-[#333] mb-2" id="result-level-title"></h2>
+          <p class="text-[0.95rem] text-[#6B6560]">Score: <span id="result-score" class="font-bold text-[#333]"></span> / 5</p>
+        </div>
+
+        <!-- Maturity scale visualization -->
+        <div class="mb-8 p-6 rounded-2xl bg-white/50 border border-black/[0.09] backdrop-blur-sm">
+          <div class="flex items-center gap-1 mb-3">
+            <div class="maturity-scale-segment" data-level="1"><span>R</span></div>
+            <div class="maturity-scale-connector"></div>
+            <div class="maturity-scale-segment" data-level="2"><span>S</span></div>
+            <div class="maturity-scale-connector"></div>
+            <div class="maturity-scale-segment" data-level="3"><span>A</span></div>
+            <div class="maturity-scale-connector"></div>
+            <div class="maturity-scale-segment" data-level="4"><span>I</span></div>
+            <div class="maturity-scale-connector"></div>
+            <div class="maturity-scale-segment" data-level="5"><span>O</span></div>
+          </div>
+          <div class="flex justify-between text-[0.65rem] text-[#9C958F] px-1">
+            <span>Reaktiv</span>
+            <span>Struktureret</span>
+            <span>Automatiseret</span>
+            <span>Integreret</span>
+            <span>Optimeret</span>
+          </div>
+        </div>
+
+        <!-- What it means -->
+        <div class="mb-6 p-5 rounded-xl bg-white/40 border border-black/[0.07]">
+          <h3 class="text-[0.8rem] font-bold uppercase tracking-wider text-[#55b0d1] mb-3">Hvad det betyder</h3>
+          <p id="result-description" class="text-[0.9rem] text-[#6B6560] leading-[1.8] m-0"></p>
+        </div>
+
+        <!-- Next steps -->
+        <div class="mb-8 p-5 rounded-xl bg-white/40 border border-black/[0.07]">
+          <h3 class="text-[0.8rem] font-bold uppercase tracking-wider text-[#55b0d1] mb-3">Konkrete næste skridt</h3>
+          <ul id="result-recommendations" class="list-none p-0 m-0 flex flex-col gap-2"></ul>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center">
+          <a href="mailto:info@inproduction.dk?subject=Digital%20Modenhed%20-%20Opf%C3%B8lgning" class="btn-primary text-[0.92rem] px-8 py-3.5 inline-block" style="border-radius: 0.75rem;">Book en gratis gennemgang &rarr;</a>
+          <p class="text-[0.82rem] text-[#9C958F] mt-3">Vi ringer jer op inden for 1–2 hverdage.</p>
+        </div>
+      </div>
+
+    </div><!-- /quiz-container -->
+
+    <!-- ═══════════════════════════════════════════
+         BELOW QUIZ: INFO SECTIONS
+         ═══════════════════════════════════════════ -->
+    <div class="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+      <!-- What happens next -->
+      <div>
+        <span class="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#55b0d1] block mb-6">Hvad sker der så?</span>
+        <div class="flex flex-col gap-5">
+          <div class="flex gap-4 items-start">
+            <div class="w-7 h-7 rounded-full bg-black/[0.05] border border-black/[0.08] flex items-center justify-center text-[0.67rem] font-bold text-[#4a9ab8] flex-shrink-0 mt-0.5">1</div>
+            <div>
+              <h4 class="text-[0.86rem] font-bold text-[#1C1A18] mb-0.5">Vi vender tilbage</h4>
+              <p class="text-[0.82rem] text-[#6B6560] leading-relaxed m-0">Inden for 1–2 hverdage — med eventuelle opfølgende spørgsmål eller et forslag til et møde.</p>
             </div>
-            <div class="flex items-center gap-2.5 text-[0.88rem] text-[#6B6560]">
-              <span class="opacity-60 text-base">№</span>
-              <span>CVR 90 31 49 61</span>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-7 h-7 rounded-full bg-black/[0.05] border border-black/[0.08] flex items-center justify-center text-[0.67rem] font-bold text-[#4a9ab8] flex-shrink-0 mt-0.5">2</div>
+            <div>
+              <h4 class="text-[0.86rem] font-bold text-[#1C1A18] mb-0.5">Et første møde</h4>
+              <p class="text-[0.82rem] text-[#6B6560] leading-relaxed m-0">Online eller hos jer. Vi kortlægger det eksisterende workflow og finder flaskehalsene.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-7 h-7 rounded-full bg-black/[0.05] border border-black/[0.08] flex items-center justify-center text-[0.67rem] font-bold text-[#4a9ab8] flex-shrink-0 mt-0.5">3</div>
+            <div>
+              <h4 class="text-[0.86rem] font-bold text-[#1C1A18] mb-0.5">Et konkret næste skridt</h4>
+              <p class="text-[0.82rem] text-[#6B6560] leading-relaxed m-0">En workshop, et proof of concept eller en prototype — alt efter hvad opgaven kræver.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- RIGHT: FORM -->
-      <div class="bg-white/50 rounded-2xl border border-black/[0.09] shadow-sm p-8 backdrop-blur-sm">
-        <h2 class="text-[1.1rem] font-bold text-[#1C1A18] mb-1 tracking-[-0.02em]">Send os en besked</h2>
-        <p class="text-[0.84rem] text-[#6B6560] leading-relaxed mb-7">Alle felter er valgfrie undtagen e-mail — skriv så meget eller lidt, som du har lyst til.</p>
+      <!-- Direct contact -->
+      <div>
+        <div class="p-5 bg-white/40 rounded-2xl border border-black/[0.09] backdrop-blur-sm">
+          <span class="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#55b0d1] block mb-4">Direkte kontakt</span>
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center gap-2.5 text-[0.88rem] text-[#6B6560]">
+              <span class="opacity-60 text-base">&#9993;</span>
+              <a href="mailto:info@inproduction.dk" class="text-[#4a9ab8] font-medium no-underline hover:underline">info@inproduction.dk</a>
+            </div>
+            <div class="flex items-center gap-2.5 text-[0.88rem] text-[#6B6560]">
+              <span class="opacity-60 text-base">&#9742;</span>
+              <a href="tel:+4529492617" class="text-[#4a9ab8] font-medium no-underline hover:underline">+45 29 49 26 17</a>
+            </div>
+            <div class="flex items-center gap-2.5 text-[0.88rem] text-[#6B6560]">
+              <span class="opacity-60 text-base">&#9678;</span>
+              <span>Tøsby Mosevej 8, 7321 Gadbjerg</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-[0.88rem] text-[#6B6560]">
+              <span class="opacity-60 text-base">&#8470;</span>
+              <span>CVR 90 31 49 61</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        <form id="contact-form" action="https://fabform.io/f/RVb-J9O" method="post">
+    <!-- ═══════════════════════════════════════════
+         PLAIN CONTACT FORM (fallback)
+         ═══════════════════════════════════════════ -->
+    <div id="plain-form" class="mt-20 pt-12 border-t border-black/[0.07]">
+      <div class="max-w-lg mx-auto">
+        <h2 class="text-xl font-bold tracking-[-0.02em] text-[#333] mb-2 text-center">Foretrækker du bare at skrive?</h2>
+        <p class="text-[0.88rem] text-[#6B6560] leading-relaxed mb-7 text-center">Helt fint — send os en besked, så tager vi det derfra.</p>
+
+        <form id="contact-form" action="https://formspree.io/f/mlgpgong" method="post">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             <div>
               <label class="block text-[0.78rem] font-semibold text-[#3D3A37] mb-1.5" for="name">Navn</label>
@@ -165,53 +461,31 @@
               <input type="text" id="company" name="company" placeholder="Virksomhed A/S" />
             </div>
           </div>
-
           <div class="mb-4">
             <label class="block text-[0.78rem] font-semibold text-[#3D3A37] mb-1.5" for="email">
               E-mail <span class="text-[#55b0d1] font-medium">*</span>
             </label>
             <input type="email" id="email" name="email" placeholder="din@email.dk" required />
           </div>
-
-          <div class="mb-4">
-            <label class="block text-[0.78rem] font-semibold text-[#3D3A37] mb-1.5" for="stage">
-              Hvor vil I placere jer i dag? <span class="text-[#9C958F] font-normal">(valgfrit)</span>
-            </label>
-            <select id="stage" name="stage">
-              <option value="" disabled selected>Vælg modenhedstrin…</option>
-              <option value="reaktiv">Reaktiv — vi arbejder stadig manuelt</option>
-              <option value="struktureret">Struktureret — vi er begyndt at automatisere</option>
-              <option value="automatiseret">Automatiseret — workflows kører, men systemer er siloer</option>
-              <option value="integreret">Integreret — vi har forbundet vores systemer</option>
-              <option value="ved_ikke">Ikke sikker — det er en del af spørgsmålet</option>
-            </select>
-          </div>
-
           <div class="mb-6">
-            <label class="block text-[0.78rem] font-semibold text-[#3D3A37] mb-1.5" for="message">Hvad arbejder I med, og hvad er udfordringen?</label>
-            <textarea id="message" name="message" placeholder="Beskriv gerne jeres nuværende setup og det konkrete problem I gerne vil løse — det behøver ikke være helt præcist endnu."></textarea>
+            <label class="block text-[0.78rem] font-semibold text-[#3D3A37] mb-1.5" for="message">Hvad kan vi hjælpe med?</label>
+            <textarea id="message" name="message" placeholder="Beskriv gerne jeres nuværende setup og det konkrete problem I gerne vil løse."></textarea>
           </div>
-
           <div class="h-px bg-black/[0.06] mb-5"></div>
-          <p class="text-[0.78rem] text-[#9C958F] leading-relaxed mb-5"><strong class="text-[#6B6560] font-semibold">Vi bruger ikke jeres oplysninger til noget andet</strong> end at besvare din henvendelse. Ingen nyhedsbreve, ingen videregivelse til tredjepart.</p>
-
+          <p class="text-[0.78rem] text-[#9C958F] leading-relaxed mb-5"><strong class="text-[#6B6560] font-semibold">Vi bruger ikke jeres oplysninger til noget andet</strong> end at besvare din henvendelse.</p>
           <input type="hidden" name="_next" value="https://inproduction.dk/kontakt/?sent=1">
           <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off">
-          <button type="submit" class="w-full cursor-pointer border-0 btn-primary text-[0.92rem] py-3.5" style="border-radius: 0.75rem; padding-top: 0.875rem; padding-bottom: 0.875rem;">Send besked</button>
+          <button type="submit" class="w-full cursor-pointer border-0 btn-primary text-[0.92rem] py-3.5" style="border-radius: 0.75rem;">Send besked</button>
         </form>
 
         <div id="form-success" style="display:none;" class="text-center py-8">
-          <div class="w-12 h-12 rounded-full bg-[#55b0d1]/10 border border-[#55b0d1]/20 flex items-center justify-center mx-auto mb-4 text-[#55b0d1] text-xl">✓</div>
+          <div class="w-12 h-12 rounded-full bg-[#55b0d1]/10 border border-[#55b0d1]/20 flex items-center justify-center mx-auto mb-4 text-[#55b0d1] text-xl">&#10003;</div>
           <h3 class="text-[1rem] font-bold text-[#1C1A18] mb-2">Besked sendt!</h3>
           <p class="text-[0.84rem] text-[#6B6560] leading-relaxed">Tak — vi vender tilbage inden for 1–2 hverdage.</p>
         </div>
-
-        <div id="form-error" style="display:none;" class="mt-4 p-4 rounded-xl bg-red-50 border border-red-200 text-center">
-          <p id="form-error-msg" class="text-[0.84rem] text-red-700 leading-relaxed"></p>
-        </div>
       </div>
-
     </div>
+
   </div>
 </main>
 
@@ -219,11 +493,12 @@
 <footer class="bg-[#141210] border-t border-white/[0.06] px-6 py-8">
   <div class="max-w-5xl mx-auto flex justify-between items-center flex-wrap gap-3 text-[0.8rem] text-white/35">
     <span class="font-semibold text-white/70">inProduction ApS</span>
-    <span>Peter Kjær · Grundlagt 2007 · Enfocus Switch-forhandler &amp; workflow-specialist</span>
+    <span>Peter Kjær &middot; Grundlagt 2007 &middot; Enfocus Switch-forhandler &amp; workflow-specialist</span>
     <a href="mailto:info@inproduction.dk" class="text-white/35 hover:text-white/70 no-underline transition-colors">info@inproduction.dk</a>
   </div>
 </footer>
 
+<!-- Mobile menu script -->
 <script>
   (function() {
     var toggle = document.getElementById('mobile-menu-toggle');
@@ -252,7 +527,6 @@
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && overlay.classList.contains('open')) closeMenu();
     });
-    // Mobile accordion
     var accToggle = document.querySelector('.mobile-accordion-toggle');
     if (accToggle) {
       accToggle.addEventListener('click', function() {
@@ -264,11 +538,235 @@
   })();
 </script>
 
+<!-- Plain form: show success if redirected -->
 <script>
   if (new URLSearchParams(window.location.search).get('sent') === '1') {
     document.getElementById('contact-form').style.display = 'none';
     document.getElementById('form-success').style.display = 'block';
   }
 </script>
+
+<!-- ═══════════════════════════════════════════
+     QUIZ ENGINE
+     ═══════════════════════════════════════════ -->
+<script>
+(function() {
+  // --- State ---
+  var answers = {};       // { 1: 3, 2: 2, ... } question index → score
+  var magicWand = '';
+  var currentScreen = 'intro'; // 'intro', 'q1'-'q6', 'gate', 'result'
+  var screens = ['intro', 'q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'gate', 'result'];
+
+  // --- Maturity level definitions ---
+  var levels = [
+    {
+      key: 'reaktiv', title: 'Reaktiv', min: 1.0, max: 1.5,
+      desc: 'Jeres produktion er i høj grad afhængig af manuelle processer. Det betyder mange touchpoints, højere risiko for fejl og begrænset skalerbarhed. Den gode nyhed? Der er massivt potentiale for forbedring, og selv små ændringer kan gøre en stor forskel.',
+      recs: [
+        'Start med ét konkret workflow — f.eks. filmodtagelse — og automatisér det',
+        'Indfør automatisk preflight for at fange fejl tidligt',
+        'Kortlæg jeres vigtigste flaskehalse inden I investerer i værktøjer'
+      ]
+    },
+    {
+      key: 'struktureret', title: 'Struktureret', min: 1.6, max: 2.5,
+      desc: 'I er begyndt at automatisere og har allerede set fordelene. Men mange processer kører stadig manuelt, og systemerne er ikke forbundet. I er på det rigtige spor — nu handler det om at udvide rækkevidden af automatiseringen.',
+      recs: [
+        'Forbind filmodtagelse med preflight, så det kører i ét flow',
+        'Undersøg hotfolder-baseret routing med Enfocus Switch',
+        'Overvej at integrere jeres MIS med prepress-workflowet'
+      ]
+    },
+    {
+      key: 'automatiseret', title: 'Automatiseret', min: 2.6, max: 3.0,
+      desc: 'Jeres workflows fungerer godt, og meget kører automatisk. Men systemerne er stadig adskilte — data flyttes manuelt mellem dem, og der er huller i overblikket. Det næste store skridt er at forbinde øerne.',
+      recs: [
+        'Integrér MIS/ERP med prepress-workflowet for ende-til-ende dataflow',
+        'Indfør automatisk statusopdatering, så alle kan se ordrestatus',
+        'Overvej et dashboard til real-time overvågning af produktion'
+      ]
+    },
+    {
+      key: 'integreret', title: 'Integreret', min: 3.1, max: 3.5,
+      desc: 'I er langt fremme. Systemerne taler sammen, data flyder, og jeres team kan fokusere på værdiskabende opgaver. Det handler nu om at optimere, måle og lade data drive beslutningerne.',
+      recs: [
+        'Implementér datadrevet beslutningstagning — mål gennemløbstid, fejlrate osv.',
+        'Automatisér undtagelseshåndtering, så systemet selv løser de fleste problemer',
+        'Udforsk kundevendte integrationer — online korrektur, automatisk ordreflow'
+      ]
+    },
+    {
+      key: 'optimeret', title: 'Optimeret', min: 3.6, max: 4.0,
+      desc: 'I er i den absolutte top. Jeres produktion er datadrevet, fuldt integreret og maksimalt effektiv. Fokus bør nu være på kontinuerlig optimering, innovation og at udnytte jeres position som markedsleder.',
+      recs: [
+        'Udforsk AI-baseret kvalitetskontrol og prædiktiv vedligeholdelse',
+        'Del jeres best practices — det styrker både brand og netværk',
+        'Kig mod nye forretningsmodeller, f.eks. web-to-print eller automatiseret customization'
+      ]
+    }
+  ];
+
+  // --- DOM helpers ---
+  function $(id) { return document.getElementById(id); }
+  function show(screenKey) {
+    var allScreens = document.querySelectorAll('.quiz-screen');
+    allScreens.forEach(function(el) { el.classList.remove('quiz-screen--active'); });
+    var target = null;
+    if (screenKey === 'intro') target = $('quiz-intro');
+    else if (screenKey === 'gate') target = $('quiz-gate');
+    else if (screenKey === 'result') target = $('quiz-result');
+    else target = $('quiz-' + screenKey);
+    if (target) {
+      target.classList.add('quiz-screen--active');
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    currentScreen = screenKey;
+  }
+
+  function prevScreen(key) {
+    var idx = screens.indexOf(key);
+    return idx > 0 ? screens[idx - 1] : null;
+  }
+
+  // --- Start quiz ---
+  $('quiz-start-btn').addEventListener('click', function() {
+    show('q1');
+  });
+
+  // --- Quiz option selection ---
+  document.querySelectorAll('.quiz-options').forEach(function(optGroup) {
+    optGroup.addEventListener('click', function(e) {
+      var btn = e.target.closest('.quiz-option');
+      if (!btn) return;
+      var screen = btn.closest('.quiz-screen');
+      var qNum = parseInt(screen.dataset.question);
+      var value = parseInt(btn.dataset.value);
+
+      // Highlight selected
+      screen.querySelectorAll('.quiz-option').forEach(function(o) { o.classList.remove('quiz-option--selected'); });
+      btn.classList.add('quiz-option--selected');
+
+      // Store answer
+      answers[qNum] = value;
+
+      // Auto-advance after brief delay
+      setTimeout(function() {
+        var nextKey = screens[screens.indexOf('q' + qNum) + 1];
+        show(nextKey);
+      }, 300);
+    });
+  });
+
+  // --- Back buttons ---
+  document.querySelectorAll('.quiz-back-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var screen = this.closest('.quiz-screen');
+      var qKey = 'q' + screen.dataset.question;
+      var prev = prevScreen(qKey);
+      if (prev) show(prev);
+    });
+  });
+
+  // --- Magic wand (Q6) ---
+  $('magic-wand-next').addEventListener('click', function() {
+    magicWand = $('magic-wand-input').value.trim();
+    show('gate');
+  });
+  $('magic-wand-skip').addEventListener('click', function() {
+    magicWand = '';
+    show('gate');
+  });
+
+  // --- Contact gate form ---
+  $('quiz-contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var name = $('q-name').value.trim();
+    var company = $('q-company').value.trim();
+    var email = $('q-email').value.trim();
+
+    if (!email) return;
+
+    // Calculate score
+    var total = 0;
+    var count = 0;
+    for (var q = 1; q <= 5; q++) {
+      if (answers[q] !== undefined) { total += answers[q]; count++; }
+    }
+    var score = count > 0 ? (total / count) : 2.5;
+    var scoreRound = Math.round(score * 10) / 10;
+
+    // Determine maturity level
+    var level = levels[0];
+    for (var i = 0; i < levels.length; i++) {
+      if (score >= levels[i].min && score <= levels[i].max) { level = levels[i]; break; }
+    }
+
+    // Build submission data
+    var data = {
+      name: name,
+      company: company,
+      email: email,
+      quiz_score: scoreRound,
+      quiz_level: level.title,
+      q1_filhaandtering: answers[1] || '',
+      q2_preflight: answers[2] || '',
+      q3_systemer: answers[3] || '',
+      q4_ordresporing: answers[4] || '',
+      q5_manuelle_trin: answers[5] || '',
+      magic_wand: magicWand
+    };
+
+    // Submit to FabForm (keeping existing backend for now)
+    var submitBtn = this.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sender...';
+
+    fetch('https://formspree.io/f/mlgpgong', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function(resp) {
+      // Show result regardless of response (FabForm may not respond JSON)
+      renderResult(scoreRound, level);
+      show('result');
+    }).catch(function() {
+      // Show result even if submission fails — don't punish the user
+      renderResult(scoreRound, level);
+      show('result');
+    });
+  });
+
+  // --- Render result ---
+  function renderResult(score, level) {
+    $('result-level-title').textContent = level.title;
+    $('result-score').textContent = score.toFixed(1);
+    $('result-description').textContent = level.desc;
+
+    // Recommendations
+    var recList = $('result-recommendations');
+    recList.innerHTML = '';
+    level.recs.forEach(function(rec) {
+      var li = document.createElement('li');
+      li.className = 'flex items-start gap-2.5 text-[0.88rem] text-[#6B6560] leading-relaxed';
+      li.innerHTML = '<span class="text-[#55b0d1] mt-0.5 flex-shrink-0">&#9654;</span><span>' + rec + '</span>';
+      recList.appendChild(li);
+    });
+
+    // Highlight correct level on scale
+    var levelIdx = levels.indexOf(level) + 1;
+    document.querySelectorAll('.maturity-scale-segment').forEach(function(seg) {
+      var segLevel = parseInt(seg.dataset.level);
+      if (segLevel === levelIdx) {
+        seg.classList.add('maturity-scale-segment--active');
+      } else if (segLevel < levelIdx) {
+        seg.classList.add('maturity-scale-segment--passed');
+      }
+    });
+  }
+
+})();
+</script>
+
 </body>
 </html>
