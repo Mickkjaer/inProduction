@@ -630,7 +630,7 @@
     // Grid assignments: [row, col] for each node 0–8
     // Desktop: 3 rows × 4 cols (some cells empty)
     var gridDesktop = [
-      [0, 0], [0, 3],                     // Webshop, Online korrektur
+      [0, 0], [0, 2],                     // Webshop, Online korrektur (above Godkendt)
       [1, 0], [1, 1], [1, 2], [1, 3],     // IN, Preflight, Godkendt, Andre apps
       [2, 0], [2, 2], [2, 3]              // MIS/ERP, Udskydning, Print
     ];
@@ -738,16 +738,16 @@
 
     // ── Connector building ──
     // [fromIdx, toIdx, colorClass, direction]
-    // Directions: h=horizontal, v=vertical-down, vu=vertical-up, du=diagonal-up, dd=diagonal-down
+    // Directions: h=horizontal, v=vertical-down, vu=vertical-up, au=angled-up (elbow)
     var connDefs = [
       [2, 3, 'cyan',  'h'],   // IN → Preflight
-      [3, 1, 'cyan',  'du'],  // Preflight → Online korrektur (up for proofing)
-      [1, 4, 'cyan',  'dd'],  // Online korrektur → Godkendt (approved comes back down)
+      [3, 1, 'cyan',  'au'],  // Preflight → Online korrektur (angled elbow up)
+      [1, 4, 'cyan',  'v'],   // Online korrektur → Godkendt (straight down)
       [4, 5, 'cyan',  'h'],   // Godkendt → Andre apps
       [7, 8, 'cyan',  'h'],   // Udskydning → Print
-      [0, 2, 'dark',  'v'],   // Webshop → IN
-      [6, 2, 'dark',  'vu'],  // MIS/ERP → IN
-      [4, 7, 'dark',  'v']    // Godkendt → Udskydning
+      [0, 2, 'cyan',  'v'],   // Webshop → IN
+      [6, 2, 'cyan',  'vu'],  // MIS/ERP → IN
+      [4, 7, 'cyan',  'v']    // Godkendt → Udskydning
     ];
     var connEls = [];
 
@@ -794,18 +794,12 @@
           ex = org[ti].x + nw / 2; ey = org[ti].y + nh;
           my = (sy + ey) / 2;
           d = 'M' + sx + ' ' + sy + ' C' + sx + ' ' + my + ',' + ex + ' ' + my + ',' + ex + ' ' + ey;
-        } else if (dir === 'du') {
-          // Diagonal up: from right edge of from → top of to
-          sx = org[fi].x + nw; sy = org[fi].y + nh * 0.3;
+        } else if (dir === 'au') {
+          // Angled up (elbow): from top of from, straight up, then horizontal to bottom of to
+          sx = org[fi].x + nw / 2; sy = org[fi].y;
           ex = org[ti].x + nw / 2; ey = org[ti].y + nh;
-          var mx = (sx + ex) / 2;
-          d = 'M' + sx + ' ' + sy + ' C' + mx + ' ' + sy + ',' + mx + ' ' + ey + ',' + ex + ' ' + ey;
-        } else if (dir === 'dd') {
-          // Diagonal down: from bottom of from → left edge or top of to
-          sx = org[fi].x + nw / 2; sy = org[fi].y + nh;
-          ex = org[ti].x + nw / 2; ey = org[ti].y;
-          var mx = (sx + ex) / 2;
-          d = 'M' + sx + ' ' + sy + ' C' + mx + ' ' + sy + ',' + mx + ' ' + ey + ',' + ex + ' ' + ey;
+          var my = (sy + ey) / 2;
+          d = 'M' + sx + ' ' + sy + ' L' + sx + ' ' + my + ' L' + ex + ' ' + my + ' L' + ex + ' ' + ey;
         }
 
         path.setAttribute('d', d);
