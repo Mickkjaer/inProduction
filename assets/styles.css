@@ -408,6 +408,110 @@ textarea { resize: vertical; min-height: 120px; }
 }
 
 /* ----------------------------------------
+   Kontakt: Digital Maturity Quiz
+   ---------------------------------------- */
+
+/* Screen visibility */
+.quiz-screen { display: none; }
+.quiz-screen--active { display: block; animation: quizFadeIn 0.35s ease; }
+@keyframes quizFadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Progress bar */
+.quiz-progress-bar {
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+.quiz-progress-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #55b0d1, #4a9ab8);
+  transition: width 0.4s ease;
+}
+
+/* Option cards */
+.quiz-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.625rem;
+  background: rgba(255,255,255,0.5);
+  border: 1.5px solid rgba(0,0,0,0.08);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, transform 0.15s, box-shadow 0.15s;
+  font-family: inherit;
+}
+.quiz-option:hover {
+  border-color: rgba(85,176,209,0.4);
+  background: rgba(255,255,255,0.8);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(85,176,209,0.08);
+}
+.quiz-option--selected {
+  border-color: #55b0d1;
+  background: rgba(85,176,209,0.08);
+  box-shadow: 0 0 0 3px rgba(85,176,209,0.12);
+}
+.quiz-option-label {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #1C1A18;
+  margin-bottom: 0.2rem;
+}
+.quiz-option-desc {
+  display: block;
+  font-size: 0.8rem;
+  color: #6B6560;
+  line-height: 1.5;
+}
+
+/* Blurred result teaser on gate screen */
+.quiz-result-blur {
+  filter: blur(5px);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Maturity scale visualization (result screen) */
+.maturity-scale-segment {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.04);
+  border: 2px solid rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #9C958F;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+.maturity-scale-segment--passed {
+  background: rgba(85,176,209,0.1);
+  border-color: rgba(85,176,209,0.3);
+  color: #4a9ab8;
+}
+.maturity-scale-segment--active {
+  background: linear-gradient(135deg, #55b0d1, #4a9ab8);
+  border-color: #55b0d1;
+  color: #fff;
+  transform: scale(1.2);
+  box-shadow: 0 4px 16px rgba(85,176,209,0.35);
+}
+.maturity-scale-connector {
+  flex: 1;
+  height: 2px;
+  background: rgba(0,0,0,0.06);
+  min-width: 8px;
+}
+
+/* ----------------------------------------
    Pillar page: table of contents
    ---------------------------------------- */
 .toc-link { display: block; padding: 0.35rem 0; font-size: 0.82rem; color: #6B6560; text-decoration: none; transition: color 0.15s; }
