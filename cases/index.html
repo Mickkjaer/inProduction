@@ -14,17 +14,20 @@
   <meta name="twitter:card" content="summary" />
   <link rel="canonical" href="https://inproduction.dk/cases/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            brand: { accent: '#55b0d1', mid: '#4a9ab8', dark: '#333333' },
+            brand: { accent: '#55b0d1', mid: '#4a9ab8', dark: '#333333', warm: '#C4956A' },
             warm: { base: '#F7F4F0', surface: '#FDFCFB', muted: '#6B6560', heading: '#1C1A18', dark: '#1C1A18', darker: '#2A2724' }
           },
-          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] }
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['"DM Serif Display"', 'Georgia', 'serif']
+          }
         }
       }
     }
@@ -89,7 +92,7 @@
 <div class="bg-gradient-to-b from-[#EDE9E3] to-[#F7F4F0] border-b border-black/[0.07] py-16 px-6">
   <div class="max-w-3xl mx-auto">
     <span class="eyebrow text-[0.7rem] font-bold uppercase tracking-[0.14em] text-[#55b0d1] mb-6 block">Cases</span>
-    <h1 class="text-4xl lg:text-5xl font-bold tracking-[-0.04em] leading-[1.15] [text-wrap:balance] text-[#333] mb-4">Fra reaktiv drift til integreret produktion</h1>
+    <h1 class="font-display text-[2.75rem] lg:text-[3.5rem] font-normal tracking-[-0.02em] leading-[1.15] [text-wrap:balance] text-[#333] mb-4">Fra reaktiv drift til integreret produktion</h1>
     <p class="text-[1rem] text-[#6B6560] leading-[1.8] max-w-lg">Hvert projekt starter med et konkret problem.<br>
     Men næsten altid viser det sig at handle om noget større:<br>
     Virksomhedens digitale modenhed.<br>
@@ -162,11 +165,11 @@
 <div>
 
   <!-- LEGO -->
-  <article id="lego" class="border-b border-black/[0.07] py-20 px-6 bg-[#FDFCFB]">
+  <article id="lego" class="border-b border-black/[0.07] py-20 px-6 bg-[#F0ECE6]">
     <div class="max-w-3xl mx-auto">
       <div class="flex items-start justify-between gap-6 flex-wrap mb-8">
         <div class="flex items-center gap-3 flex-wrap">
-          <span class="text-[0.68rem] font-bold uppercase tracking-[0.13em] text-[#55b0d1]">Intern Print</span>
+          <span class="text-[0.68rem] font-bold uppercase tracking-[0.13em] text-[#9B7550]">Intern Print</span>
           <span class="w-px h-3.5 bg-black/[0.10]"></span>
           <div class="flex items-center gap-1.5 text-[0.7rem] text-[#9C958F] font-medium">
             <span class="px-2 py-0.5 rounded bg-black/[0.05] border border-black/[0.08] text-[#6B6560] font-semibold">Reaktiv</span>
@@ -176,7 +179,7 @@
         </div>
         <img src="../logos/Clients/LEGO_logo.svg" alt="LEGO" class="h-10 w-auto object-contain flex-shrink-0" />
       </div>
-      <h2 class="text-2xl lg:text-3xl font-bold tracking-[-0.03em] text-[#333] leading-snug mb-10">Fra manuelle printordrer til en automatiseret webshop med preflight og omkostningssporing</h2>
+      <h2 class="font-display text-2xl lg:text-3xl font-normal tracking-[-0.02em] text-[#333] leading-snug mb-10">Fra manuelle printordrer til en automatiseret webshop med preflight og omkostningssporing</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-7">
         <div>
           <h3 class="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#55b0d1] mb-3">Udfordringen</h3>
@@ -194,12 +197,12 @@
         <p class="text-[0.91rem] text-[#3D3A37] leading-[1.75]">Afdelingen gik fra manuelle e-mailordrer og ingen kvalitetskontrol til en selvbetjeningsportal med automatisk preflight, realtidsstatus og fuld omkostningsrapportering. Manuelt arbejde reduceret markant — og afdelingen kunne for første gang se deres interne printforbrug fordelt på afdelinger.</p>
       </div>
       <div class="flex flex-wrap gap-1.5 mt-6">
-        <span class="text-[0.67rem] font-medium bg-[#FDFCFB]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Enfocus Switch</span>
-        <span class="text-[0.67rem] font-medium bg-[#FDFCFB]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">PitStop Server</span>
-        <span class="text-[0.67rem] font-medium bg-[#FDFCFB]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Ordreportal</span>
-        <span class="text-[0.67rem] font-medium bg-[#FDFCFB]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Preflight</span>
-        <span class="text-[0.67rem] font-medium bg-[#FDFCFB]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">InTouch database</span>
-        <span class="text-[0.67rem] font-medium bg-[#FDFCFB]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Omkostningsrapportering</span>
+        <span class="text-[0.67rem] font-medium bg-[#F0ECE6]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Enfocus Switch</span>
+        <span class="text-[0.67rem] font-medium bg-[#F0ECE6]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">PitStop Server</span>
+        <span class="text-[0.67rem] font-medium bg-[#F0ECE6]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Ordreportal</span>
+        <span class="text-[0.67rem] font-medium bg-[#F0ECE6]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Preflight</span>
+        <span class="text-[0.67rem] font-medium bg-[#F0ECE6]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">InTouch database</span>
+        <span class="text-[0.67rem] font-medium bg-[#F0ECE6]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Omkostningsrapportering</span>
       </div>
     </div>
   </article>
@@ -209,7 +212,7 @@
     <div class="max-w-3xl mx-auto">
       <div class="flex items-start justify-between gap-6 flex-wrap mb-8">
         <div class="flex items-center gap-3 flex-wrap">
-          <span class="text-[0.68rem] font-bold uppercase tracking-[0.13em] text-[#55b0d1]">Annonceportal</span>
+          <span class="text-[0.68rem] font-bold uppercase tracking-[0.13em] text-[#9B7550]">Annonceportal</span>
           <span class="w-px h-3.5 bg-black/[0.10]"></span>
           <div class="flex items-center gap-1.5 text-[0.7rem] text-[#9C958F] font-medium">
             <span class="px-2 py-0.5 rounded bg-black/[0.05] border border-black/[0.08] text-[#6B6560] font-semibold">Reaktiv</span>
@@ -219,7 +222,7 @@
         </div>
         <img src="../logos/Clients/Story House Egmont.png" alt="Story House Egmont" class="h-9 w-auto object-contain flex-shrink-0 opacity-80" />
       </div>
-      <h2 class="text-2xl lg:text-3xl font-bold tracking-[-0.03em] text-[#333] leading-snug mb-10">Annonceportal med automatisk kvalitetskontrol på tværs af magasinformater</h2>
+      <h2 class="font-display text-2xl lg:text-3xl font-normal tracking-[-0.02em] text-[#333] leading-snug mb-10">Annonceportal med automatisk kvalitetskontrol på tværs af magasinformater</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-7">
         <div>
           <h3 class="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#55b0d1] mb-3">Udfordringen</h3>
@@ -237,22 +240,22 @@
         <p class="text-[0.91rem] text-[#3D3A37] leading-[1.75]">Story House Egmont kan nu modtage og godkende annoncer til tiden — hver gang — uden at manuelt gennemgå filer. Fejl fanges i indleveringsprocessen, ikke i prepress. Ressourcer frigjort hos annonceteamet, og et mere forudsigeligt produktionsflow op mod deadline.</p>
       </div>
       <div class="flex flex-wrap gap-1.5 mt-6">
-        <span class="text-[0.67rem] font-medium bg-[#FDFCFB]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Enfocus Switch</span>
-        <span class="text-[0.67rem] font-medium bg-[#FDFCFB]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">PitStop Server</span>
-        <span class="text-[0.67rem] font-medium bg-[#FDFCFB]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Annonceportal</span>
-        <span class="text-[0.67rem] font-medium bg-[#FDFCFB]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">PDF-kvalitetskontrol</span>
-        <span class="text-[0.67rem] font-medium bg-[#FDFCFB]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Flerformat</span>
-        <span class="text-[0.67rem] font-medium bg-[#FDFCFB]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Automatisk fejlrapportering</span>
+        <span class="text-[0.67rem] font-medium bg-[#F0ECE6]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Enfocus Switch</span>
+        <span class="text-[0.67rem] font-medium bg-[#F0ECE6]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">PitStop Server</span>
+        <span class="text-[0.67rem] font-medium bg-[#F0ECE6]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Annonceportal</span>
+        <span class="text-[0.67rem] font-medium bg-[#F0ECE6]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">PDF-kvalitetskontrol</span>
+        <span class="text-[0.67rem] font-medium bg-[#F0ECE6]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Flerformat</span>
+        <span class="text-[0.67rem] font-medium bg-[#F0ECE6]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Automatisk fejlrapportering</span>
       </div>
     </div>
   </article>
 
   <!-- Eurographic Group -->
-  <article id="eurographic" class="py-20 px-6 bg-[#FDFCFB]">
+  <article id="eurographic" class="py-20 px-6 bg-[#F0ECE6]">
     <div class="max-w-3xl mx-auto">
       <div class="flex items-start justify-between gap-6 flex-wrap mb-8">
         <div class="flex items-center gap-3 flex-wrap">
-          <span class="text-[0.68rem] font-bold uppercase tracking-[0.13em] text-[#55b0d1]">ERP-integration</span>
+          <span class="text-[0.68rem] font-bold uppercase tracking-[0.13em] text-[#9B7550]">ERP-integration</span>
           <span class="w-px h-3.5 bg-black/[0.10]"></span>
           <div class="flex items-center gap-1.5 text-[0.7rem] text-[#9C958F] font-medium">
             <span class="px-2 py-0.5 rounded bg-black/[0.05] border border-black/[0.08] text-[#6B6560] font-semibold">Struktureret</span>
@@ -264,7 +267,7 @@
           <img src="../logos/Clients/eurographic-group-logo-rgb-white.png" alt="Eurographic Group" class="h-5 w-auto object-contain" />
         </span>
       </div>
-      <h2 class="text-2xl lg:text-3xl font-bold tracking-[-0.03em] text-[#333] leading-snug mb-10">Komplet produktionsautomatisering fra ordremodtagelse til ERP-fakturering</h2>
+      <h2 class="font-display text-2xl lg:text-3xl font-normal tracking-[-0.02em] text-[#333] leading-snug mb-10">Komplet produktionsautomatisering fra ordremodtagelse til ERP-fakturering</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-7">
         <div>
           <h3 class="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#55b0d1] mb-3">Udfordringen</h3>
@@ -282,12 +285,12 @@
         <p class="text-[0.91rem] text-[#3D3A37] leading-[1.75]">En strømlinet produktion fra start til slut — uden manuelle mellemtrin. Ordrer flyder fra indtagelse til QA til produktion til ERP-fakturering uden manuelt indgreb. Hurtigere og mere pålidelige leverancer til Eurographic Groups kunder, og en faktureringsproces der er nøjagtig frem for estimeret.</p>
       </div>
       <div class="flex flex-wrap gap-1.5 mt-6">
-        <span class="text-[0.67rem] font-medium bg-[#FDFCFB]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Enfocus Switch</span>
-        <span class="text-[0.67rem] font-medium bg-[#FDFCFB]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">callas pdfToolbox Server</span>
-        <span class="text-[0.67rem] font-medium bg-[#FDFCFB]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">ERP-integration</span>
-        <span class="text-[0.67rem] font-medium bg-[#FDFCFB]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Jobsporing</span>
-        <span class="text-[0.67rem] font-medium bg-[#FDFCFB]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">InTouch database</span>
-        <span class="text-[0.67rem] font-medium bg-[#FDFCFB]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Fakturering</span>
+        <span class="text-[0.67rem] font-medium bg-[#F0ECE6]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Enfocus Switch</span>
+        <span class="text-[0.67rem] font-medium bg-[#F0ECE6]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">callas pdfToolbox Server</span>
+        <span class="text-[0.67rem] font-medium bg-[#F0ECE6]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">ERP-integration</span>
+        <span class="text-[0.67rem] font-medium bg-[#F0ECE6]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Jobsporing</span>
+        <span class="text-[0.67rem] font-medium bg-[#F0ECE6]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">InTouch database</span>
+        <span class="text-[0.67rem] font-medium bg-[#F0ECE6]/60 text-[#6B6560] px-2.5 py-1 rounded-md border border-black/[0.08]">Fakturering</span>
       </div>
     </div>
   </article>
@@ -299,7 +302,7 @@
 <section class="bg-[#1C1A18] text-white py-20 px-6 border-t-[3px] border-[#55b0d1]">
   <div class="max-w-4xl mx-auto">
     <span class="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#55b0d1] block mb-2">Digital modenhed</span>
-    <h2 class="text-3xl lg:text-4xl font-bold tracking-[-0.035em] text-white/90 mb-3 max-w-xl">Hvor er I nu, og hvad er næste skridt?</h2>
+    <h2 class="font-display text-3xl lg:text-4xl font-normal tracking-[-0.02em] text-white/90 mb-3 max-w-xl">Hvor er I nu, og hvad er næste skridt?</h2>
     <p class="text-[0.95rem] text-white/50 leading-[1.8] max-w-2xl mb-8">Casene viser, at næste trin ikke behøver være stort — det skal bare være det rigtige.</p>
     <div class="grid gap-3 sm:grid-cols-2">
       <div class="rounded-2xl border border-[#55b0d1]/20 bg-white/[0.05] p-5">
@@ -324,11 +327,36 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-[#141210] border-t border-white/[0.06] px-6 py-8">
-  <div class="max-w-5xl mx-auto flex justify-between items-center flex-wrap gap-3 text-[0.8rem] text-white/35">
-    <span class="font-semibold text-white/70">inProduction ApS</span>
-    <span>Peter Kjær · Grundlagt 2007 · Enfocus Switch-forhandler &amp; workflow-specialist</span>
-    <a href="mailto:info@inproduction.dk" class="text-white/35 hover:text-white/70 no-underline transition-colors">info@inproduction.dk</a>
+<footer class="bg-[#141210] border-t border-white/[0.06] px-6 py-12">
+  <div class="max-w-5xl mx-auto">
+    <div class="footer-grid text-[0.82rem]">
+      <div>
+        <span class="text-white/70 font-semibold text-[0.95rem] block mb-2"><span class="text-[#55b0d1]">in</span><span class="text-white/70">Production</span> ApS</span>
+        <p class="text-white/40 leading-relaxed mb-3">Workflow-automatisering til<br>print &amp; medieproduktion</p>
+        <span class="text-white/25 text-[0.75rem]">CVR 30709498</span>
+      </div>
+      <div>
+        <span class="text-white/60 font-semibold text-[0.7rem] uppercase tracking-[0.1em] block mb-3">Sider</span>
+        <nav class="flex flex-col gap-1.5">
+          <a href="/loesninger/">Løsninger</a>
+          <a href="/cases/">Cases</a>
+          <a href="/om-os/">Om os</a>
+          <a href="/partnere/">Partnere</a>
+          <a href="/kontakt/">Kontakt</a>
+        </nav>
+      </div>
+      <div>
+        <span class="text-white/60 font-semibold text-[0.7rem] uppercase tracking-[0.1em] block mb-3">Kontakt</span>
+        <div class="flex flex-col gap-1.5">
+          <a href="mailto:info@inproduction.dk">info@inproduction.dk</a>
+          <span class="text-white/40">+45 40 35 63 18</span>
+        </div>
+        <span class="inline-block mt-4 text-[0.7rem] font-medium text-[#55b0d1]/70 bg-[#55b0d1]/10 px-2.5 py-1 rounded">Officiel Enfocus-forhandler</span>
+      </div>
+    </div>
+    <div class="mt-8 pt-5 border-t border-white/[0.06] text-[0.75rem] text-white/25">
+      &copy; 2007–2026 inProduction ApS &middot; Peter Kjær &middot; Grundlagt 2007
+    </div>
   </div>
 </footer>
 

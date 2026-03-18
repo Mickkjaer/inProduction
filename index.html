@@ -14,17 +14,20 @@
   <meta name="twitter:card" content="summary" />
   <link rel="canonical" href="https://inproduction.dk/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            brand: { accent: '#55b0d1', mid: '#4a9ab8', dark: '#333333' },
+            brand: { accent: '#55b0d1', mid: '#4a9ab8', dark: '#333333', warm: '#C4956A' },
             warm: { base: '#F7F4F0', surface: '#FDFCFB', muted: '#6B6560', heading: '#1C1A18', dark: '#1C1A18', darker: '#2A2724' }
           },
-          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] }
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['"DM Serif Display"', 'Georgia', 'serif']
+          }
         }
       }
     }
@@ -194,7 +197,7 @@
     <div class="hero-panel" id="hero-problem">
       <div class="max-w-3xl mx-auto w-full">
         <span class="eyebrow text-[0.7rem] font-bold uppercase tracking-[0.14em] text-[#55b0d1]/70 mb-7 block">Kender I det?</span>
-        <h1 class="text-4xl lg:text-5xl font-bold tracking-[-0.04em] leading-[1.15] [text-wrap:balance] text-[#1C1A18] mb-10 max-w-2xl">Genkender I disse udfordringer i produktionen?</h1>
+        <h1 class="font-display text-[2.75rem] lg:text-[3.5rem] font-normal tracking-[-0.02em] leading-[1.15] [text-wrap:balance] text-[#1C1A18] mb-10 max-w-2xl">Genkender I disse udfordringer i produktionen?</h1>
         <div class="painpoints grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-4">
           <div class="painpoints-item flex items-baseline gap-3">
             <span class="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#55b0d1]/60 relative top-[0.1em]"></span>
@@ -228,7 +231,7 @@
     <div class="hero-panel" id="hero-solution">
       <div class="max-w-3xl mx-auto w-full">
         <span class="eyebrow text-[0.7rem] font-bold uppercase tracking-[0.14em] text-[#55b0d1] mb-5 block">Løsningen</span>
-        <h2 class="text-3xl lg:text-4xl font-bold tracking-[-0.035em] leading-[1.2] [text-wrap:balance] text-[#333] mb-4">Udvikl jeres workflow med retning</h2>
+        <h2 class="font-display text-3xl lg:text-4xl font-normal tracking-[-0.02em] leading-[1.2] [text-wrap:balance] text-[#333] mb-4">Udvikl jeres workflow med retning</h2>
         <p class="text-[0.97rem] text-[#6B6560] leading-[1.85] max-w-2xl mb-8">InProduction hjælper trykkerier med at udvikle workflows, der forbinder ordremodtagelse, prepress, produktion og ERP — uden store omvæltninger. Vi tager små, rigtige skridt i den rigtige rækkefølge, så hver forbedring styrker helheden.</p>
         <div class="flex items-center gap-5 flex-wrap">
           <a href="/kontakt/" class="btn-primary">Book en uforpligtende gennemgang</a>
@@ -240,7 +243,8 @@
   </div>
 
   <!-- Card section — below pinned hero -->
-  <div class="bg-white pb-20 pt-16 px-6">
+  <div class="bg-white pb-20 pt-16 px-6 relative overflow-hidden">
+    <div class="bg-blob bg-blob-cyan w-[400px] h-[400px] -top-20 -right-32" aria-hidden="true"></div>
     <div class="max-w-3xl mx-auto border border-black/[0.08] rounded-2xl p-8 lg:p-10 shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
       <h3 class="text-2xl lg:text-3xl font-bold tracking-[-0.03em] leading-[1.25] text-[#1C1A18] mb-6">Udvikling handler ikke om at udskifte det hele</h3>
       <p class="text-[0.97rem] text-[#6B6560] leading-[1.85] mb-6">Det handler om at få det, I allerede har, til at arbejde sammen.<br>ERP. MIS. Workflow. Preflight. Webshop.</p>
@@ -262,7 +266,7 @@
 <section class="bg-[#1C1A18] text-white py-24 px-6 border-t-[3px] border-[#55b0d1]">
   <div class="max-w-4xl mx-auto">
     <span class="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#55b0d1] block mb-2">Workflow-udvikling</span>
-    <h2 class="text-3xl lg:text-4xl font-bold tracking-[-0.035em] text-white/90 mb-3 max-w-xl">Hvor er I på kurven?</h2>
+    <h2 class="font-display text-3xl lg:text-4xl font-normal tracking-[-0.02em] text-white/90 mb-3 max-w-xl">Hvor er I på kurven?</h2>
     <p class="text-[0.95rem] text-white/50 leading-[1.8] max-w-xl mb-6">For at vælge det næste rigtige skridt, skal man kende sit udgangspunkt.<br>Derfor bruger vi en struktureret vurdering af workflowets udviklingsniveau — ofte omtalt som digital modenhed.</p>
     <p class="text-[0.95rem] text-white/50 leading-[1.8] max-w-xl mb-14">De fleste virksomheder starter et sted på denne skala. Vi møder jer der, hvor I er — og hjælper jer videre til det næste trin.</p>
 
@@ -345,13 +349,14 @@
 </section>
 
 <!-- STORY -->
-<section class="bg-[#FDFCFB] py-24 px-6">
+<section class="bg-[#F0ECE6] py-24 px-6 relative overflow-hidden">
+  <div class="bg-blob bg-blob-warm w-[500px] h-[500px] -bottom-40 -left-40" aria-hidden="true"></div>
   <div class="max-w-2xl mx-auto">
-    <h2 class="text-3xl font-bold tracking-[-0.03em] leading-[1.2] [text-wrap:balance] text-[#1C1A18] mb-7">Det der starter som en løsning, bliver rygraden i produktionen.</h2>
+    <h2 class="font-display text-3xl font-normal tracking-[-0.02em] leading-[1.2] [text-wrap:balance] text-[#1C1A18] mb-7">Det der starter som en løsning, bliver rygraden i produktionen.</h2>
     <p class="text-[0.97rem] text-[#6B6560] leading-[1.85] mb-5">InProduction har bygget produktionsworkflows siden 2007 — forankret i den grafiske virkelighed. Vi arbejder med trykkerier med blandet produktion og skaber sammenhæng mellem ordreindtag, prepress, produktion og ERP. Enfocus Switch er kernen, udvidet med skræddersyet integration der, hvor standardsoftware ikke rækker.</p>
 
-    <blockquote class="my-10 pl-6 border-l-[3px] border-[#55b0d1]">
-      <p class="text-xl font-medium text-[#3D3A37] italic leading-[1.7]">"De fleste projekter starter med et preflight-problem eller et manglende led mellem to systemer. Et år inde er vi typisk forbundet til ERP'en og sporer jobs på produktionsgulvet. Omfanget vokser, fordi hvert trin skaber forudsætningerne for det næste."</p>
+    <blockquote class="my-10 pl-6 border-l-[3px] border-[#C4956A]">
+      <p class="font-display text-xl font-normal text-[#3D3A37] italic leading-[1.7]">"De fleste projekter starter med et preflight-problem eller et manglende led mellem to systemer. Et år inde er vi typisk forbundet til ERP'en og sporer jobs på produktionsgulvet. Omfanget vokser, fordi hvert trin skaber forudsætningerne for det næste."</p>
     </blockquote>
 
     <p class="text-[0.97rem] text-[#6B6560] leading-[1.85]">Vi arbejder med et begrænset antal kunder ad gangen. Hvert samarbejde er hands-on — fra den første workshop til implementering og videre, efterhånden som workflowet vokser.</p>
@@ -383,11 +388,12 @@
 </section>
 
 <!-- CASES PREVIEW -->
-<section class="bg-[#FDFCFB] py-24 px-6">
+<section class="bg-[#F0ECE6] py-24 px-6 relative overflow-hidden">
+  <div class="bg-blob bg-blob-cyan w-[350px] h-[350px] top-20 -right-24" aria-hidden="true"></div>
   <div class="max-w-5xl mx-auto">
     <div class="mb-10">
       <span class="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#55b0d1] block mb-2">Cases</span>
-      <h2 class="text-3xl font-bold tracking-[-0.03em] [text-wrap:balance] text-[#1C1A18] mb-2">Sådan skaber vi modenhed i produktionen</h2>
+      <h2 class="font-display text-3xl font-normal tracking-[-0.02em] [text-wrap:balance] text-[#1C1A18] mb-2">Sådan skaber vi modenhed i produktionen</h2>
       <p class="text-[0.93rem] text-[#6B6560]">Fælles for projekterne er, at de startede med et konkret problem — og udviklede sig til en mere sammenhængende produktion.</p>
     </div>
 
@@ -457,7 +463,7 @@
 <section class="bg-[#F7F4F0] py-20 px-6 border-t border-black/[0.07]">
   <div class="max-w-4xl mx-auto">
     <span class="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#55b0d1] block mb-2">Løsninger</span>
-    <h2 class="text-3xl font-bold tracking-[-0.03em] text-[#1C1A18] mb-3">Værktøjerne bag workflowet</h2>
+    <h2 class="font-display text-3xl font-normal tracking-[-0.02em] text-[#1C1A18] mb-3">Værktøjerne bag workflowet</h2>
     <p class="text-[0.95rem] text-[#6B6560] leading-[1.75] mb-8 max-w-2xl">Vi kombinerer branchens førende standardsoftware med dyb implementeringskompetence. Udforsk de platforme, vi bygger løsninger med.</p>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       <a href="/loesninger/enfocus-switch/" class="bg-white border border-black/[0.08] rounded-2xl p-5 hover:border-[#55b0d1]/30 hover:shadow-md hover:-translate-y-0.5 transition-all no-underline group">
@@ -476,7 +482,7 @@
         <p class="text-[0.78rem] text-[#6B6560] leading-[1.6]">callas pdfToolbox</p>
       </a>
       <a href="/loesninger/grafisk-automatisering/" class="bg-white border border-black/[0.08] rounded-2xl p-5 hover:border-[#55b0d1]/30 hover:shadow-md hover:-translate-y-0.5 transition-all no-underline group">
-        <span class="inline-block text-[0.6rem] font-bold uppercase tracking-[0.1em] text-[#4a9ab8] bg-[#55b0d1]/10 px-2 py-0.5 rounded mb-3">Guide</span>
+        <span class="inline-block text-[0.6rem] font-bold uppercase tracking-[0.1em] text-[#9B7550] bg-[#C4956A]/10 px-2 py-0.5 rounded mb-3">Guide</span>
         <h3 class="text-[0.88rem] font-bold text-[#1C1A18] mb-1">Grafisk automatisering</h3>
         <p class="text-[0.78rem] text-[#6B6560] leading-[1.6]">Komplet guide</p>
       </a>
@@ -490,7 +496,7 @@
 <!-- CTA -->
 <section class="py-28 px-6 text-center bg-[#F7F4F0] border-t border-black/[0.07]">
   <div class="max-w-xl mx-auto">
-    <h2 class="text-3xl lg:text-4xl font-bold tracking-[-0.035em] leading-[1.15] [text-wrap:balance] text-[#1C1A18] mb-5">Ikke sikker på, hvor I skal starte?<br class="hidden sm:block" /> Godt — det er som regel den første samtale.</h2>
+    <h2 class="font-display text-3xl lg:text-4xl font-normal tracking-[-0.02em] leading-[1.15] [text-wrap:balance] text-[#1C1A18] mb-5">Ikke sikker på, hvor I skal starte?<br class="hidden sm:block" /> Godt — det er som regel den første samtale.</h2>
     <p class="text-[0.97rem] text-[#6B6560] leading-[1.8] mb-9">De fleste projekter begynder med en workshop — hos jer eller online — for at kortlægge det nuværende workflow. I behøver ikke forpligte jer til noget, inden vi har forstået det egentlige problem.</p>
     <div class="flex justify-center items-center gap-5 flex-wrap">
       <a href="/kontakt/" class="btn-primary">Kontakt os</a>
@@ -500,11 +506,36 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-[#141210] border-t border-white/[0.06] px-6 py-8">
-  <div class="max-w-5xl mx-auto flex justify-between items-center flex-wrap gap-3 text-[0.8rem] text-white/35">
-    <span class="font-semibold text-white/70">inProduction ApS</span>
-    <span>Peter Kjær · Grundlagt 2007 · Enfocus Switch-forhandler &amp; workflow-specialist</span>
-    <a href="mailto:info@inproduction.dk" class="text-white/35 hover:text-white/70 no-underline transition-colors">info@inproduction.dk</a>
+<footer class="bg-[#141210] border-t border-white/[0.06] px-6 py-12">
+  <div class="max-w-5xl mx-auto">
+    <div class="footer-grid text-[0.82rem]">
+      <div>
+        <span class="text-white/70 font-semibold text-[0.95rem] block mb-2"><span class="text-[#55b0d1]">in</span><span class="text-white/70">Production</span> ApS</span>
+        <p class="text-white/40 leading-relaxed mb-3">Workflow-automatisering til<br>print &amp; medieproduktion</p>
+        <span class="text-white/25 text-[0.75rem]">CVR 30709498</span>
+      </div>
+      <div>
+        <span class="text-white/60 font-semibold text-[0.7rem] uppercase tracking-[0.1em] block mb-3">Sider</span>
+        <nav class="flex flex-col gap-1.5">
+          <a href="/loesninger/">Løsninger</a>
+          <a href="/cases/">Cases</a>
+          <a href="/om-os/">Om os</a>
+          <a href="/partnere/">Partnere</a>
+          <a href="/kontakt/">Kontakt</a>
+        </nav>
+      </div>
+      <div>
+        <span class="text-white/60 font-semibold text-[0.7rem] uppercase tracking-[0.1em] block mb-3">Kontakt</span>
+        <div class="flex flex-col gap-1.5">
+          <a href="mailto:info@inproduction.dk">info@inproduction.dk</a>
+          <span class="text-white/40">+45 40 35 63 18</span>
+        </div>
+        <span class="inline-block mt-4 text-[0.7rem] font-medium text-[#55b0d1]/70 bg-[#55b0d1]/10 px-2.5 py-1 rounded">Officiel Enfocus-forhandler</span>
+      </div>
+    </div>
+    <div class="mt-8 pt-5 border-t border-white/[0.06] text-[0.75rem] text-white/25">
+      &copy; 2007–2026 inProduction ApS &middot; Peter Kjær &middot; Grundlagt 2007
+    </div>
   </div>
 </footer>
 

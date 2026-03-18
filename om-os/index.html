@@ -14,17 +14,20 @@
   <meta name="twitter:card" content="summary" />
   <link rel="canonical" href="https://inproduction.dk/om-os/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            brand: { accent: '#55b0d1', mid: '#4a9ab8', dark: '#333333' },
+            brand: { accent: '#55b0d1', mid: '#4a9ab8', dark: '#333333', warm: '#C4956A' },
             warm: { base: '#F7F4F0', surface: '#FDFCFB', muted: '#6B6560', heading: '#1C1A18', dark: '#1C1A18', darker: '#2A2724' }
           },
-          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] }
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['"DM Serif Display"', 'Georgia', 'serif']
+          }
         }
       }
     }
@@ -86,15 +89,15 @@
 </div>
 
 <!-- INTRO -->
-<section class="bg-[#FDFCFB] border-b border-black/[0.07] py-20 px-6">
+<section class="bg-[#F0ECE6] border-b border-black/[0.07] py-20 px-6">
   <div class="max-w-3xl mx-auto">
     <span class="eyebrow text-[0.7rem] font-bold uppercase tracking-[0.14em] text-[#55b0d1] mb-6 block">Om os</span>
-    <h1 class="text-4xl lg:text-5xl font-bold tracking-[-0.04em] leading-[1.15] [text-wrap:balance] text-[#333] mb-6">En specialist.<br>Ikke et bureau.</h1>
+    <h1 class="font-display text-[2.75rem] lg:text-[3.5rem] font-normal tracking-[-0.02em] leading-[1.15] [text-wrap:balance] text-[#333] mb-6">En specialist.<br>Ikke et bureau.</h1>
     <p class="text-[1.05rem] text-[#6B6560] leading-[1.85] max-w-2xl mb-4">InProduction er en fokuseret enmandsforretning med et stærkt fagligt netværk — specialiseret i workflow-automatisering for grafisk produktion og medievirksomheder. Det giver fleksibilitet, direkte kontakt og adgang til specialkompetencer ved større projekter.</p>
     <p class="text-[1.05rem] text-[#6B6560] leading-[1.85] max-w-2xl">Vi bygger løsninger der løser konkrete produktionsproblemer — og bliver ved med at fungere, når vi er gået hjem. Standardsoftware som udgangspunkt, skræddersyet udvikling der, hvor hyldevarer ikke rækker.</p>
 
-    <blockquote class="my-10 pl-6 border-l-[3px] border-[#55b0d1] max-w-2xl">
-      <p class="text-xl font-medium text-[#3D3A37] italic leading-[1.7] mb-3">"Jeg er vild med at skabe workflows der får ting til at ske hurtigere, mere standardiseret og med færre fejl — og fjerne så mange manuelle processer og flaskehalse som muligt."</p>
+    <blockquote class="my-10 pl-6 border-l-[3px] border-[#C4956A] max-w-2xl">
+      <p class="font-display text-xl font-medium text-[#3D3A37] italic leading-[1.7] mb-3">"Jeg er vild med at skabe workflows der får ting til at ske hurtigere, mere standardiseret og med færre fejl — og fjerne så mange manuelle processer og flaskehalse som muligt."</p>
       <footer class="text-[0.85rem] text-[#9C958F] font-medium not-italic">— Peter Kjær, grundlægger</footer>
     </blockquote>
 
@@ -106,7 +109,7 @@
 <section class="bg-[#1C1A18] text-white py-24 px-6">
   <div class="max-w-3xl mx-auto">
     <span class="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#55b0d1] block mb-2">Baggrund</span>
-    <h2 class="text-3xl lg:text-4xl font-bold tracking-[-0.035em] text-white/90 mb-5 leading-[1.2]">Vi var med, da Enfocus Switch blev til.</h2>
+    <h2 class="font-display text-3xl lg:text-4xl font-normal tracking-[-0.02em] text-white/90 mb-5 leading-[1.2]">Vi var med, da Enfocus Switch blev til.</h2>
     <p class="text-[0.97rem] text-white/60 leading-[1.85] max-w-2xl mb-4">Før InProduction blev grundlagt, var Peter Kjær med til at drive udviklingen af <strong class="text-white/90 font-semibold">CaslonFlow</strong> — forgængeren til Enfocus Switch. I 2005 blev CaslonFlow solgt til Gradual Software, som senere blev opkøbt af Enfocus. Switch er i dag det centrale produkt i Enfocus' portefølje.</p>
     <p class="text-[0.97rem] text-white/60 leading-[1.85] max-w-2xl">Det er ikke tilfældigt, at Switch er kernen i de fleste InProduction-løsninger. Det er et valg baseret på årelangt kendskab til platformen — dens muligheder, dens begrænsninger og de steder, hvor tilpasset udvikling gør den markant mere kraftfuld.</p>
 
@@ -144,10 +147,11 @@
 </section>
 
 <!-- HOW WE WORK -->
-<section class="bg-[#FDFCFB] py-24 px-6">
+<section class="bg-[#F0ECE6] py-24 px-6 relative overflow-hidden">
+  <div class="bg-blob bg-blob-cyan w-[400px] h-[400px] top-10 -right-32" aria-hidden="true"></div>
   <div class="max-w-3xl mx-auto">
     <span class="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#55b0d1] block mb-2">Sådan arbejder vi</span>
-    <h2 class="text-3xl lg:text-4xl font-bold tracking-[-0.035em] text-[#1C1A18] mb-4 leading-[1.2] [text-wrap:balance]">Vi starter der, hvor I er — ikke der, hvor vi ønsker I var.</h2>
+    <h2 class="font-display text-3xl lg:text-4xl font-normal tracking-[-0.02em] text-[#1C1A18] mb-4 leading-[1.2] [text-wrap:balance]">Vi starter der, hvor I er — ikke der, hvor vi ønsker I var.</h2>
     <p class="text-[0.97rem] text-[#6B6560] leading-[1.85] max-w-2xl mb-10">Tilgangen er praktisk: analyse før teknologi, standardløsninger før specialudvikling, integration før kompleksitet. Hvert samarbejde begynder med at forstå jeres nuværende produktion og placere den på modenhedsskalaen. Derfra vælger vi det næste realistiske trin og beviser værdien — inden vi bygger videre.</p>
 
     <div class="bg-[#1C1A18] text-white rounded-2xl border border-[#55b0d1]/20 p-6 sm:p-7 mb-10">
@@ -282,7 +286,7 @@
 <section class="bg-[#F7F4F0] border-y border-black/[0.07] py-24 px-6">
   <div class="max-w-3xl mx-auto">
     <span class="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#55b0d1] block mb-2">Software &amp; partnere</span>
-    <h2 class="text-3xl font-bold tracking-[-0.03em] text-[#1C1A18] mb-4 leading-[1.2]">Vi bygger på standardsoftware.</h2>
+    <h2 class="font-display text-3xl font-normal tracking-[-0.02em] text-[#1C1A18] mb-4 leading-[1.2]">Vi bygger på standardsoftware.</h2>
     <p class="text-[0.97rem] text-[#6B6560] leading-[1.8] max-w-lg mb-10">Så vidt muligt bruger vi etablerede, brancheanerkendte platforme. Det giver løsninger der kan vedligeholdes, opdateres og bygges videre på — uden at I er låst til en bestemt leverandør.</p>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -317,18 +321,43 @@
 <!-- CTA -->
 <section class="bg-[#1C1A18] py-20 px-6 text-center border-t border-white/[0.06]">
   <div class="max-w-lg mx-auto">
-    <h2 class="text-3xl font-bold tracking-[-0.03em] text-white/90 mb-3">Lad os starte med en samtale.</h2>
+    <h2 class="font-display text-3xl font-normal tracking-[-0.02em] text-white/90 mb-3">Lad os starte med en samtale.</h2>
     <p class="text-[0.95rem] text-white/50 leading-[1.75] mb-9">Uforpligtende. Vi finder ud af, hvilken udfordring der giver mest mening at løse først.</p>
     <a href="/kontakt/" class="btn-primary">Kontakt os</a>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-[#141210] border-t border-white/[0.06] px-6 py-8">
-  <div class="max-w-5xl mx-auto flex justify-between items-center flex-wrap gap-3 text-[0.8rem] text-white/35">
-    <span class="font-semibold text-white/70">inProduction ApS</span>
-    <span>Peter Kjær · Grundlagt 2007 · Enfocus Switch-forhandler &amp; workflow-specialist</span>
-    <a href="mailto:info@inproduction.dk" class="text-white/35 hover:text-white/70 no-underline transition-colors">info@inproduction.dk</a>
+<footer class="bg-[#141210] border-t border-white/[0.06] px-6 py-12">
+  <div class="max-w-5xl mx-auto">
+    <div class="footer-grid text-[0.82rem]">
+      <div>
+        <span class="text-white/70 font-semibold text-[0.95rem] block mb-2"><span class="text-[#55b0d1]">in</span><span class="text-white/70">Production</span> ApS</span>
+        <p class="text-white/40 leading-relaxed mb-3">Workflow-automatisering til<br>print &amp; medieproduktion</p>
+        <span class="text-white/25 text-[0.75rem]">CVR 30709498</span>
+      </div>
+      <div>
+        <span class="text-white/60 font-semibold text-[0.7rem] uppercase tracking-[0.1em] block mb-3">Sider</span>
+        <nav class="flex flex-col gap-1.5">
+          <a href="/loesninger/">Løsninger</a>
+          <a href="/cases/">Cases</a>
+          <a href="/om-os/">Om os</a>
+          <a href="/partnere/">Partnere</a>
+          <a href="/kontakt/">Kontakt</a>
+        </nav>
+      </div>
+      <div>
+        <span class="text-white/60 font-semibold text-[0.7rem] uppercase tracking-[0.1em] block mb-3">Kontakt</span>
+        <div class="flex flex-col gap-1.5">
+          <a href="mailto:info@inproduction.dk">info@inproduction.dk</a>
+          <span class="text-white/40">+45 40 35 63 18</span>
+        </div>
+        <span class="inline-block mt-4 text-[0.7rem] font-medium text-[#55b0d1]/70 bg-[#55b0d1]/10 px-2.5 py-1 rounded">Officiel Enfocus-forhandler</span>
+      </div>
+    </div>
+    <div class="mt-8 pt-5 border-t border-white/[0.06] text-[0.75rem] text-white/25">
+      &copy; 2007–2026 inProduction ApS &middot; Peter Kjær &middot; Grundlagt 2007
+    </div>
   </div>
 </footer>
 
