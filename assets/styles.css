@@ -263,14 +263,14 @@ textarea { resize: vertical; min-height: 120px; }
    Homepage: Hero pinned scroll animation
    ---------------------------------------- */
 
-/* Pinning container — ScrollTrigger pins this */
+/* Hero container — full viewport */
 .hero-pin {
   position: relative;
   min-height: 100vh;
   min-height: 100dvh;
   overflow: hidden;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   background: #F7F4F0;
 }
@@ -279,19 +279,48 @@ textarea { resize: vertical; min-height: 120px; }
 .hero-panel {
   position: relative;
   z-index: 10;
-  padding: 4rem 1.5rem;
+  padding: 2.5rem 1.5rem 3.5rem;
   width: 100%;
 }
 #hero-solution {
   opacity: 0;
   position: absolute;
-  bottom: 1.5rem;
+  bottom: 2rem;
   left: 0;
   right: 0;
   transform: translateY(30px);
 }
 #hero-solution h2 { margin-bottom: 0.25rem; }
 #hero-solution p { font-size: 0.88rem; line-height: 1.7; margin-bottom: 0.75rem; }
+
+/* Hero trigger button */
+.hero-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: transparent;
+  border: 1.5px solid rgba(85,176,209,0.5);
+  border-radius: 999px;
+  color: #55b0d1;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.hero-trigger:hover {
+  background: rgba(85,176,209,0.08);
+  border-color: #55b0d1;
+  transform: translateY(1px);
+}
+.hero-trigger svg {
+  animation: hero-trigger-bounce 2s ease-in-out infinite;
+}
+@keyframes hero-trigger-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
 
 /* Workflow canvas — full-bleed behind the text panels */
 .wf-canvas {
@@ -301,6 +330,7 @@ textarea { resize: vertical; min-height: 120px; }
   height: 100%;
   z-index: 1;
   pointer-events: none;
+  perspective: 900px;
 }
 
 /* Process nodes — vertical card layout (icon above text) */
@@ -310,29 +340,39 @@ textarea { resize: vertical; min-height: 120px; }
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  width: 110px;
-  height: 90px;
-  padding: 12px 8px 10px;
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.10);
+  gap: 10px;
+  width: 130px;
+  height: 105px;
+  padding: 14px 10px 12px;
+  background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+  border: 1px solid rgba(0,0,0,0.08);
   border-radius: 14px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  box-shadow:
+    0 1px 2px rgba(0,0,0,0.04),
+    0 4px 12px rgba(0,0,0,0.06),
+    0 12px 28px rgba(0,0,0,0.04);
   user-select: none;
   transform-origin: center;
+  transform-style: preserve-3d;
   will-change: transform, opacity, filter;
   filter: blur(3px);
   opacity: 0.18;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
 }
 .wf-node.is-organized {
-  border-color: rgba(85,176,209,0.35);
-  box-shadow: 0 4px 20px rgba(85,176,209,0.10);
+  background: linear-gradient(145deg, #ffffff 0%, #f0f9fc 100%);
+  border-color: rgba(85,176,209,0.40);
+  box-shadow:
+    0 1px 2px rgba(85,176,209,0.06),
+    0 4px 16px rgba(85,176,209,0.12),
+    0 12px 32px rgba(85,176,209,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.8);
 }
 
 /* Node icon wrapper */
 .wf-node-icon {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -340,8 +380,8 @@ textarea { resize: vertical; min-height: 120px; }
 
 /* Node icon SVG */
 .wf-icon {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   stroke: #55b0d1;
   stroke-width: 1.5;
   fill: none;
@@ -351,7 +391,7 @@ textarea { resize: vertical; min-height: 120px; }
 
 /* Node label */
 .wf-node-label {
-  font-size: 10px;
+  font-size: 11.5px;
   font-weight: 600;
   color: #1C1A18;
   letter-spacing: -0.01em;
@@ -371,14 +411,27 @@ textarea { resize: vertical; min-height: 120px; }
   z-index: 2;
 }
 .wf-connector {
-  stroke-width: 1.8;
+  stroke-width: 2.2;
   fill: none;
   stroke-linecap: round;
   opacity: 0;
 }
+.wf-connector-glow {
+  stroke-width: 6;
+  fill: none;
+  stroke-linecap: round;
+  opacity: 0;
+  filter: blur(4px);
+}
 .wf-connector-cyan { stroke: #55b0d1; }
+.wf-connector-glow-cyan { stroke: rgba(85,176,209,0.35); }
 .wf-connector-dark { stroke: #333; }
 .wf-arrow { opacity: 0; }
+.wf-flow-dot {
+  fill: #55b0d1;
+  opacity: 0;
+  filter: drop-shadow(0 0 3px rgba(85,176,209,0.6));
+}
 
 /* Responsive */
 @media (max-width: 767px) {
