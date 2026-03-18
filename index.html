@@ -224,6 +224,10 @@
             <span class="painpoints-text text-sm text-[#9C958F] leading-relaxed">Systemer der lever i siloer</span>
           </div>
         </div>
+        <button id="hero-trigger" class="hero-trigger mt-10" onclick="if(window.__playHero)window.__playHero()">
+          <span>Ja, det kender vi</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
       </div>
     </div>
 
@@ -679,16 +683,16 @@
       var nh = getNodeH();
       var mob = isMob();
       var grid = mob ? gridMobile : gridDesktop;
-      var cols = mob ? 4 : 4;
+      var cols = 4;
       var rows = 3;
-      var colGap = mob ? 10 : 24;
-      var rowGap = mob ? 12 : 22;
+      var colGap = mob ? 10 : 32;
+      var rowGap = mob ? 12 : 28;
       var totalW = cols * nw + (cols - 1) * colGap;
       var totalH = rows * nh + (rows - 1) * rowGap;
       var offsetX = (cw - totalW) / 2;
-      // Center grid in upper half, leaving lower portion for solution text
-      var topZone = ch * 0.52;
-      var offsetY = Math.max(mob ? 50 : 70, (topZone - totalH) / 2 + (mob ? 50 : 70));
+      // Position grid so bottom row sits close above the solution text
+      var gridBottom = mob ? ch * 0.48 : ch * 0.60;
+      var offsetY = Math.max(mob ? 40 : 70, gridBottom - totalH);
 
       return nodes.map(function(_, i) {
         var r = grid[i][0];
@@ -701,17 +705,17 @@
       });
     }
 
-    // Scatter offsets for 9 nodes
+    // Scatter offsets for 9 nodes (with 3D tilt)
     var scatterOff = [
-      { xf: 0.05, yf: 0.08, r: -16 },
-      { xf: 0.72, yf: 0.05, r:  11 },
-      { xf: 0.15, yf: 0.55, r:  -9 },
-      { xf: 0.50, yf: 0.30, r:  14 },
-      { xf: 0.80, yf: 0.48, r: -12 },
-      { xf: 0.35, yf: 0.70, r:   8 },
-      { xf: 0.02, yf: 0.35, r:  -6 },
-      { xf: 0.60, yf: 0.65, r:  10 },
-      { xf: 0.88, yf: 0.22, r: -14 }
+      { xf: 0.05, yf: 0.08, r: -16, rx:  12, ry: -8  },
+      { xf: 0.72, yf: 0.05, r:  11, rx: -10, ry:  14 },
+      { xf: 0.15, yf: 0.55, r:  -9, rx:   8, ry: -12 },
+      { xf: 0.50, yf: 0.30, r:  14, rx: -14, ry:  10 },
+      { xf: 0.80, yf: 0.48, r: -12, rx:  10, ry:  8  },
+      { xf: 0.35, yf: 0.70, r:   8, rx: -8,  ry: -14 },
+      { xf: 0.02, yf: 0.35, r:  -6, rx:  14, ry:  10 },
+      { xf: 0.60, yf: 0.65, r:  10, rx: -12, ry: -8  },
+      { xf: 0.88, yf: 0.22, r: -14, rx:   8, ry:  12 }
     ];
 
     function scatteredPositions() {
@@ -735,7 +739,9 @@
         gsap.set(n, {
           x: scat[i].x, y: scat[i].y,
           rotation: scat[i].rotation,
-          opacity: 0.18, scale: 1,
+          rotateX: scatterOff[i].rx,
+          rotateY: scatterOff[i].ry,
+          opacity: 0.18, scale: 0.92,
           filter: 'blur(3px)'
         });
         n.classList.remove('is-organized');
@@ -744,24 +750,25 @@
       gsap.set(panelSol,  { opacity: 0, y: 30 });
     }
 
-    // ── Gentle float drift ──
+    // ── Gentle float drift (with 3D tilt) ──
     var floatTweens = [];
     function startFloat() {
       var drifts = [
-        { dx:  6, dy: -5, dr:  2.5, dur: 4.0 },
-        { dx: -5, dy:  6, dr: -2.0, dur: 3.5 },
-        { dx:  7, dy:  4, dr:  1.5, dur: 4.5 },
-        { dx: -4, dy: -6, dr: -2.5, dur: 3.2 },
-        { dx:  5, dy:  5, dr:  2.0, dur: 3.8 },
-        { dx: -6, dy: -4, dr: -1.5, dur: 4.2 },
-        { dx:  4, dy:  7, dr:  2.0, dur: 3.0 },
-        { dx: -7, dy:  3, dr: -2.5, dur: 3.6 },
-        { dx:  3, dy: -7, dr:  1.5, dur: 4.3 }
+        { dx:  8, dy: -7, dr:  2.5, drx:  4, dry: -3, dur: 4.0 },
+        { dx: -7, dy:  8, dr: -2.0, drx: -3, dry:  5, dur: 3.5 },
+        { dx:  9, dy:  5, dr:  1.5, drx:  3, dry: -4, dur: 4.5 },
+        { dx: -5, dy: -8, dr: -2.5, drx: -5, dry:  3, dur: 3.2 },
+        { dx:  7, dy:  6, dr:  2.0, drx:  4, dry:  3, dur: 3.8 },
+        { dx: -8, dy: -5, dr: -1.5, drx: -3, dry: -5, dur: 4.2 },
+        { dx:  5, dy:  9, dr:  2.0, drx:  5, dry:  4, dur: 3.0 },
+        { dx: -9, dy:  4, dr: -2.5, drx: -4, dry: -3, dur: 3.6 },
+        { dx:  4, dy: -9, dr:  1.5, drx:  3, dry:  5, dur: 4.3 }
       ];
       nodes.forEach(function(n, i) {
         var d = drifts[i];
         floatTweens.push(gsap.to(n, {
           x: '+=' + d.dx, y: '+=' + d.dy, rotation: '+=' + d.dr,
+          rotateX: '+=' + d.drx, rotateY: '+=' + d.dry,
           duration: d.dur, ease: 'sine.inOut', yoyo: true, repeat: -1
         }));
       });
@@ -781,6 +788,7 @@
       [4, 7, 'cyan',  'v']    // Godkendt → Udskydning
     ];
     var connEls = [];
+    var flowDots = [];
 
     // Place an arrowhead polygon at end of path, rotated to match path tangent
     function addArrow(pathEl, cls) {
@@ -803,13 +811,13 @@
     function buildConnectors(org) {
       connEls.forEach(function(el) { if (el.parentNode) el.parentNode.removeChild(el); });
       connEls = [];
+      flowDots = [];
       var nw = getNodeW();
       var nh = getNodeH();
 
       connDefs.forEach(function(def) {
         var fi = def[0], ti = def[1], cls = def[2], dir = def[3];
-        var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        var d, sx, sy, ex, ey, my, cp1y, cp2y;
+        var d, sx, sy, ex, ey, my;
 
         if (dir === 'h') {
           sx = org[fi].x + nw; ex = org[ti].x;
@@ -826,23 +834,46 @@
           my = (sy + ey) / 2;
           d = 'M' + sx + ' ' + sy + ' C' + sx + ' ' + my + ',' + ex + ' ' + my + ',' + ex + ' ' + ey;
         } else if (dir === 'au') {
-          // Angled up (elbow): from top of from, straight up, then horizontal to bottom of to
           sx = org[fi].x + nw / 2; sy = org[fi].y;
           ex = org[ti].x + nw / 2; ey = org[ti].y + nh;
-          var my = (sy + ey) / 2;
+          my = (sy + ey) / 2;
           d = 'M' + sx + ' ' + sy + ' L' + sx + ' ' + my + ' L' + ex + ' ' + my + ' L' + ex + ' ' + ey;
         }
 
+        // Glow path (behind, blurred, wider)
+        var glow = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        glow.setAttribute('d', d);
+        glow.setAttribute('class', 'wf-connector-glow wf-connector-glow-' + cls);
+        var glowLen = 200;
+        wfSvg.appendChild(glow);
+        if (glow.getTotalLength) glowLen = glow.getTotalLength();
+        glow.style.strokeDasharray = glowLen;
+        glow.style.strokeDashoffset = glowLen;
+        glow.style.opacity = 0;
+        connEls.push(glow);
+
+        // Main path
+        var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
         path.setAttribute('d', d);
         path.setAttribute('class', 'wf-connector wf-connector-' + cls);
-        var len = path.getTotalLength ? path.getTotalLength() : 200;
+        var len = 200;
+        wfSvg.appendChild(path);
+        if (path.getTotalLength) len = path.getTotalLength();
         path.style.strokeDasharray  = len;
         path.style.strokeDashoffset = len;
         path.style.opacity = 0;
-        wfSvg.appendChild(path);
         connEls.push(path);
 
-        // Add arrowhead that follows the path tangent
+        // Flow dot (travels along path after connectors are drawn)
+        var dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        dot.setAttribute('r', '3');
+        dot.setAttribute('class', 'wf-flow-dot');
+        dot.style.opacity = 0;
+        wfSvg.appendChild(dot);
+        flowDots.push({ dot: dot, path: path });
+        connEls.push(dot);
+
+        // Arrowhead
         var arrow = addArrow(path, cls);
         if (arrow) {
           wfSvg.appendChild(arrow);
@@ -856,7 +887,7 @@
       requestAnimationFrame(function() {
         var org = organizedPositions();
         nodes.forEach(function(n, i) {
-          gsap.set(n, { x: org[i].x, y: org[i].y, rotation: 0, opacity: 1, filter: 'blur(0px)' });
+          gsap.set(n, { x: org[i].x, y: org[i].y, rotation: 0, rotateX: 0, rotateY: 0, opacity: 1, scale: 1, filter: 'blur(0px)' });
           n.classList.add('is-organized');
         });
         buildConnectors(org);
@@ -867,61 +898,110 @@
       return;
     }
 
-    // ── ScrollTrigger timeline ──
+    // ── Flow dot animation (loops after connectors are drawn) ──
+    var flowTweens = [];
+    function startFlowDots() {
+      flowDots.forEach(function(fd, i) {
+        var pathEl = fd.path;
+        var dot = fd.dot;
+        if (!pathEl.getTotalLength) return;
+        var len = pathEl.getTotalLength();
+
+        // Stagger the start of each dot
+        var tween = gsap.to({ t: 0 }, {
+          t: 1,
+          duration: 1.8 + (i * 0.15),
+          repeat: -1,
+          delay: i * 0.25,
+          ease: 'power1.inOut',
+          onUpdate: function() {
+            var pt = pathEl.getPointAtLength(this.targets()[0].t * len);
+            dot.setAttribute('cx', pt.x);
+            dot.setAttribute('cy', pt.y);
+          },
+          onStart: function() {
+            gsap.to(dot, { opacity: 0.7, duration: 0.3 });
+          }
+        });
+        // Fade dot in and out during travel
+        gsap.to(dot, {
+          keyframes: [
+            { opacity: 0.8, duration: 0.4, delay: i * 0.25 },
+          ],
+          repeat: -1,
+          repeatDelay: 1.8 + (i * 0.15) - 0.4
+        });
+        flowTweens.push(tween);
+      });
+    }
+
+    // ── Click-triggered transition ──
     function setupScrollAnimation() {
       var org = organizedPositions();
       buildConnectors(org);
 
-      // Kill float tweens — scrub will take over
+      // Expose play function globally for inline onclick
+      window.__playHero = function() {
+        window.__playHero = null;
+        var btn = document.getElementById('hero-trigger');
+        if (btn) btn.style.pointerEvents = 'none';
+        playHeroTimeline(org);
+      };
+    }
+
+    function playHeroTimeline(org) {
+      // Kill float tweens — timeline takes over
       floatTweens.forEach(function(t) { t.kill(); });
       floatTweens = [];
 
-      var tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: heroPin,
-          start: 'top top',
-          end: '+=150%',
-          pin: true,
-          scrub: 0.8,
-          anticipatePin: 1,
-          invalidateOnRefresh: true
-        }
-      });
+      var tl = gsap.timeline();
 
-      // Phase A (0–30%): fade out pain-point text
-      tl.to(panelProb, { opacity: 0, y: -40, duration: 0.3, ease: 'power2.in' }, 0);
+      // Phase A (0s): fade out pain-point text + trigger button
+      tl.to(panelProb, { opacity: 0, y: -30, duration: 0.6, ease: 'power2.in' }, 0);
 
-      // Phase B (15–65%): nodes unblur + move to organized grid
+      // Phase B (0.3s): nodes unblur + assemble into grid
       tl.to(nodes, {
         filter: 'blur(0px)', opacity: 1,
         x: function(i) { return org[i].x; },
         y: function(i) { return org[i].y; },
-        rotation: 0, scale: 1,
-        stagger: 0.04, duration: 0.5, ease: 'power3.out',
-        onComplete: function() { nodes.forEach(function(n) { n.classList.add('is-organized'); }); }
-      }, 0.15);
+        rotation: 0, rotateX: 0, rotateY: 0,
+        scale: 1,
+        stagger: 0.06, duration: 0.8, ease: 'back.out(1.4)',
+        onComplete: function() {
+          nodes.forEach(function(n) { n.classList.add('is-organized'); });
+        }
+      }, 0.3);
 
-      // Phase C (55–80%): connectors draw in (paths then arrows)
-      var paths = connEls.filter(function(el) { return el.tagName === 'path'; });
+      // Phase C (1.4s): glow + connectors draw in
+      var glows = connEls.filter(function(el) { return el.classList && el.classList.contains('wf-connector-glow'); });
+      var paths = connEls.filter(function(el) { return el.tagName === 'path' && el.classList.contains('wf-connector'); });
       var arrows = connEls.filter(function(el) { return el.tagName === 'polygon'; });
+
+      tl.to(glows, {
+        strokeDashoffset: 0, opacity: 1,
+        duration: 0.5, stagger: 0.06, ease: 'power2.inOut'
+      }, 1.4);
       tl.to(paths, {
         strokeDashoffset: 0, opacity: 1,
-        duration: 0.25, stagger: 0.04, ease: 'power2.inOut'
-      }, 0.55);
+        duration: 0.5, stagger: 0.06, ease: 'power2.inOut'
+      }, 1.5);
       tl.to(arrows, {
-        opacity: 1, duration: 0.15, stagger: 0.04, ease: 'power2.out'
-      }, 0.62);
+        opacity: 1, duration: 0.3, stagger: 0.05, ease: 'power2.out'
+      }, 2.0);
 
-      // Phase D (70–100%): solution text fades in
-      tl.to(panelSol, { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' }, 0.70);
+      // Phase D (2.2s): solution text fades in
+      tl.to(panelSol, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, 2.2);
+
+      // Phase E (2.8s): start flow dots
+      tl.call(function() {
+        startFlowDots();
+      }, null, 2.8);
     }
 
     // ── Init ──
-    requestAnimationFrame(function() {
-      initScattered();
-      startFloat();
-      setupScrollAnimation();
-    });
+    initScattered();
+    startFloat();
+    setupScrollAnimation();
 
     // Debounced resize
     var resizeTimer;
