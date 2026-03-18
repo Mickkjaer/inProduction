@@ -24,7 +24,7 @@ body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
 }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(85,176,209,0.38); }
 .btn-secondary { color: #4a9ab8; font-weight: 600; font-size: 0.875rem; border-bottom: 2px solid transparent; padding-bottom: 2px; text-decoration: none; transition: border-color 0.15s; display: inline-block; }
-.btn-secondary:hover { border-color: #55b0d1; }
+.btn-secondary:hover { border-color: #C4956A; }
 
 /* ----------------------------------------
    Mobile hamburger menu
@@ -147,12 +147,12 @@ body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
 /* ----------------------------------------
    Prose typography (solution pages, pillar, blog)
    ---------------------------------------- */
-.prose h2 { font-size: 1.5rem; font-weight: 700; color: #1C1A18; margin-top: 2.5rem; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+.prose h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.5rem; font-weight: 400; color: #1C1A18; margin-top: 2.5rem; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
 .prose h3 { font-size: 1.125rem; font-weight: 700; color: #1C1A18; margin-top: 2rem; margin-bottom: 0.5rem; }
 .prose p { font-size: 0.95rem; color: #6B6560; line-height: 1.85; margin-bottom: 1.25rem; }
 .prose ul, .prose ol { padding-left: 1.25rem; margin-bottom: 1.25rem; }
 .prose li { font-size: 0.95rem; color: #6B6560; line-height: 1.8; margin-bottom: 0.5rem; }
-.prose blockquote { border-left: 3px solid #55b0d1; padding-left: 1.5rem; margin: 1.5rem 0; }
+.prose blockquote { border-left: 3px solid #C4956A; padding-left: 1.5rem; margin: 1.5rem 0; }
 .prose a { color: #4a9ab8; text-decoration: underline; }
 .prose a:hover { color: #55b0d1; }
 
@@ -517,3 +517,35 @@ textarea { resize: vertical; min-height: 120px; }
 .toc-link { display: block; padding: 0.35rem 0; font-size: 0.82rem; color: #6B6560; text-decoration: none; transition: color 0.15s; }
 .toc-link:hover { color: #55b0d1; }
 .toc-link.active { color: #55b0d1; font-weight: 600; }
+
+/* ----------------------------------------
+   Background gradient blobs
+   ---------------------------------------- */
+.bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(80px);
+  opacity: 0.5;
+}
+.bg-blob-cyan {
+  background: radial-gradient(circle, rgba(85,176,209,0.12) 0%, transparent 70%);
+}
+.bg-blob-warm {
+  background: radial-gradient(circle, rgba(196,149,106,0.10) 0%, transparent 70%);
+}
+
+/* ----------------------------------------
+   Enhanced footer
+   ---------------------------------------- */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 2rem;
+}
+@media (max-width: 640px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+.footer-grid a { color: rgba(255,255,255,0.50); text-decoration: none; transition: color 0.15s; }
+.footer-grid a:hover { color: rgba(255,255,255,0.80); }

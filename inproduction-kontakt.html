@@ -14,17 +14,20 @@
   <meta name="twitter:card" content="summary" />
   <link rel="canonical" href="https://inproduction.dk/kontakt/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            brand: { accent: '#55b0d1', mid: '#4a9ab8', dark: '#333333' },
+            brand: { accent: '#55b0d1', mid: '#4a9ab8', dark: '#333333', warm: '#C4956A' },
             warm: { base: '#F7F4F0', surface: '#FDFCFB', muted: '#6B6560', heading: '#1C1A18', dark: '#1C1A18', darker: '#2A2724' }
           },
-          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] }
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['"DM Serif Display"', 'Georgia', 'serif']
+          }
         }
       }
     }

@@ -6,17 +6,20 @@
   <meta name="robots" content="noindex, nofollow" />
   <title>404 — Siden findes ikke | inProduction</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            brand: { accent: '#55b0d1', mid: '#4a9ab8', dark: '#333333' },
+            brand: { accent: '#55b0d1', mid: '#4a9ab8', dark: '#333333', warm: '#C4956A' },
             warm: { base: '#F7F4F0', surface: '#FDFCFB', muted: '#6B6560', heading: '#1C1A18', dark: '#1C1A18', darker: '#2A2724' }
           },
-          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] }
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['"DM Serif Display"', 'Georgia', 'serif']
+          }
         }
       }
     }
@@ -90,7 +93,7 @@
     <span class="eyebrow text-[0.7rem] font-bold uppercase tracking-[0.14em] text-[#55b0d1]/70 mb-5 justify-center">Siden findes ikke</span>
 
     <!-- Heading -->
-    <h1 class="text-3xl lg:text-4xl font-bold tracking-[-0.04em] leading-[1.2] text-[#1C1A18] mt-4 mb-4">
+    <h1 class="font-display text-3xl lg:text-4xl font-normal tracking-[-0.02em] leading-[1.2] text-[#1C1A18] mt-4 mb-4">
       Ups — den side eksisterer ikke.
     </h1>
 
@@ -112,11 +115,36 @@
 </main>
 
 <!-- FOOTER -->
-<footer class="bg-[#141210] border-t border-white/[0.06] px-6 py-8">
-  <div class="max-w-5xl mx-auto flex justify-between items-center flex-wrap gap-3 text-[0.8rem] text-white/35">
-    <span class="font-semibold text-white/70">inProduction ApS</span>
-    <span>Peter Kjær · Grundlagt 2007 · Enfocus Switch-forhandler &amp; workflow-specialist</span>
-    <a href="mailto:info@inproduction.dk" class="text-white/35 hover:text-white/70 no-underline transition-colors">info@inproduction.dk</a>
+<footer class="bg-[#141210] border-t border-white/[0.06] px-6 py-12">
+  <div class="max-w-5xl mx-auto">
+    <div class="footer-grid text-[0.82rem]">
+      <div>
+        <span class="text-white/70 font-semibold text-[0.95rem] block mb-2"><span class="text-[#55b0d1]">in</span><span class="text-white/70">Production</span> ApS</span>
+        <p class="text-white/40 leading-relaxed mb-3">Workflow-automatisering til<br>print &amp; medieproduktion</p>
+        <span class="text-white/25 text-[0.75rem]">CVR 30709498</span>
+      </div>
+      <div>
+        <span class="text-white/60 font-semibold text-[0.7rem] uppercase tracking-[0.1em] block mb-3">Sider</span>
+        <nav class="flex flex-col gap-1.5">
+          <a href="/loesninger/">Løsninger</a>
+          <a href="/cases/">Cases</a>
+          <a href="/om-os/">Om os</a>
+          <a href="/partnere/">Partnere</a>
+          <a href="/kontakt/">Kontakt</a>
+        </nav>
+      </div>
+      <div>
+        <span class="text-white/60 font-semibold text-[0.7rem] uppercase tracking-[0.1em] block mb-3">Kontakt</span>
+        <div class="flex flex-col gap-1.5">
+          <a href="mailto:info@inproduction.dk">info@inproduction.dk</a>
+          <span class="text-white/40">+45 40 35 63 18</span>
+        </div>
+        <span class="inline-block mt-4 text-[0.7rem] font-medium text-[#55b0d1]/70 bg-[#55b0d1]/10 px-2.5 py-1 rounded">Officiel Enfocus-forhandler</span>
+      </div>
+    </div>
+    <div class="mt-8 pt-5 border-t border-white/[0.06] text-[0.75rem] text-white/25">
+      &copy; 2007–2026 inProduction ApS &middot; Peter Kjær &middot; Grundlagt 2007
+    </div>
   </div>
 </footer>
 
