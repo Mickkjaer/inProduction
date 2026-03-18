@@ -950,6 +950,9 @@
     }
 
     function playHeroTimeline(org) {
+      // Ensure GSAP ticker is alive
+      gsap.ticker.wake();
+
       // Kill float tweens — timeline takes over
       floatTweens.forEach(function(t) { t.kill(); });
       floatTweens = [];
@@ -998,10 +1001,12 @@
       }, null, 2.8);
     }
 
-    // ── Init ──
-    initScattered();
-    startFloat();
-    setupScrollAnimation();
+    // ── Init (rAF ensures GSAP ticker is alive) ──
+    requestAnimationFrame(function() {
+      initScattered();
+      startFloat();
+      setupScrollAnimation();
+    });
 
     // Debounced resize
     var resizeTimer;
